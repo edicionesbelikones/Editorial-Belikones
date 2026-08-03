@@ -3,30 +3,158 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Redireccionando // Editorial Belikones</title>
+  <title>Editorial Belikones // Cyberpunk Portal</title>
   
-  <!-- Redirección inmediata a nivel de navegador -->
-  <meta http-equiv="refresh" content="0; url=https://edicionesbelikones.github.io/Editorial-Belikones/" />
-  
-  <!-- Redirección por JavaScript como respaldo -->
-  <script>
-    window.location.replace("https://edicionesbelikones.github.io/Editorial-Belikones/");
-  </script>
+  <!-- Fuentes Cyberpunk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --bg-color: #0a0b10;
+      --card-bg: rgba(15, 20, 30, 0.9);
+      --neon-cyan: #00f3ff;
+      --neon-pink: #ff0055;
+      --neon-yellow: #fcee0a;
+      --text-main: #e0e6ed;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      background-color: #0d0e15;
-      color: #00f3ff;
-      font-family: monospace;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Share Tech Mono', monospace;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* EFECTO SCANLINES (Líneas de TV antigua) */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%, 
+        rgba(0, 0, 0, 0.3) 50%
+      );
+      background-size: 100% 4px;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    /* LUZ DE FONDO */
+    .glow-bg {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0,243,255,0.12) 0%, rgba(255,0,85,0.05) 50%, rgba(0,0,0,0) 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    /* TARJETA CONTENEDORA */
+    .container {
+      position: relative;
+      z-index: 5;
+      background: var(--card-bg);
+      border: 2px solid var(--neon-cyan);
+      box-shadow: 0 0 20px rgba(0, 243, 255, 0.25), inset 0 0 15px rgba(0, 243, 255, 0.1);
+      padding: 3rem 2rem;
+      border-radius: 4px;
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+      clip-path: polygon(0 0, 95% 0, 100% 5%, 100% 100%, 5% 100%, 0 95%);
+    }
+
+    .sys-status {
+      font-size: 0.85rem;
+      color: var(--neon-yellow);
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+    }
+
+    /* TÍTULO PRINCIPAL */
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      text-shadow: 3px 3px var(--neon-pink), -2px -2px var(--neon-cyan);
+      margin-bottom: 1rem;
+    }
+
+    .description {
+      color: #a0aab5;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    /* SECCIÓN DE CONTENIDO / PUBLICACIONES */
+    .content-box {
+      border-left: 3px solid var(--neon-pink);
+      background: rgba(255, 0, 85, 0.05);
+      padding: 1rem;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+
+    .content-box h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.1rem;
+      color: var(--neon-cyan);
+      margin-bottom: 0.5rem;
+    }
+
+    .content-box p {
+      font-size: 0.95rem;
+      color: #c5d1de;
+    }
+
+    .corner-tag {
+      position: absolute;
+      bottom: 8px;
+      right: 12px;
+      font-size: 0.7rem;
+      color: var(--neon-cyan);
+      opacity: 0.7;
     }
   </style>
 </head>
 <body>
-  <p>[ Cargar página... Redireccionando a Editorial Belikones ]</p>
+
+  <div class="glow-bg"></div>
+
+  <div class="container">
+    <div class="sys-status">[ SYSTEM // ONLINE // LOCALHOST ]</div>
+    
+    <h1>EDITORIAL<br/>BELIKONES</h1>
+    
+    <p class="description">Bienvenido a la plataforma digital central. Archivos, publicaciones y contenido multimedia en la red Cyberpunk.</p>
+    
+    <div class="content-box">
+      <h2>// PORTAL ACTIVO</h2>
+      <p>Página desplegada correctamente en GitHub Pages. Todo el contenido principal cargará directamente en esta sección.</p>
+    </div>
+
+    <div class="corner-tag">SEC_LEVEL_01 // 2026</div>
+  </div>
+
 </body>
 </html>
