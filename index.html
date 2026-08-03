@@ -303,6 +303,41 @@
             color: var(--text-dim);
         }
 
+        /* Estilos específicos para la Rejilla de Archivos en "ESCRITOS" */
+        .file-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .file-card {
+            background: #0d0e0f;
+            border: 1px dashed var(--red-blood);
+            padding: 16px 10px;
+            text-align: center;
+            border-radius: 3px;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+
+        .file-card:hover {
+            border-color: var(--red-bright);
+            background: rgba(139, 0, 0, 0.15);
+        }
+
+        .file-card .file-tag {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--gold-military);
+            margin-bottom: 6px;
+        }
+
+        .file-card .file-status {
+            font-size: 0.82rem;
+            color: var(--text-dim);
+            font-weight: bold;
+        }
+
         /* Tabla Responsiva */
         .table-responsive {
             width: 100%;
@@ -395,6 +430,38 @@
                 </details>
             </aside>
 
+            <!-- NUEVA SECCIÓN: ESCRITOS -->
+            <section class="panel full-width">
+                <h2>ESCRITOS</h2>
+                <p style="font-size: 0.9rem;">Archivo de publicaciones y documentos oficiales de la editorial.</p>
+
+                <details style="margin-top: 15px;">
+                    <summary>DESPLEGAR ARCHIVOS DISPONIBLES</summary>
+                    <div class="file-grid">
+                        <div class="file-card">
+                            <span class="file-tag">DOC-01</span>
+                            <span class="file-status">ARCHIVADO // VACÍO</span>
+                        </div>
+                        <div class="file-card">
+                            <span class="file-tag">DOC-02</span>
+                            <span class="file-status">ARCHIVADO // VACÍO</span>
+                        </div>
+                        <div class="file-card">
+                            <span class="file-tag">DOC-03</span>
+                            <span class="file-status">ARCHIVADO // VACÍO</span>
+                        </div>
+                        <div class="file-card">
+                            <span class="file-tag">DOC-04</span>
+                            <span class="file-status">ARCHIVADO // VACÍO</span>
+                        </div>
+                        <div class="file-card">
+                            <span class="file-tag">DOC-05</span>
+                            <span class="file-status">ARCHIVADO // VACÍO</span>
+                        </div>
+                    </div>
+                </details>
+            </section>
+
             <!-- Herramienta Interactiva: Simulador -->
             <section class="panel full-width">
                 <h2>SIMULADOR DE DICTAMEN SANGUINARIO</h2>
@@ -483,7 +550,7 @@
                         <label for="synopsis">Sinopsis, Comentarios o Mensaje:</label>
                         <textarea id="synopsis" name="Sinopsis / Comentarios" rows="4" placeholder="Escribe aquí tu sinopsis, comentarios o mensaje..." required></textarea>
 
-                        <!-- Adjuntar archivo (Acepta cualquier extensión/formato) -->
+                        <!-- Adjuntar archivo -->
                         <label for="attachment">Adjuntar Archivo (Cualquier formato: .pdf, .docx, .txt, .zip, .rar, etc.):</label>
                         <input type="file" id="attachment" name="attachment" accept="*/*">
 
