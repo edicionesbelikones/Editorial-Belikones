@@ -63,32 +63,6 @@
             position: relative;
         }
 
-        /* Botón Diminuto de YouTube */
-        .btn-yt-micro {
-            position: absolute;
-            top: 10px;
-            right: 12px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2px 6px;
-            font-size: 9px;
-            font-family: 'Share Tech Mono', monospace;
-            font-weight: bold;
-            color: #ffffff;
-            background-color: var(--red-blood);
-            border: 1px solid var(--red-bright);
-            border-radius: 2px;
-            text-decoration: none;
-            letter-spacing: 0.5px;
-            transition: background-color 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .btn-yt-micro:hover {
-            background-color: var(--red-bright);
-            box-shadow: 0 0 6px var(--red-bright);
-        }
-
         header h1 {
             font-family: 'Creepster', cursive;
             font-size: clamp(2.2rem, 7vw, 4rem);
@@ -124,6 +98,30 @@
             0% { box-shadow: 0 0 0 0 rgba(230, 0, 0, 0.7); }
             70% { box-shadow: 0 0 0 10px rgba(230, 0, 0, 0); }
             100% { box-shadow: 0 0 0 0 rgba(230, 0, 0, 0); }
+        }
+
+        /* Botón Diminuto de YouTube */
+        .btn-yt-micro {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2px 6px;
+            margin-top: 8px;
+            font-size: 9px;
+            font-family: 'Share Tech Mono', monospace;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: var(--red-blood);
+            border: 1px solid var(--red-bright);
+            border-radius: 2px;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-yt-micro:hover {
+            background-color: var(--red-bright);
+            box-shadow: 0 0 6px var(--red-bright);
         }
 
         /* Sistema de Rejilla Adaptable */
@@ -406,11 +404,8 @@
 
     <div class="wrapper">
         <header>
-            <!-- Botón pequeñísimo hacia el video de YouTube -->
-            <a href="https://www.youtube.com/watch?v=WuhRkGhjYzY" target="_blank" rel="noopener noreferrer" class="btn-yt-micro">YT // EL MARA</a>
-
             <h1>EDITORIAL BELIKONES</h1>
-            <p class="tagline">-- "La pluma como Cuerno de Chivo." --</p>
+            <p class="tagline">-- "El teclado y el bolígrafo bien terciado!!!." --</p>
             <div class="status-badge">CONVOCATORIA ABIERTA: MANUSCRITOS BÉLICOS</div>
         </header>
 
@@ -457,6 +452,8 @@
                 <details>
                     <summary>Ciber-Grimdark</summary>
                     <p>Drones poseídos en territorio mexicano.</p>
+                    <!-- Botón pequeñísimo hacia el video de YouTube -->
+                    <a href="https://www.youtube.com/watch?v=WuhRkGhjYzY" target="_blank" rel="noopener noreferrer" class="btn-yt-micro">YT // EL MARA</a>
                 </details>
             </aside>
 
