@@ -13,7 +13,7 @@
     <style>
         :root {
             --bg-color: #08090a;
-            --panel-bg: rgba(12, 14, 15, 0.92);
+            --panel-bg: rgba(12, 14, 15, 0.88);
             --red-blood: #8b0000;
             --red-bright: #e60000;
             --gold-military: #c29b38;
@@ -30,11 +30,16 @@
             -webkit-tap-highlight-color: transparent;
         }
 
+        html {
+            min-height: 100vh;
+        }
+
         body {
             background-color: var(--bg-color);
+            /* Sombra oscura translúcida sobre la imagen para mantener la legibilidad */
             background-image: 
-                linear-gradient(rgba(0, 0, 0, 0.88), rgba(8, 9, 10, 0.94)),
-                url('img/guanajuato-belikon.jpg');
+                linear-gradient(rgba(0, 0, 0, 0.75), rgba(8, 9, 10, 0.85)),
+                url('IMG_0061.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -43,6 +48,7 @@
             font-family: 'Share Tech Mono', monospace;
             line-height: 1.5;
             padding: 12px;
+            min-height: 100vh;
         }
 
         /* Contenedor Principal Adaptable */
@@ -432,7 +438,7 @@
                 </ul>
             </main>
 
-            <!-- Sidebar: Géneros (Corregido) -->
+            <!-- Sidebar: Géneros -->
             <aside class="panel">
                 <h2>LA EDITORIAL REQUIERE:</h2>
                 <p><small style="color: var(--text-dim);">Aceptamos obras que se encuadren en:</small></p>
