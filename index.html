@@ -213,6 +213,7 @@
         .evaluator button, 
         .evaluator input[type="text"], 
         .evaluator input[type="email"], 
+        .evaluator input[type="file"],
         .evaluator textarea {
             width: 100%;
             min-height: 48px;
@@ -224,6 +225,26 @@
             font-family: inherit;
             font-size: 0.95rem;
             border-radius: 2px;
+        }
+
+        .evaluator input[type="file"] {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .evaluator input[type="file"]::file-selector-button {
+            background: var(--red-blood);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            margin-right: 12px;
+            cursor: pointer;
+            font-family: inherit;
+            text-transform: uppercase;
+        }
+
+        .evaluator input[type="file"]::file-selector-button:hover {
+            background: var(--red-bright);
         }
 
         .evaluator button {
@@ -324,7 +345,7 @@
     <div class="wrapper">
         <header>
             <h1>EDITORIAL BELIKONES</h1>
-            <p class="tagline">— "La pluma como Cuerno de Chivo." —</p>
+            <p class="tagline">-- "La pluma como Cuerno de Chivo." --</p>
             <div class="status-badge">CONVOCATORIA ABIERTA: MANUSCRITOS BÉLICOS</div>
         </header>
 
@@ -353,7 +374,7 @@
 
             <!-- Sidebar: Géneros -->
             <aside class="panel">
-                <h2>LA EDITORIAL REQUIERE:)</h2>
+                <h2>LA EDITORIAL REQUIERE:</h2>
                 <p><small style="color: var(--text-dim);">Aceptamos obras que se encuadren en:</small></p>
                 <br>
                 <details>
@@ -422,7 +443,7 @@
                             </tr>
                             <tr>
                                 <td>Tipografía</td>
-                                <td>Cualquier tipogragía, incluso encriptada (12pt)</td>
+                                <td>Cualquier tipografía, incluso encriptada (12pt)</td>
                             </tr>
                             <tr>
                                 <td>Idioma</td>
@@ -439,30 +460,34 @@
 
             <!-- Despacho de Manuscritos conectado a FormSubmit -->
             <section class="panel">
-                <h2>DESPACHO DE MANUSCRITOS</h2>
-                <p style="font-size: 0.88rem;">Envía los detalles de tu proyecto para recibir acuse de recibo.</p>
+                <h2>DESPACHO DE MANUSCRITOS Y COMENTARIOS</h2>
+                <p style="font-size: 0.88rem;">Envía los detalles de tu proyecto o comentarios junto con tu manuscrito o archivos adjuntos.</p>
                 
                 <div class="evaluator">
-                    <form action="https://formsubmit.co/felipedejesusgarciapatino@gmail.com" method="POST">
+                    <form action="https://formsubmit.co/felipedejesusgarciapatino@gmail.com" method="POST" enctype="multipart/form-data">
                         
                         <!-- Ajustes tácticos de FormSubmit -->
-                        <input type="hidden" name="_subject" value="[NUEVO MANUSCRITO] - Editorial Belikones">
+                        <input type="hidden" name="_subject" value="[NUEVO MANUSCRITO / MENSAJE] - Editorial Belikones">
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_captcha" value="false">
 
                         <label for="author">Nombre o Seudónimo del Autor:</label>
                         <input type="text" id="author" name="Autor / Seudónimo" placeholder="Ej. El Tintero de la Sierra" required autocomplete="off">
 
-                        <label for="title">Título de la Obra:</label>
-                        <input type="text" id="title" name="Título de la Obra" placeholder="Ej. Balas y Nahuales" required autocomplete="off">
+                        <label for="title">Título de la Obra o Asunto:</label>
+                        <input type="text" id="title" name="Título / Asunto" placeholder="Ej. Balas y Nahuales" required autocomplete="off">
 
                         <label for="email">Correo Electrónico del Autor:</label>
                         <input type="email" id="email" name="Email de Contacto" placeholder="recluta@correo.com" required autocomplete="email">
 
-                        <label for="synopsis">Breve Sinopsis:</label>
-                        <textarea id="synopsis" name="Sinopsis / Proyecto" rows="4" placeholder="Describe el conflicto y la manifestación del terror..." required></textarea>
+                        <label for="synopsis">Sinopsis, Comentarios o Mensaje:</label>
+                        <textarea id="synopsis" name="Sinopsis / Comentarios" rows="4" placeholder="Escribe aquí tu sinopsis, comentarios o mensaje..." required></textarea>
 
-                        <button type="submit">Enviar Manuscrito</button>
+                        <!-- Adjuntar archivo (Acepta cualquier extensión/formato) -->
+                        <label for="attachment">Adjuntar Archivo (Cualquier formato: .pdf, .docx, .txt, .zip, .rar, etc.):</label>
+                        <input type="file" id="attachment" name="attachment" accept="*/*">
+
+                        <button type="submit">Enviar Manuscrito y Archivos</button>
                     </form>
                 </div>
             </section>
@@ -470,7 +495,7 @@
         </div>
 
         <footer>
-            <p>EDITORIAL BELIKONES © 2026 — SELLO INDEPENDIENTE DE TERROR BÉLICO MEXICANO.</p>
+            <p>EDITORIAL BELIKONES (C) 2026 -- SELLO INDEPENDIENTE DE TERROR BÉLICO MEXICANO.</p>
             <p><small>Adaptado para Móviles y Ordenadores.</small></p>
         </footer>
     </div>
@@ -503,7 +528,7 @@
             resultDiv.style.background = 'rgba(0, 120, 0, 0.4)';
             resultDiv.style.color = '#85ff85';
             resultDiv.style.borderColor = '#00ff00';
-            resultDiv.innerHTML = 'CALIBRE ACEPTADO: Tu proyecto cumple con los estándares de Editorial Belikones. Procede a enviar tus datos en el despacho de manuscritos.';
+            resultDiv.innerHTML = 'CALIBRE ACEPTADO: Tu proyecto cumple con los estándares de Editorial Belikones. Procede a enviar tus datos y archivos en el despacho de manuscritos.';
         }
     </script>
 </body>
