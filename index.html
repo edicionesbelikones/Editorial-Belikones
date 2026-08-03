@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EDICIONES BELIKONES // Cyberpunk Publishing House</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #05050a;
+      --paper: #0b0c16;
+      --ink: #00f0ff;
+      --muted: #8a99ad;
+      --neon-cyan: #00f0ff;
+      --neon-magenta: #ff0055;
+      --neon-yellow: #fffe00;
+      --line: rgba(0, 240, 255, 0.3);
+      --glow-cyan: 0 0 10px rgba(0, 240, 255, 0.6);
+      --glow-pink: 0 0 10px rgba(255, 0, 85, 0.6);
+      --glow-yellow: 0 0 10px rgba(255, 254, 0, 0.6);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Share Tech Mono', monospace;
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
+    }
+
+    /* Scanlines y rejilla cyberpunk */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: 
+        linear-gradient(rgba(18, 16, 26, 0) 50%, rgba(0, 0, 0, 0.3) 50%),
+        linear-gradient(90deg, rgba(255, 0, 85, 0.03), rgba(0, 240, 255, 0.03));
+      background-size: 100% 4px, 6px 100%;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 50% 30%, rgba(255, 0, 85, 0.05), transparent 70%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    header {
+      padding: 4rem 0 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .brand-logo-container {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 2rem;
+      border: 2px solid var(--neon-magenta);
+      box-shadow: var(--glow-pink);
+      clip-path: polygon(15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 15%);
+      background: rgba(255, 0, 85, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s ease;
+    }
+
+    .brand-logo-container:hover {
+      border-color: var(--neon-cyan);
+      box-shadow: var(--glow-cyan);
+      transform: scale(1.03);
+    }
+
+    .logo-text {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      font-size: 2.2rem;
+      color: #fff;
+      text-shadow: 2px 2px 0px var(--neon-cyan), -2px -2px 0px var(--neon-magenta);
+      letter-spacing: 0.05em;
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.4rem, 8vw, 4rem);
+      letter-spacing: 0.08em;
+      color: #fff;
+      text-transform: uppercase;
+      text-shadow: 3px 3px 0px var(--neon-magenta), -3px -3px 0px var(--neon-cyan);
+      margin-bottom: 0.2rem;
+    }
+
+    .subhead {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 1.2rem;
+      color: var(--neon-yellow);
+      letter-spacing: 0.15em;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      text-shadow: 0 0 8px rgba(255, 254, 0, 0.5);
+    }
+
+    .tagline {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto;
+      letter-spacing: 0.05em;
+      border-left: 3px solid var(--neon-cyan);
+      padding-left: 1rem;
+      text-align: left;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px dashed var(--line);
+    }
+
+    nav a {
+      color: var(--neon-cyan);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      padding: 0.4rem 0.8rem;
+      background: rgba(0, 240, 255, 0.05);
+      border: 1px solid var(--line);
+      clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+    }
+
+    nav a:hover, nav a:active {
+      color: #000;
+      background: var(--neon-cyan);
+      box-shadow: var(--glow-cyan);
+      font-weight: bold;
+    }
+
+    section {
+      padding: 4rem 0;
+      border-top: 1px solid var(--line);
+      position: relative;
+    }
+
+    section h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 0.1em;
+      color: var(--neon-magenta);
+      margin-bottom: 2rem;
+      text-align: center;
+      text-transform: uppercase;
+      text-shadow: var(--glow-pink);
+    }
+
+    section h2::before {
+      content: "// ";
+      color: var(--neon-yellow);
+    }
+
+    .about-text {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #e0e6ed;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: left;
+      background: var(--paper);
+      padding: 2rem;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--neon-magenta);
+      box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
+    }
+
+    .about-text p + p {
+      margin-top: 1.2rem;
+    }
+
+    .manifesto-box {
+      margin-top: 1.5rem;
+      padding: 1rem 1.2rem;
+      background: rgba(255, 254, 0, 0.05);
+      border: 1px dashed var(--neon-yellow);
+      color: var(--neon-yellow);
+      font-size: 0.9rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .stat-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--neon-yellow);
+      text-shadow: var(--glow-yellow);
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .book-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--neon-cyan);
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+      position: relative;
+    }
+
+    .book-card:hover {
+      border-color: var(--neon-magenta);
+      border-left: 4px solid var(--neon-yellow);
+      transform: translateY(-4px);
+      box-shadow: 0 0 15px rgba(255, 0, 85, 0.2);
+    }
+
+    .book-card h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.3rem;
+      transition: color 0.3s ease;
+    }
+
+    .book-card:hover h3 {
+      color: var(--neon-cyan);
+    }
+
+    .book-author {
+      font-size: 0.85rem;
+      color: var(--neon-yellow);
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 5px rgba(255, 254, 0, 0.3);
+    }
+
+    .book-meta {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding-bottom: 0.4rem;
+    }
+
+    .book-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .book-card .action-btn {
+      display: inline-block;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--neon-cyan);
+      font-weight: bold;
+    }
+
+    .book-card:hover .action-btn {
+      color: var(--neon-magenta);
+      text-shadow: var(--glow-pink);
+    }
+
+    .authors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .author-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .author-card:hover {
+      border-color: var(--neon-cyan);
+      box-shadow: var(--glow-cyan);
+    }
+
+    .author-avatar {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      border: 2px solid var(--neon-cyan);
+      background: #151828;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: bold;
+      color: var(--neon-yellow);
+      font-size: 1.2rem;
+    }
+
+    .author-card h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: 0.2rem;
+    }
+
+    .author-card .role {
+      font-size: 0.75rem;
+      color: var(--neon-magenta);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.8rem;
+    }
+
+    .author-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .contact-block {
+      text-align: center;
+    }
+
+    .contact-block p {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .contact-email {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 1.25rem;
+      color: var(--neon-cyan);
+      text-decoration: none;
+      word-break: break-word;
+      border-bottom: 1px solid var(--neon-cyan);
+      padding-bottom: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-email:hover {
+      color: var(--neon-yellow);
+      border-color: var(--neon-yellow);
+      text-shadow: 0 0 8px var(--neon-yellow);
+    }
+
+    .comment-form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      background: var(--paper);
+      padding: 2rem;
+      border: 1px solid var(--line);
+    }
+
+    .comment-form label {
+      display: block;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--neon-yellow);
+      margin-bottom: 0.4rem;
+    }
+
+    .comment-form input,
+    .comment-form select,
+    .comment-form textarea {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      color: #fff;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.95rem;
+      padding: 0.8rem 1rem;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .comment-form input:focus,
+    .comment-form select:focus,
+    .comment-form textarea:focus {
+      border-color: var(--neon-cyan);
+      box-shadow: var(--glow-cyan);
+    }
+
+    .comment-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .comment-form button {
+      align-self: flex-start;
+      background: var(--neon-cyan);
+      border: none;
+      color: #000;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.8rem 2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    }
+
+    .comment-form button:hover {
+      background: var(--neon-magenta);
+      color: #fff;
+      box-shadow: var(--glow-pink);
+    }
+
+    .form-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 2rem;
+      padding-top: 1.8rem;
+      border-top: 1px dashed var(--line);
+    }
+
+    .socials a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    .socials a:hover {
+      color: var(--neon-cyan);
+      text-shadow: var(--glow-cyan);
+    }
+
+    footer {
+      padding: 2.5rem 0 3.5rem;
+      text-align: center;
+      border-top: 1px solid var(--line);
+      background: rgba(5, 5, 10, 0.8);
+    }
+
+    footer p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    .terminal-header {
+      font-size: 0.75rem;
+      color: var(--neon-magenta);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .terminal-header::before, .terminal-header::after {
+      content: "---";
+      color: var(--line);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="terminal-header">SYS.INIT // VER 2.0.26</div>
+      <div class="brand-logo-container">
+        <span class="logo-text">EB</span>
+      </div>
+      <h1>Ediciones Belikones</h1>
+      <p class="subhead">// Editorial Independiente de Vanguardia & Contracultura</p>
+      <p class="tagline">Publicamos literatura de alta frecuencia: poesía, ensayo al margen, manifiestos legales y textos fuera de frecuencia comercial.</p>
+      <nav>
+        <a href="#editorial">Editorial</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#autores">Autores</a>
+        <a href="#manuscritos">Manuscritos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="editorial">
+      <div class="container">
+        <h2>La Editorial</h2>
+        <div class="about-text">
+          <p><strong>Ediciones Belikones</strong> nace en las grietas del circuito literario tradicional. Operamos como un nodo de difusión de textos disidentes, voces marginales, poesía experimental e impresos libres de censura estética.</p>
+          <p>Creemos en la palabra escrita como código de resistencia, instrumento de combate poético y archivo incorruptible frente a la inercia cultural.</p>
+          <div class="manifesto-box">
+            [MANIFIESTO]: "Ni neutrales ni sumisos. Editamos lo que incomoda, registramos la memoria del subterráneo y distribuimos artefactos de papel en la red."
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">08+</div>
+            <div class="stat-label">Títulos Publicados</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Acceso Libre PDF</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">001</div>
+            <div class="stat-label">Red Subterránea</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="catalogo">
+      <div class="container">
+        <h2>Catálogo de Obras</h2>
+        <div class="catalog-grid">
+          <div class="book-card">
+            <div>
+              <div class="book-meta">
+                <span>Poema</span>
+                <span>PDF</span>
+              </div>
+              <h3>Fiesta en Mineral de la Luz</h3>
+              <div class="book-author">Felipe P. / Gustavo Narváez</div>
+              <p>Un recorrido por la memoria y el ritual de un pueblo minero donde la luz y la sombra se celebran juntas.</p>
+            </div>
+            <a href="FIESTA EN MINERAL DE LA LUZ.pdf" target="_blank" class="action-btn">Descargar Obra &rarr;</a>
+          </div>
+
+          <div class="book-card">
+            <div>
+              <div class="book-meta">
+                <span>Poema</span>
+                <span>PDF</span>
+              </div>
+              <h3>Altas y Bajas</h3>
+              <div class="book-author">Felipe P. / Gustavo Narváez</div>
+              <p>Fragmentos que oscilan entre el ascenso y la caída, entre lo que se eleva y lo que regresa a tierra.</p>
+            </div>
+            <a href="Altas y bajas - F_G.pdf" target="_blank" class="action-btn">Descargar Obra &rarr;</a>
+          </div>
+
+          <div class="book-card">
+            <div>
+              <div class="book-meta">
+                <span>Poesía Anexada</span>
+                <span>PDF</span>
+              </div>
+              <h3>Arrecife Alacranes</h3>
+              <div class="book-author">Felipe P. / Gustavo Narváez</div>
+              <p>Camino al arrecife norte del juicio, donde se navega entre sombras y mareos en mar abierto.</p>
+            </div>
+            <a href="t.pdf" target="_blank" class="action-btn">Descargar Obra &rarr;</a>
+          </div>
+
+          <div class="book-card">
+            <div>
+              <div class="book-meta">
+                <span>Ensayo / Texto</span>
+                <span>PDF</span>
+              </div>
+              <h3>¿Quién es Alejandro Garrigós Rojas?</h3>
+              <div class="book-author">Felipe P.</div>
+              <p>Análisis en profundidad y perfil de investigación sobre una de las figuras más enigmáticas.</p>
+            </div>
+            <a href="41.pdf" target="_blank" class="action-btn">Descargar Obra &rarr;</a>
+          </div>
+
+          <div class="book-card">
+            <div>
+              <div class="book-meta">
+                <span>Documento / Ley</span>
+                <span>PDF</span>
+              </div>
+              <h3>Actuación 3</h3>
+              <div class="book-author">Felipe P.</div>
+              <p>Juicio de Amparo Indirecto por derecho propio. La escritura como trinchera y defensa legal.</p>
+            </div>
+            <a href="z.pdf" target="_blank" class="action-btn">Descargar Obra &rarr;</a>
+          </div>
+
+          <div class="book-card">
+            <div>
+              <div class="book-meta">
+                <span>Cuaderno</span>
+                <span>PDF</span>
+              </div>
+              <h3>FE</h3>
+              <div class="book-author">Gustavo Narváez</div>
+              <p>Notas, esbozos y destellos de un cuaderno de proceso que acompañan la creación literaria.</p>
+            </div>
+            <a href="g.pdf" target="_blank" class="action-btn">Descargar Obra &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="autores">
+      <div class="container">
+        <h2>Autores del Sello</h2>
+        <div class="authors-grid">
+          <div class="author-card">
+            <div class="author-avatar">FP</div>
+            <h3>Felipe P.</h3>
+            <div class="role">Escritor / Fundador</div>
+            <p>Músico fugado del Conservatorio de Celaya, escritor y vagabundo de las letras contraculturales.</p>
+          </div>
+
+          <div class="author-card">
+            <div class="author-avatar">GN</div>
+            <h3>Gustavo Narváez</h3>
+            <div class="role">Poeta / Colaborador</div>
+            <p>Voz poética de lo cotidiano, explorador de rituales locales y la memoria de las ruinas.</p>
+          </div>
+
+          <div class="author-card">
+            <div class="author-avatar">GS</div>
+            <h3>Gerardo Szae</h3>
+            <div class="role">Narrador</div>
+            <p>Coautor de ficciones satíricas, expropiaciones cómicas y relatos urbanos no convencionales.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="manuscritos">
+      <div class="container">
+        <h2>Envío de Manuscritos</h2>
+        <form class="comment-form" action="https://formsubmit.co/felipedejesusgarciapatino@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Nuevo Manuscrito - Ediciones Belikones">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" style="display:none">
+          
+          <div>
+            <label for="nombre">Nombre / Alias del Autor</label>
+            <input type="text" id="nombre" name="nombre" required placeholder="Ej. Felipe / Alias Cyberpunk">
+          </div>
+          <div>
+            <label for="email">Correo electrónico de contacto</label>
+            <input type="email" id="email" name="email" required placeholder="tu@red.com">
+          </div>
+          <div>
+            <label for="genero">Género / Tipo de obra</label>
+            <select id="genero" name="genero" style="background: var(--bg); color: #fff;">
+              <option value="poesia">Poesía / Antipoesía</option>
+              <option value="narrativa">Narrativa / Cuento corto</option>
+              <option value="ensayo">Ensayo / Manifiesto</option>
+              <option value="hibrido">Texto Híbrido / Otro</option>
+            </select>
+          </div>
+          <div>
+            <label for="mensaje">Resumen / Enlace al Manuscrito</label>
+            <textarea id="mensaje" name="mensaje" required placeholder="Presenta tu proyecto literario o pega un enlace a tu obra..."></textarea>
+          </div>
+          <button type="submit">Enviar a Consejo Editorial</button>
+        </form>
+        <p class="form-note">Las propuestas son revisadas directamente por la mesa editorial.</p>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="container contact-block">
+        <h2>Contacto & Distribución</h2>
+        <p>Para consultas de catálogo, alianzas de coedición o distribución independiente.</p>
+        <a href="mailto:felipedejesusgarciapatino@gmail.com" class="contact-email">
+          felipedejesusgarciapatino@gmail.com
+        </a>
+        <div class="socials">
+          <a href="https://www.instagram.com/felipeplein2026/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=61591803449103" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://x.com/FelipePleibx" target="_blank" rel="noopener">X / Twitter</a>
+          <a href="https://www.threads.com/@felipeplein2026" target="_blank" rel="noopener">Threads</a>
+          <a href="https://www.tumblr.com/blog/felipeplein" target="_blank" rel="noopener">Tumblr</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 EDICIONES BELIKONES // Todos los derechos reservados a los autores.</p>
+    </div>
+  </footer>
+</body>
+</html>
