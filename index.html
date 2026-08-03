@@ -1,31 +1,440 @@
-<div align="center">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editorial Belikones | Terror Bélico Mexicano</title>
+    <!-- Fuentes Temáticas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&family=Oswald:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0b0c0d;
+            --panel-bg: rgba(20, 22, 23, 0.95);
+            --red-blood: #8b0000;
+            --red-bright: #d60000;
+            --gold-military: #c29b38;
+            --text-light: #dcdcdc;
+            --text-dim: #8a8a8a;
+            --border-style: 2px solid var(--red-blood);
+        }
 
-# 🪖 💀 EDICTORIA BELIKONES 💀 🪖
-### *— "La pluma se empuña, la tinta es metralla, las historias no mueren." —*
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-[![Estado de Convocatorias](https://img.shields.io/badge/Convocatorias-ABIERTAS-red?style=for-the-badge&logo=github)](#)
-[![Género](https://img.shields.io/badge/Género-Terror_Bélico_Mexicano-black?style=for-the-badge)](#)
-[![Licencia](https://img.shields.io/badge/Licencia-Sello_Independiente-darkred?style=for-the-badge)](#)
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle, rgba(139, 0, 0, 0.15) 0%, transparent 70%),
+                linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95));
+            color: var(--text-light);
+            font-family: 'Share Tech Mono', monospace;
+            line-height: 1.6;
+            padding: 20px;
+        }
 
----
+        /* Encabezado Principal */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 3px double var(--red-blood);
+            margin-bottom: 30px;
+            background: rgba(10, 10, 10, 0.8);
+            box-shadow: 0 0 20px rgba(139, 0, 0, 0.4);
+        }
 
-> **Atención, recluta de las letras:** Has ingresado al bastión de **Edictoria Belikones**. Aquí no editamos cuentos de cuco ni relatos trillados. Editamos la pesadilla del campo de batalla, el mito ancestral manchado de pólvora, el horror que susurra entre los matorrales de la sierra y la trinchera. Si tu pluma tiene agallas y tus historias queman, este es tu cuartel.
+        header h1 {
+            font-family: 'Creepster', cursive;
+            font-size: 3.5rem;
+            color: var(--red-bright);
+            text-shadow: 3px 3px 5px #000, 0 0 10px var(--red-blood);
+            letter-spacing: 3px;
+        }
 
----
+        header p.tagline {
+            font-family: 'Special Elite', cursive;
+            color: var(--gold-military);
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
 
-</div>
+        .status-badge {
+            display: inline-block;
+            background-color: var(--red-blood);
+            color: #fff;
+            padding: 5px 15px;
+            font-weight: bold;
+            margin-top: 15px;
+            border: 1px solid var(--red-bright);
+            letter-spacing: 2px;
+            animation: pulse 2s infinite;
+        }
 
-## 🪖 TABLERO DE COMANDO (Índice de Navegación)
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(214, 0, 0, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(214, 0, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(214, 0, 0, 0); }
+        }
 
-* [📜 Manifiesto Belikon](#-manifiesto-belikon)
-* [🎖️ Directrices de Reclutamiento (Para Escritores)](#️-directrices-de-reclutamiento-para-escritores)
-* [🗡️ El Arsenal: Géneros y Subgéneros](#️-el-arsenal-géneros-y-subgéneros)
-* [📑 Protocolo de Envío de Manuscritos](#-protocolo-de-envío-de-manuscritos)
-* [📦 El Proceso Editorial (Paso a Paso)](#-el-proceso-editorial-paso-a-paso)
-* [📻 Trincheras de Contacto](#-trincheras-de-contacto)
+        /* Layout Grid */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
 
----
+        @media(min-width: 900px) {
+            .container {
+                grid-template-columns: 2fr 1fr;
+            }
+            .full-width {
+                grid-column: 1 / -1;
+            }
+        }
 
-## 📜 MANIFIESTO BELIKON
+        /* Estilo de Paneles / Cajas */
+        .panel {
+            background: var(--panel-bg);
+            border: var(--border-style);
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.7);
+            position: relative;
+        }
 
-En **Edictoria Belikones** exploramos la intersección entre la violencia, el folclor obscuro y el conflicto armado en el contexto mexicano e hispanoamericano.
+        .panel::before {
+            content: "EDIT-BELIKONES // MIL-SPEC";
+            position: absolute;
+            top: -10px;
+            right: 15px;
+            background: var(--bg-color);
+            color: var(--gold-military);
+            font-size: 0.7rem;
+            padding: 0 5px;
+            border: 1px solid var(--gold-military);
+        }
+
+        .panel h2 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--red-bright);
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--red-blood);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Secciones del Manifiesto */
+        .manifesto-list {
+            list-style: none;
+        }
+
+        .manifesto-list li {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            border-left: 3px solid var(--gold-military);
+        }
+
+        .manifesto-list strong {
+            color: var(--gold-military);
+            font-size: 1.1rem;
+        }
+
+        /* Interactividad: Evaluador Táctico */
+        .evaluator {
+            background: #111;
+            border: 1px solid #333;
+            padding: 20px;
+            margin-top: 15px;
+        }
+
+        .evaluator label {
+            display: block;
+            margin-top: 10px;
+            color: var(--text-light);
+        }
+
+        .evaluator input[type="range"] {
+            width: 100%;
+            accent-color: var(--red-bright);
+        }
+
+        .evaluator select, .evaluator button, .evaluator input[type="text"], .evaluator textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            background: #1a1a1a;
+            border: 1px solid var(--red-blood);
+            color: var(--text-light);
+            font-family: inherit;
+        }
+
+        .evaluator button {
+            background: var(--red-blood);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .evaluator button:hover {
+            background: var(--red-bright);
+            box-shadow: 0 0 10px var(--red-bright);
+        }
+
+        #eval-result {
+            margin-top: 15px;
+            padding: 10px;
+            display: none;
+            font-weight: bold;
+            text-align: center;
+            border: 1px solid var(--gold-military);
+        }
+
+        /* Accordion / Detalles desplegables */
+        details {
+            background: #151515;
+            border: 1px solid #333;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            color: var(--gold-military);
+            cursor: pointer;
+        }
+
+        details[open] summary {
+            color: var(--red-bright);
+        }
+
+        details p {
+            margin-top: 10px;
+            font-size: 0.95rem;
+            color: var(--text-dim);
+        }
+
+        /* Tabla Estilizada */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        th {
+            background: var(--red-blood);
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--red-blood);
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🪖 EDICTORIA BELIKONES 💀</h1>
+        <p class="tagline">— "La pluma se empuña, la tinta es metralla, las historias no mueren." —</p>
+        <div class="status-badge">CONVOCATORIA ABIERTA: MANUSCRITOS BÉLICOS</div>
+    </header>
+
+    <div class="container">
+
+        <!-- Panel Principal: Manifiesto -->
+        <main class="panel">
+            <h2>📜 MANIFIESTO BELIKÓN</h2>
+            <p style="margin-bottom: 15px;">En <strong>Edictoria Belikones</strong> no editamos cuentos trillados. Editamos la pesadilla del campo de batalla, el mito ancestral manchado de pólvora, el horror que susurra entre los matorrales de la sierra y la trinchera.</p>
+
+            <ul class="manifesto-list">
+                <li>
+                    <strong>1. La Pólvora no Perdona:</strong>
+                    El conflicto armado y la violencia son el marco; el miedo a lo desconocido e incontrolable es la sustancia.
+                </li>
+                <li>
+                    <strong>2. Raíces Místicas y Sombrías:</strong>
+                    Nahualismo táctico, brujas del desierto en zonas de combate, ánimas en pena entre el fuego cruzado. El terror mexicano se escribe con sangre y folclor.
+                </li>
+                <li>
+                    <strong>3. Narrativa Visceral:</strong>
+                    Buscamos voces directas, caló militar y urbano, atmósferas opresivas, personajes grises y finales que dejen cicatriz.
+                </li>
+            </ul>
+        </main>
+
+        <!-- Sidebar: Arsenal de Géneros -->
+        <aside class="panel">
+            <h2>🗡️ EL ARSENAL (Líneas)</h2>
+            <p><small>Aceptamos obras que se encuadren en:</small></p>
+            <br>
+            <details>
+                <summary>🇲🇽 Terror Bélico Histórico</summary>
+                <p>Revolución, Guerra de Reforma o Conquista infestadas de entes demoníacos o pactos de sangre.</p>
+            </details>
+            <details>
+                <summary>🕯️ Narco-Horror & Folclor</summary>
+                <p>Santería de trinchera, protección mística en zonas de conflicto y brujería en los caminos.</p>
+            </details>
+            <details>
+                <summary>🌵 Weird West / Frontera</summary>
+                <p>Desiertos hostiles, patrullas perdidas y criaturas ancestrales despertadas por los cañones.</p>
+            </details>
+            <details>
+                <summary>🦾 Ciber-Bélico Grimdark</summary>
+                <p>Drones poseídos por ánimas, prótesis de hueso/plomo y distopías bélicas en territorio mexicano.</p>
+            </details>
+        </aside>
+
+        <!-- Herramienta Interactiva: Simulador para Escritores -->
+        <section class="panel full-width">
+            <h2>🎯 SIMULADOR DE DICTAMEN TÁCTICO (Evaluador para Escritores)</h2>
+            <p>Evalúa si tu obra tiene el calibre necesario antes de presionar el disparador y enviar tu proyecto al cuartel general.</p>
+
+            <div class="evaluator">
+                <label for="genre">Subgénero Principal de tu obra:</label>
+                <select id="genre">
+                    <option value="belico">Terror Bélico Histórico</option>
+                    <option value="folclor">Narco-Horror / Folclor Oscuro</option>
+                    <option value="frontera">Weird West / Desierto Sangriento</option>
+                    <option value="otro">Otro tipo de horror</option>
+                </select>
+
+                <label for="words">Extensión aproximada (Palabras):</label>
+                <select id="words">
+                    <option value="cincuenta">40,000 - 90,000 (Novela)</option>
+                    <option value="relato">3,000 - 8,000 (Relato / Antología)</option>
+                    <option value="corto">Menos de 3,000 (Demasiado corto)</option>
+                </select>
+
+                <label for="darkness">Nivel de Oscuridad / Tensión (0 al 100): <span id="dark-val">50</span>%</label>
+                <input type="range" id="darkness" min="0" max="100" value="50" oninput="document.getElementById('dark-val').innerText = this.value">
+
+                <button onclick="evaluarManuscrito()">Analizar Calibre de Obra</button>
+
+                <div id="eval-result"></div>
+            </div>
+        </section>
+
+        <!-- Requisitos e Instrucciones de Envío -->
+        <section class="panel">
+            <h2>🎖️ REQUISITOS DE RECLUTAMIENTO</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Criterio</th>
+                        <th>Especificación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Formato</td>
+                        <td>.PDF / .DOCX / .MD</td>
+                    </tr>
+                    <tr>
+                        <td>Tipografía</td>
+                        <td>Courier New o Times New Roman (12pt)</td>
+                    </tr>
+                    <tr>
+                        <td>Idioma</td>
+                        <td>Español (Modismos y caló local bienvenidos)</td>
+                    </tr>
+                    <tr>
+                        <td>Sinopsis</td>
+                        <td>Máximo 500 palabras (Adjunta en la primera página)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Formulario Interactivo de Envío / Contacto -->
+        <section class="panel">
+            <h2>📑 DESPACHO DE MANUSCRITOS</h2>
+            <p>Envía los detalles de tu proyecto para recibir acuse de recibo en la comandancia.</p>
+            
+            <div class="evaluator">
+                <form onsubmit="enviarFormulario(event)">
+                    <label for="author">Nombre o Seudónimo del Autor:</label>
+                    <input type="text" id="author" placeholder="Ej. El Tintero de la Sierra" required>
+
+                    <label for="title">Título de la Obra:</label>
+                    <input type="text" id="title" placeholder="Ej. Balas y Nahuales en el Desierto" required>
+
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="text" id="email" placeholder="recluta@correo.com" required>
+
+                    <label for="synopsis">Breve Sinopsis Táctica:</label>
+                    <textarea id="synopsis" rows="4" placeholder="Describe el conflicto y la manifestación del terror..." required></textarea>
+
+                    <button type="submit">Enviar Manuscrito a Trinchera</button>
+                </form>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>EDICTORIA BELIKONES © 2026 — SELLO INDEPENDIENTE DE TERROR BÉLICO MEXICANO.</p>
+        <p><small>Desarrollado para GitHub Pages. Hecho con sangre, tinta y pólvora.</small></p>
+    </footer>
+
+    <!-- Lógica Interactiva -->
+    <script>
+        function evaluarManuscrito() {
+            const genre = document.getElementById('genre').value;
+            const words = document.getElementById('words').value;
+            const darkness = parseInt(document.getElementById('darkness').value);
+            const resultDiv = document.getElementById('eval-result');
+
+            resultDiv.style.display = 'block';
+
+            if (words === 'corto') {
+                resultDiv.style.background = 'rgba(139, 0, 0, 0.4)';
+                resultDiv.style.color = '#ff6b6b';
+                resultDiv.innerHTML = '⚠️ MANUSCRITO RECHAZADO: La extensión es muy corta. Requerimos mínimo 3,000 palabras para antologías.';
+                return;
+            }
+
+            if (darkness < 40) {
+                resultDiv.style.background = 'rgba(194, 155, 56, 0.3)';
+                resultDiv.style.color = '#ffd700';
+                resultDiv.innerHTML = '⚡ ADVERTENCIA TÁCTICA: Tu obra necesita más tensión, violencia o elementos de terror. Incrementa la atmósfera de pesadilla.';
+                return;
+            }
+
+            resultDiv.style.background = 'rgba(0, 100, 0, 0.4)';
+            resultDiv.style.color = '#7eff7e';
+            resultDiv.innerHTML = '🎖️ ¡CALIBRE ACEPTADO! Tu proyecto cumple con los estándares de Edictoria Belikones. Procede a enviar tus datos en el formulario de abajo.';
+        }
+
+        function enviarFormulario(event) {
+            event.preventDefault();
+            const author = document.getElementById('author').value;
+            const title = document.getElementById('title').value;
+            
+            alert(`🪖 ¡REGISTRO RECIBIDO, RECLUTA ${author.toUpperCase()}!\n\nTu obra "${title}" ha sido anotada en la bitácora militar de la editorial. Mantén tus ojos abiertos en tu correo registrado.`);
+        }
+    </script>
+</body>
+</html>
