@@ -60,6 +60,33 @@
             background: rgba(10, 10, 10, 0.92);
             box-shadow: 0 0 25px rgba(139, 0, 0, 0.45);
             border-radius: var(--radius-mobile);
+            position: relative;
+        }
+
+        /* Botón Diminuto de YouTube */
+        .btn-yt-micro {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2px 6px;
+            font-size: 9px;
+            font-family: 'Share Tech Mono', monospace;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: var(--red-blood);
+            border: 1px solid var(--red-bright);
+            border-radius: 2px;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-yt-micro:hover {
+            background-color: var(--red-bright);
+            box-shadow: 0 0 6px var(--red-bright);
         }
 
         header h1 {
@@ -303,7 +330,7 @@
             color: var(--text-dim);
         }
 
-        /* Estilos específicos para la Rejilla de Archivos en "ESCRITOS" */
+        /* Estilos para Rejilla de Archivos en "ESCRITOS" */
         .file-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
@@ -379,6 +406,9 @@
 
     <div class="wrapper">
         <header>
+            <!-- Botón pequeñísimo hacia el video de YouTube -->
+            <a href="https://www.youtube.com/watch?v=WuhRkGhjYzY" target="_blank" rel="noopener noreferrer" class="btn-yt-micro">YT // EL MARA</a>
+
             <h1>EDITORIAL BELIKONES</h1>
             <p class="tagline">-- "La pluma como Cuerno de Chivo." --</p>
             <div class="status-badge">CONVOCATORIA ABIERTA: MANUSCRITOS BÉLICOS</div>
@@ -430,7 +460,7 @@
                 </details>
             </aside>
 
-            <!-- NUEVA SECCIÓN: ESCRITOS -->
+            <!-- SECCIÓN: ESCRITOS -->
             <section class="panel full-width">
                 <h2>ESCRITOS</h2>
                 <p style="font-size: 0.9rem;">Archivo de publicaciones y documentos oficiales de la editorial.</p>
