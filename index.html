@@ -50,25 +50,22 @@
             min-height: 100vh;
         }
 
-        /* Contenedor Principal Adaptable */
         .wrapper {
             max-width: 1280px;
             margin: 0 auto;
         }
 
-        /* Encabezado Responsivo */
         header {
             text-align: center;
             padding: 30px 15px;
             border-bottom: 3px double var(--red-blood);
             margin-bottom: 20px;
-            background: rgba(10, 10, 10, 0.92);
+            background: #000000; /* Fondo negro puro para absorción de mezcla */
             box-shadow: 0 0 25px rgba(139, 0, 0, 0.45);
             border-radius: var(--radius-mobile);
             position: relative;
         }
 
-        /* Estructura para alinear el título con la imagen gt.png (payasito) */
         .header-title-container {
             display: flex;
             align-items: center;
@@ -77,16 +74,15 @@
             flex-wrap: wrap;
         }
 
-        /* Estilos para el payasito gt.png sin fondo blanco */
+        /* Eliminación efectiva de fondo blanco en gt.png */
         .payasito-logo {
             height: clamp(50px, 8vw, 85px);
             width: auto;
             object-fit: contain;
-            /* Recorte / Transparencia de fondo blanco mediante mezcla CSS */
-            mix-blend-mode: lighten;
-            filter: contrast(120%) brightness(110%);
             display: inline-block;
             vertical-align: middle;
+            mix-blend-mode: screen; 
+            filter: contrast(160%) brightness(95%);
         }
 
         header h1 {
@@ -128,7 +124,6 @@
             100% { box-shadow: 0 0 0 0 rgba(230, 0, 0, 0); }
         }
 
-        /* Botón Diminuto de YouTube */
         .btn-yt-micro {
             display: inline-flex;
             align-items: center;
@@ -152,7 +147,6 @@
             box-shadow: 0 0 6px var(--red-bright);
         }
 
-        /* Sistema de Rejilla Adaptable */
         .grid-container {
             display: grid;
             grid-template-columns: 1fr;
@@ -160,34 +154,17 @@
         }
 
         @media (min-width: 768px) {
-            body {
-                padding: 24px;
-            }
-
-            .grid-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .col-span-2 {
-                grid-column: span 2;
-            }
+            body { padding: 24px; }
+            .grid-container { grid-template-columns: repeat(2, 1fr); }
+            .col-span-2 { grid-column: span 2; }
         }
 
         @media (min-width: 1024px) {
-            .grid-container {
-                grid-template-columns: 2fr 1fr;
-            }
-
-            .full-width {
-                grid-column: 1 / -1;
-            }
-
-            .col-span-2 {
-                grid-column: 1 / -1;
-            }
+            .grid-container { grid-template-columns: 2fr 1fr; }
+            .full-width { grid-column: 1 / -1; }
+            .col-span-2 { grid-column: 1 / -1; }
         }
 
-        /* Paneles */
         .panel {
             background: var(--panel-bg);
             border: var(--border-style);
@@ -223,23 +200,10 @@
             gap: 8px;
         }
 
-        /* Manifiesto */
-        .manifesto-list {
-            list-style: none;
-        }
+        .manifesto-list { list-style: none; }
+        .manifesto-list li { margin-bottom: 14px; padding-left: 14px; border-left: 3px solid var(--gold-military); }
+        .manifesto-list strong { color: var(--gold-military); font-size: 1rem; }
 
-        .manifesto-list li {
-            margin-bottom: 14px;
-            padding-left: 14px;
-            border-left: 3px solid var(--gold-military);
-        }
-
-        .manifesto-list strong {
-            color: var(--gold-military);
-            font-size: 1rem;
-        }
-
-        /* Elementos interactivos */
         .evaluator {
             background: #101112;
             border: 1px solid #2a2a2a;
@@ -248,20 +212,8 @@
             border-radius: var(--radius-mobile);
         }
 
-        .evaluator label {
-            display: block;
-            margin-top: 12px;
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        .evaluator input[type="range"] {
-            width: 100%;
-            height: 28px;
-            accent-color: var(--red-bright);
-            cursor: pointer;
-        }
-
+        .evaluator label { display: block; margin-top: 12px; color: var(--text-light); font-size: 0.9rem; }
+        .evaluator input[type="range"] { width: 100%; height: 28px; accent-color: var(--red-bright); cursor: pointer; }
         .evaluator select, 
         .evaluator button, 
         .evaluator input[type="text"], 
@@ -280,152 +232,37 @@
             border-radius: 2px;
         }
 
-        .evaluator input[type="file"] {
-            padding: 10px;
-            cursor: pointer;
-        }
-
+        .evaluator input[type="file"] { padding: 10px; cursor: pointer; }
         .evaluator input[type="file"]::file-selector-button {
-            background: var(--red-blood);
-            color: white;
-            border: none;
-            padding: 6px 12px;
-            margin-right: 12px;
-            cursor: pointer;
-            font-family: inherit;
-            text-transform: uppercase;
+            background: var(--red-blood); color: white; border: none; padding: 6px 12px; margin-right: 12px; cursor: pointer; font-family: inherit; text-transform: uppercase;
         }
-
-        .evaluator input[type="file"]::file-selector-button:hover {
-            background: var(--red-bright);
-        }
+        .evaluator input[type="file"]::file-selector-button:hover { background: var(--red-bright); }
 
         .evaluator button {
-            background: var(--red-blood);
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 18px;
-            transition: background 0.2s, box-shadow 0.2s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: none;
+            background: var(--red-blood); color: white; font-weight: bold; cursor: pointer; margin-top: 18px; transition: background 0.2s, box-shadow 0.2s; text-transform: uppercase; letter-spacing: 1px; border: none;
         }
 
-        .evaluator button:active,
-        .evaluator button:hover {
-            background: var(--red-bright);
-            box-shadow: 0 0 12px var(--red-bright);
-        }
+        .evaluator button:active, .evaluator button:hover { background: var(--red-bright); box-shadow: 0 0 12px var(--red-bright); }
 
-        #eval-result {
-            margin-top: 16px;
-            padding: 12px;
-            display: none;
-            font-weight: bold;
-            text-align: center;
-            border: 1px solid var(--gold-military);
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
+        #eval-result { margin-top: 16px; padding: 12px; display: none; font-weight: bold; text-align: center; border: 1px solid var(--gold-military); font-size: 0.9rem; line-height: 1.4; }
 
-        /* Accordion / Desplegables */
-        details {
-            background: #141516;
-            border: 1px solid #2d2d2d;
-            margin-bottom: 10px;
-            padding: 12px;
-            border-radius: var(--radius-mobile);
-        }
+        details { background: #141516; border: 1px solid #2d2d2d; margin-bottom: 10px; padding: 12px; border-radius: var(--radius-mobile); }
+        summary { font-weight: bold; color: var(--gold-military); cursor: pointer; font-size: 0.95rem; outline: none; }
+        details[open] summary { color: var(--red-bright); margin-bottom: 8px; }
+        details p { font-size: 0.88rem; color: var(--text-dim); }
 
-        summary {
-            font-weight: bold;
-            color: var(--gold-military);
-            cursor: pointer;
-            font-size: 0.95rem;
-            outline: none;
-        }
+        .file-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-top: 15px; }
+        .file-card { background: #0d0e0f; border: 1px dashed var(--red-blood); padding: 16px 10px; text-align: center; border-radius: 3px; transition: border-color 0.2s, background-color 0.2s; }
+        .file-card:hover { border-color: var(--red-bright); background: rgba(139, 0, 0, 0.15); }
+        .file-card .file-tag { display: block; font-size: 0.7rem; color: var(--gold-military); margin-bottom: 6px; }
+        .file-card .file-status { font-size: 0.82rem; color: var(--text-dim); font-weight: bold; }
 
-        details[open] summary {
-            color: var(--red-bright);
-            margin-bottom: 8px;
-        }
+        .table-responsive { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 10px; }
+        table { width: 100%; border-collapse: collapse; min-width: 280px; }
+        th, td { border: 1px solid #333; padding: 10px; text-align: left; font-size: 0.88rem; }
+        th { background: var(--red-blood); color: white; }
 
-        details p {
-            font-size: 0.88rem;
-            color: var(--text-dim);
-        }
-
-        /* Estilos para Rejilla de Archivos */
-        .file-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 12px;
-            margin-top: 15px;
-        }
-
-        .file-card {
-            background: #0d0e0f;
-            border: 1px dashed var(--red-blood);
-            padding: 16px 10px;
-            text-align: center;
-            border-radius: 3px;
-            transition: border-color 0.2s, background-color 0.2s;
-        }
-
-        .file-card:hover {
-            border-color: var(--red-bright);
-            background: rgba(139, 0, 0, 0.15);
-        }
-
-        .file-card .file-tag {
-            display: block;
-            font-size: 0.7rem;
-            color: var(--gold-military);
-            margin-bottom: 6px;
-        }
-
-        .file-card .file-status {
-            font-size: 0.82rem;
-            color: var(--text-dim);
-            font-weight: bold;
-        }
-
-        /* Tabla Responsiva */
-        .table-responsive {
-            width: 100%;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            margin-top: 10px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 280px;
-        }
-
-        th, td {
-            border: 1px solid #333;
-            padding: 10px;
-            text-align: left;
-            font-size: 0.88rem;
-        }
-
-        th {
-            background: var(--red-blood);
-            color: white;
-        }
-
-        footer {
-            text-align: center;
-            padding: 24px 10px;
-            color: var(--text-dim);
-            font-size: 0.78rem;
-            border-top: 1px solid var(--red-blood);
-            margin-top: 35px;
-            background: rgba(8, 9, 10, 0.95);
-        }
+        footer { text-align: center; padding: 24px 10px; color: var(--text-dim); font-size: 0.78rem; border-top: 1px solid var(--red-blood); margin-top: 35px; background: rgba(8, 9, 10, 0.95); }
     </style>
 </head>
 <body>
@@ -433,7 +270,6 @@
     <div class="wrapper">
         <header>
             <div class="header-title-container">
-                <!-- Imagen del payasito (gt.png) sin fondo blanco -->
                 <img src="gt.png" alt="Payasito Belikones" class="payasito-logo">
                 <h1>EDITORIAL BELIKONES</h1>
             </div>
@@ -443,7 +279,6 @@
 
         <div class="grid-container">
 
-            <!-- Panel Principal: Manifiesto -->
             <main class="panel">
                 <h2>RECEPCIÓN ABIERTA DE PROYECTOS</h2>
                 <p style="margin-bottom: 15px; font-size: 0.95rem;">En <strong>Editorial Belikones</strong> abrimos el espacio para todo tipo de expresiones e ideas. Aceptamos cualquier trabajo sin restricción de tema, género, formato o método de creación (incluyendo proyectos generados o asistidos por Inteligencia Artificial).</p>
@@ -463,7 +298,6 @@
                 </ul>
             </main>
 
-            <!-- Sidebar: Tipos de Material Aceptado -->
             <aside class="panel">
                 <h2>MATERIALES Y ARCHIVOS:</h2>
                 <p><small style="color: var(--text-dim);">Recibimos cualquier tipo de proyecto:</small></p>
@@ -488,7 +322,6 @@
                 </details>
             </aside>
 
-            <!-- SECCIÓN: ARCHIVOS / OBRAS -->
             <section class="panel full-width">
                 <h2>ARCHIVOS Y PUBLICACIONES</h2>
                 <p style="font-size: 0.9rem;">Repositorio de trabajos, documentos y producciones multimedia de la editorial.</p>
@@ -520,7 +353,6 @@
                 </details>
             </section>
 
-            <!-- Herramienta Interactiva: Simulador -->
             <section class="panel full-width">
                 <h2>EVALUADOR DE RECEPCIÓN DE MATERIALES</h2>
                 <p style="font-size: 0.9rem;">Verifica la compatibilidad de tu archivo antes de realizar el envío a nuestro despacho.</p>
@@ -551,7 +383,6 @@
                 </div>
             </section>
 
-            <!-- Requisitos -->
             <section class="panel">
                 <h2>ESPECIFICACIONES DE RECEPCIÓN</h2>
                 <div class="table-responsive">
@@ -588,7 +419,6 @@
                 </div>
             </section>
 
-            <!-- Despacho de Manuscritos conectado a FormSubmit -->
             <section class="panel">
                 <h2>DESPACHO DE ARCHIVOS Y MENSAJES</h2>
                 <p style="font-size: 0.88rem;">Envía tus archivos adjuntos, manuscritos, imágenes, audios, proyectos de IA o comentarios a través de nuestro formulario.</p>
@@ -596,7 +426,6 @@
                 <div class="evaluator">
                     <form action="https://formsubmit.co/felipedejesusgarciapatino@gmail.com" method="POST" enctype="multipart/form-data">
                         
-                        <!-- Ajustes de FormSubmit -->
                         <input type="hidden" name="_subject" value="[NUEVO MATERIAL / IA / MENSAJE] - Editorial Belikones">
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_captcha" value="false">
@@ -613,7 +442,6 @@
                         <label for="synopsis">Descripción, Herramientas de IA utilizadas o Mensaje:</label>
                         <textarea id="synopsis" name="Descripción / Herramientas IA / Comentarios" rows="4" placeholder="Escribe aquí los detalles de tu trabajo, si usaste IA (prompts, modelos, etc.) y tus comentarios..." required></textarea>
 
-                        <!-- Adjuntar archivo -->
                         <label for="attachment">Adjuntar Archivo (PDF, DOCX, JPG, PNG, MP3, MP4, ZIP, etc.):</label>
                         <input type="file" id="attachment" name="attachment" accept="*/*">
 
@@ -630,7 +458,6 @@
         </footer>
     </div>
 
-    <!-- Lógica Interactiva del Simulador -->
     <script>
         function evaluarManuscrito() {
             const resultDiv = document.getElementById('eval-result');
