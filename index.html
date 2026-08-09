@@ -494,7 +494,7 @@
             </section>
 
             <section class="panel full-width">
-                <h2>EVALUADOR DE RECEPCIÓN DE MATERIALES</h2>
+                <h2>EVALUADOR / SIMULADOR DE RECEPCIÓN DE MATERIALES</h2>
                 <p style="font-size: 0.9rem;">Verifica la compatibilidad de tu archivo antes de realizar el envío a nuestro despacho.</p>
 
                 <div class="evaluator">
@@ -598,11 +598,23 @@
     <script>
         function evaluarManuscrito() {
             const resultDiv = document.getElementById('eval-result');
+            const fileInput = document.getElementById('attachment');
+
             resultDiv.style.display = 'block';
-            resultDiv.style.background = 'rgba(0, 120, 0, 0.4)';
-            resultDiv.style.color = '#85ff85';
-            resultDiv.style.borderColor = '#00ff00';
-            resultDiv.innerHTML = 'MATERIAL / PROYECTO CON IA ACEPTADO: Recibimos todo tipo de trabajos (humanos o creados con Inteligencia Artificial). Procede a adjuntar tus archivos en el despacho.';
+
+            // Comprobamos si el usuario ha seleccionado un archivo en el campo del despacho
+            if (!fileInput || fileInput.files.length === 0) {
+                resultDiv.style.background = 'rgba(139, 0, 0, 0.4)';
+                resultDiv.style.color = '#ff9999';
+                resultDiv.style.borderColor = '#e60000';
+                resultDiv.innerHTML = 'ATENCIÓN: No has cargado ningún archivo aún. Primero tienes que adjuntar tu documento o proyecto en la sección "DESPACHO DE ARCHIVOS Y MENSAJES" para verificar su recepción.';
+            } else {
+                const fileName = fileInput.files[0].name;
+                resultDiv.style.background = 'rgba(0, 120, 0, 0.4)';
+                resultDiv.style.color = '#85ff85';
+                resultDiv.style.borderColor = '#00ff00';
+                resultDiv.innerHTML = 'ARCHIVO DETECTADO (' + fileName + '): Tu proyecto es plenamente compatible. Procede a presionar el botón "Enviar Trabajo y Archivos" en el despacho.';
+            }
         }
     </script>
 </body>
