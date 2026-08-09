@@ -20,7 +20,7 @@
             --text-light: #e0e0e0;
             --text-dim: #9e9e9e;
             --border-style: 2px solid var(--red-blood);
-            --radius-mobile: 4px;
+            --radius-mobile: 8px;
         }
 
         * {
@@ -28,6 +28,7 @@
             margin: 0;
             padding: 0;
             -webkit-tap-highlight-color: transparent;
+            border-radius: 8px !important;
         }
 
         html {
@@ -60,7 +61,7 @@
             padding: 30px 15px;
             border-bottom: 3px double var(--red-blood);
             margin-bottom: 20px;
-            background: #000000; /* Fondo negro puro para absorción de mezcla */
+            background: #000000;
             box-shadow: 0 0 25px rgba(139, 0, 0, 0.45);
             border-radius: var(--radius-mobile);
             position: relative;
@@ -74,7 +75,6 @@
             flex-wrap: wrap;
         }
 
-        /* Eliminación efectiva de fondo blanco en gt.png */
         .payasito-logo {
             height: clamp(50px, 8vw, 85px);
             width: auto;
@@ -114,7 +114,7 @@
             margin-top: 15px;
             border: 1px solid var(--red-bright);
             letter-spacing: 1.5px;
-            border-radius: 2px;
+            border-radius: 8px;
             animation: pulse 2s infinite;
         }
 
@@ -136,7 +136,7 @@
             color: #ffffff;
             background-color: var(--red-blood);
             border: 1px solid var(--red-bright);
-            border-radius: 2px;
+            border-radius: 8px;
             text-decoration: none;
             letter-spacing: 0.5px;
             transition: background-color 0.2s ease, box-shadow 0.2s ease;
@@ -185,6 +185,7 @@
             font-size: 0.65rem;
             padding: 0 6px;
             border: 1px solid var(--gold-military);
+            border-radius: 4px;
         }
 
         .panel h2 {
@@ -200,9 +201,20 @@
             gap: 8px;
         }
 
-        .manifesto-list { list-style: none; }
-        .manifesto-list li { margin-bottom: 14px; padding-left: 14px; border-left: 3px solid var(--gold-military); }
-        .manifesto-list strong { color: var(--gold-military); font-size: 1rem; }
+        .manifesto-list { 
+            list-style: none; 
+        }
+
+        .manifesto-list li { 
+            margin-bottom: 14px; 
+            padding-left: 14px; 
+            border-left: 3px solid var(--gold-military); 
+        }
+
+        .manifesto-list strong { 
+            color: var(--gold-military); 
+            font-size: 1rem; 
+        }
 
         .evaluator {
             background: #101112;
@@ -212,8 +224,20 @@
             border-radius: var(--radius-mobile);
         }
 
-        .evaluator label { display: block; margin-top: 12px; color: var(--text-light); font-size: 0.9rem; }
-        .evaluator input[type="range"] { width: 100%; height: 28px; accent-color: var(--red-bright); cursor: pointer; }
+        .evaluator label { 
+            display: block; 
+            margin-top: 12px; 
+            color: var(--text-light); 
+            font-size: 0.9rem; 
+        }
+
+        .evaluator input[type="range"] { 
+            width: 100%; 
+            height: 28px; 
+            accent-color: var(--red-bright); 
+            cursor: pointer; 
+        }
+
         .evaluator select, 
         .evaluator button, 
         .evaluator input[type="text"], 
@@ -229,44 +253,161 @@
             color: var(--text-light);
             font-family: inherit;
             font-size: 0.95rem;
-            border-radius: 2px;
+            border-radius: 8px;
         }
 
-        .evaluator input[type="file"] { padding: 10px; cursor: pointer; }
-        .evaluator input[type="file"]::file-selector-button {
-            background: var(--red-blood); color: white; border: none; padding: 6px 12px; margin-right: 12px; cursor: pointer; font-family: inherit; text-transform: uppercase;
+        .evaluator input[type="file"] { 
+            padding: 10px; 
+            cursor: pointer; 
         }
-        .evaluator input[type="file"]::file-selector-button:hover { background: var(--red-bright); }
+
+        .evaluator input[type="file"]::file-selector-button {
+            background: var(--red-blood); 
+            color: white; 
+            border: none; 
+            padding: 6px 12px; 
+            margin-right: 12px; 
+            cursor: pointer; 
+            font-family: inherit; 
+            text-transform: uppercase; 
+            border-radius: 6px;
+        }
+
+        .evaluator input[type="file"]::file-selector-button:hover { 
+            background: var(--red-bright); 
+        }
 
         .evaluator button {
-            background: var(--red-blood); color: white; font-weight: bold; cursor: pointer; margin-top: 18px; transition: background 0.2s, box-shadow 0.2s; text-transform: uppercase; letter-spacing: 1px; border: none;
+            background: var(--red-blood); 
+            color: white; 
+            font-weight: bold; 
+            cursor: pointer; 
+            margin-top: 18px; 
+            transition: background 0.2s, box-shadow 0.2s; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            border: none;
         }
 
-        .evaluator button:active, .evaluator button:hover { background: var(--red-bright); box-shadow: 0 0 12px var(--red-bright); }
+        .evaluator button:active, .evaluator button:hover { 
+            background: var(--red-bright); 
+            box-shadow: 0 0 12px var(--red-bright); 
+        }
 
-        #eval-result { margin-top: 16px; padding: 12px; display: none; font-weight: bold; text-align: center; border: 1px solid var(--gold-military); font-size: 0.9rem; line-height: 1.4; }
+        #eval-result { 
+            margin-top: 16px; 
+            padding: 12px; 
+            display: none; 
+            font-weight: bold; 
+            text-align: center; 
+            border: 1px solid var(--gold-military); 
+            font-size: 0.9rem; 
+            line-height: 1.4; 
+            border-radius: 8px; 
+        }
 
-        details { background: #141516; border: 1px solid #2d2d2d; margin-bottom: 10px; padding: 12px; border-radius: var(--radius-mobile); }
-        summary { font-weight: bold; color: var(--gold-military); cursor: pointer; font-size: 0.95rem; outline: none; }
-        details[open] summary { color: var(--red-bright); margin-bottom: 8px; }
-        details p { font-size: 0.88rem; color: var(--text-dim); }
+        details { 
+            background: #141516; 
+            border: 1px solid #2d2d2d; 
+            margin-bottom: 10px; 
+            padding: 12px; 
+            border-radius: var(--radius-mobile); 
+        }
 
-        .file-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-top: 15px; }
-        .file-card { background: #0d0e0f; border: 1px dashed var(--red-blood); padding: 16px 10px; text-align: center; border-radius: 3px; transition: border-color 0.2s, background-color 0.2s; }
-        .file-card:hover { border-color: var(--red-bright); background: rgba(139, 0, 0, 0.15); }
-        .file-card .file-tag { display: block; font-size: 0.7rem; color: var(--gold-military); margin-bottom: 6px; }
-        .file-card .file-status { font-size: 0.82rem; color: var(--text-dim); font-weight: bold; }
+        summary { 
+            font-weight: bold; 
+            color: var(--gold-military); 
+            cursor: pointer; 
+            font-size: 0.95rem; 
+            outline: none; 
+        }
 
-        .table-responsive { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 10px; }
-        table { width: 100%; border-collapse: collapse; min-width: 280px; }
-        th, td { border: 1px solid #333; padding: 10px; text-align: left; font-size: 0.88rem; }
-        th { background: var(--red-blood); color: white; }
+        details[open] summary { 
+            color: var(--red-bright); 
+            margin-bottom: 8px; 
+        }
 
-        footer { text-align: center; padding: 24px 10px; color: var(--text-dim); font-size: 0.78rem; border-top: 1px solid var(--red-blood); margin-top: 35px; background: rgba(8, 9, 10, 0.95); }
+        details p { 
+            font-size: 0.88rem; 
+            color: var(--text-dim); 
+        }
+
+        .file-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); 
+            gap: 12px; 
+            margin-top: 15px; 
+        }
+
+        .file-card { 
+            background: #0d0e0f; 
+            border: 1px dashed var(--red-blood); 
+            padding: 16px 10px; 
+            text-align: center; 
+            border-radius: 8px; 
+            transition: border-color 0.2s, background-color 0.2s; 
+        }
+
+        .file-card:hover { 
+            border-color: var(--red-bright); 
+            background: rgba(139, 0, 0, 0.15); 
+        }
+
+        .file-card .file-tag { 
+            display: block; 
+            font-size: 0.7rem; 
+            color: var(--gold-military); 
+            margin-bottom: 6px; 
+        }
+
+        .file-card .file-status { 
+            font-size: 0.82rem; 
+            color: var(--text-dim); 
+            font-weight: bold; 
+        }
+
+        .table-responsive { 
+            width: 100%; 
+            overflow-x: auto; 
+            -webkit-overflow-scrolling: touch; 
+            margin-top: 10px; 
+            border-radius: 8px; 
+        }
+
+        table { 
+            width: 100%; 
+            border-collapse: separate; 
+            border-spacing: 0; 
+            min-width: 280px; 
+            border-radius: 8px; 
+            overflow: hidden; 
+        }
+
+        th, td { 
+            border: 1px solid #333; 
+            padding: 10px; 
+            text-align: left; 
+            font-size: 0.88rem; 
+        }
+
+        th { 
+            background: var(--red-blood); 
+            color: white; 
+        }
+
+        footer { 
+            text-align: center; 
+            padding: 24px 10px; 
+            color: var(--text-dim); 
+            font-size: 0.78rem; 
+            border-top: 1px solid var(--red-blood); 
+            margin-top: 35px; 
+            background: rgba(8, 9, 10, 0.95); 
+            border-radius: 8px; 
+        }
     </style>
 </head>
 <body>
-
     <div class="wrapper">
         <header>
             <div class="header-title-container">
@@ -278,7 +419,6 @@
         </header>
 
         <div class="grid-container">
-
             <main class="panel">
                 <h2>RECEPCIÓN ABIERTA DE PROYECTOS</h2>
                 <p style="margin-bottom: 15px; font-size: 0.95rem;">En <strong>Editorial Belikones</strong> abrimos el espacio para todo tipo de expresiones e ideas. Aceptamos cualquier trabajo sin restricción de tema, género, formato o método de creación (incluyendo proyectos generados o asistidos por Inteligencia Artificial).</p>
@@ -378,7 +518,6 @@
                     <input type="range" id="darkness" min="0" max="100" value="100" oninput="document.getElementById('dark-val').innerText = this.value">
 
                     <button type="button" onclick="evaluarManuscrito()">Verificar Compatibilidad</button>
-
                     <div id="eval-result"></div>
                 </div>
             </section>
@@ -425,7 +564,6 @@
 
                 <div class="evaluator">
                     <form action="https://formsubmit.co/felipedejesusgarciapatino@gmail.com" method="POST" enctype="multipart/form-data">
-                        
                         <input type="hidden" name="_subject" value="[NUEVO MATERIAL / IA / MENSAJE] - Editorial Belikones">
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_captcha" value="false">
@@ -449,7 +587,6 @@
                     </form>
                 </div>
             </section>
-
         </div>
 
         <footer>
@@ -461,7 +598,6 @@
     <script>
         function evaluarManuscrito() {
             const resultDiv = document.getElementById('eval-result');
-
             resultDiv.style.display = 'block';
             resultDiv.style.background = 'rgba(0, 120, 0, 0.4)';
             resultDiv.style.color = '#85ff85';
