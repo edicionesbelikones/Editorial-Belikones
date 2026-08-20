@@ -56,7 +56,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Fondo gt.png más visible */
+        /* Fondo gt.png visible pero sin tapar el contenido */
         body::before {
             content: "";
             position: fixed;
@@ -69,7 +69,7 @@
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
-            opacity: 0.15;
+            opacity: 0.18;
             z-index: -1;
             pointer-events: none;
             will-change: transform;
@@ -87,7 +87,7 @@
         .page-wrapper {
             max-width: 1200px;
             margin: 0 auto;
-            background: rgba(18, 18, 18, 0.96);
+            background: rgba(18, 18, 18, 0.93);
             box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
             min-height: 100vh;
         }
@@ -110,43 +110,50 @@
         }
 
         .header-middle {
-            padding: 22px 16px;
+            padding: 28px 16px 24px;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             border-bottom: 1px solid var(--border-color);
-            gap: 16px;
+            gap: 20px;
             background: var(--bg-card);
+            text-align: center;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            min-width: 0;
-            flex: 1;
+            justify-content: center;
+            width: 100%;
         }
 
-        /* Logo ggg.png mucho más grande */
+        /* Logo ggg.png mucho más grande y centrado */
         .logo-image {
             display: block;
-            width: min(720px, 100%);
+            width: min(920px, 96%);
             height: auto;
-            max-height: 170px;
+            max-height: 240px;
             object-fit: contain;
-            object-position: left center;
+            object-position: center;
         }
 
+        .header-search {
+            width: 100%;
+            max-width: 420px;
+        }
         .header-search form {
             display: flex;
             align-items: center;
+            width: 100%;
         }
         .header-search input[type="text"] {
-            padding: 10px 14px;
+            padding: 11px 14px;
             border: 1px solid var(--border-color);
             border-radius: 4px 0 0 4px;
             outline: none;
-            font-size: 0.9rem;
-            width: 210px;
+            font-size: 0.95rem;
+            flex: 1;
             min-width: 0;
             background: var(--bg-elevated);
             color: var(--text-main);
@@ -158,10 +165,10 @@
             background: var(--primary);
             color: var(--white);
             border: 1px solid var(--primary);
-            padding: 10px 14px;
+            padding: 11px 16px;
             border-radius: 0 4px 4px 0;
             cursor: pointer;
-            font-size: 0.95rem;
+            font-size: 1rem;
             transition: background 0.2s;
         }
         .header-search button:hover {
@@ -480,7 +487,7 @@
             body::before {
                 width: 100vw;
                 height: 100vh;
-                opacity: 0.10;
+                opacity: 0.12;
                 background-size: cover;
             }
 
@@ -494,31 +501,17 @@
             }
 
             .header-middle {
-                flex-direction: column;
-                gap: 14px;
-                padding: 18px 12px;
+                padding: 20px 12px 18px;
+                gap: 16px;
             }
 
-            .logo {
-                justify-content: center;
-                width: 100%;
-            }
             .logo-image {
-                width: min(100%, 520px);
-                max-height: 130px;
-                object-position: center;
+                width: min(100%, 620px);
+                max-height: 160px;
             }
 
             .header-search {
-                width: 100%;
-                max-width: 400px;
-            }
-            .header-search form {
-                width: 100%;
-            }
-            .header-search input[type="text"] {
-                width: 100%;
-                flex: 1;
+                max-width: 100%;
             }
 
             .nav-toggle {
@@ -591,7 +584,7 @@
                 font-size: 0.95rem;
             }
             .logo-image {
-                max-height: 110px;
+                max-height: 130px;
             }
         }
 
@@ -622,8 +615,8 @@
                 src="ggg.png"
                 alt="Ediciones Belikones — Catálogo editorial y proyectos de recepción abierta"
                 class="logo-image"
-                width="720"
-                height="170"
+                width="920"
+                height="240"
                 decoding="async"
             >
         </div>
