@@ -1,564 +1,172 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Novedades y catálogo general en Ediciones Belikones">
-    <meta name="robots" content="index,follow">
-    <title>Editorial Belikones</title>
-    
-    <!-- Fuentes estilo Era / Clásico Editorial -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!DOCTYPE html><html lang="es"><head>    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <meta name="description" content="Novedades y catálogo general en Ediciones Belikones">    <meta name="robots" content="index,follow">    <title>Editorial Belikones</title>        <!-- Fuentes estilo Era / Clásico Editorial -->    <link rel="preconnect" href="https://fonts.googleapis.com">    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>        :root {            --primary-red: #9e1b1b;            --secondary-red: #7c1414;            --bg-light: #f8f9fa;            --text-main: #2b2b2b;            --text-muted: #6c757d;            --border-color: #e2e2e2;            --white: #ffffff;        }
 
-    <style>
-        :root {
-            --primary-red: #9e1b1b;
-            --secondary-red: #7c1414;
-            --bg-light: #f8f9fa;
-            --text-main: #2b2b2b;
-            --text-muted: #6c757d;
-            --border-color: #e2e2e2;
-            --white: #ffffff;
+        * {            box-sizing: border-box;            margin: 0;            padding: 0;        }
+
+        body {            background-color: #f4f4f4;            color: var(--text-main);            font-family: 'Open Sans', sans-serif;            line-height: 1.6;            position: relative;        }
+
+        /* Imagen de fondo super agrandada y transparente */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120vw;
+            height: 120vh;
+            background-image: url('gt.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            opacity: 0.15; /* Controla qué tan transparente se ve */
+            z-index: -1;
+            pointer-events: none;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        a {            color: var(--text-main);            text-decoration: none;            transition: color 0.2s ease;        }
 
-        body {
-            background-color: #f4f4f4;
-            color: var(--text-main);
-            font-family: 'Open Sans', sans-serif;
-            line-height: 1.6;
-        }
+        a:hover {            color: var(--primary-red);        }
 
-        a {
-            color: var(--text-main);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
+        .page-wrapper {            max-width: 1200px;            margin: 0 auto;            background: rgba(255, 255, 255, 0.92); /* Fondo ligeramente transparente para apreciar la imagen */
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);        }
 
-        a:hover {
-            color: var(--primary-red);
-        }
+        /* Top Header Navigation */        .header-top {            background-color: #1a1a1a;            color: #ccc;            font-size: 0.8rem;            padding: 6px 20px;            text-align: right;        }
 
-        .page-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: var(--white);
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
-        }
+        .header-top a {            color: #ccc;            margin-left: 15px;        }
 
-        /* Top Header Navigation */
-        .header-top {
-            background-color: #1a1a1a;
-            color: #ccc;
-            font-size: 0.8rem;
-            padding: 6px 20px;
-            text-align: right;
-        }
+        .header-top a:hover {            color: var(--white);        }
 
-        .header-top a {
-            color: #ccc;
-            margin-left: 15px;
-        }
+        /* Main Header */        .header-middle {            padding: 25px 20px;            display: flex;            justify-content: space-between;            align-items: center;            border-bottom: 1px solid var(--border-color);        }
 
-        .header-top a:hover {
-            color: var(--white);
-        }
+        .logo h1 {            font-family: 'Merriweather', serif;            font-size: 2.2rem;            color: var(--primary-red);            letter-spacing: -0.5px;            text-transform: uppercase;        }
 
-        /* Main Header */
-        .header-middle {
-            padding: 25px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border-color);
-        }
+        .logo p {            font-size: 0.85rem;            color: var(--text-muted);            font-style: italic;        }
 
-        .logo h1 {
-            font-family: 'Merriweather', serif;
-            font-size: 2.2rem;
-            color: var(--primary-red);
-            letter-spacing: -0.5px;
-            text-transform: uppercase;
-        }
+        .header-search form {            display: flex;            align-items: center;        }
 
-        .logo p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-style: italic;
-        }
+        .header-search input[type="text"] {            padding: 8px 12px;            border: 1px solid var(--border-color);            border-radius: 3px 0 0 3px;            outline: none;            font-size: 0.85rem;            width: 220px;        }
 
-        .header-search form {
-            display: flex;
-            align-items: center;
-        }
+        .header-search button {            background: var(--primary-red);            color: var(--white);            border: 1px solid var(--primary-red);            padding: 8px 12px;            border-radius: 0 3px 3px 0;            cursor: pointer;        }
 
-        .header-search input[type="text"] {
-            padding: 8px 12px;
-            border: 1px solid var(--border-color);
-            border-radius: 3px 0 0 3px;
-            outline: none;
-            font-size: 0.85rem;
-            width: 220px;
-        }
+        /* Main Navigation Bar */        .header-bottom {            background-color: var(--primary-red);            display: flex;            justify-content: space-between;            align-items: center;            padding: 0 20px;        }
 
-        .header-search button {
-            background: var(--primary-red);
-            color: var(--white);
-            border: 1px solid var(--primary-red);
-            padding: 8px 12px;
-            border-radius: 0 3px 3px 0;
-            cursor: pointer;
-        }
+        .nav-menu {            display: flex;            list-style: none;        }
 
-        /* Main Navigation Bar */
-        .header-bottom {
-            background-color: var(--primary-red);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
+        .nav-menu li a {            display: block;            color: var(--white);            padding: 12px 18px;            font-size: 0.9rem;            font-weight: 600;            text-transform: uppercase;        }
 
-        .nav-menu {
-            display: flex;
-            list-style: none;
-        }
+        .nav-menu li a:hover {            background-color: var(--secondary-red);        }
 
-        .nav-menu li a {
-            display: block;
-            color: var(--white);
-            padding: 12px 18px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
+        .social-links a {            color: var(--white);            margin-left: 12px;            font-size: 1rem;        }
 
-        .nav-menu li a:hover {
-            background-color: var(--secondary-red);
-        }
+        /* Banner Carousel Section */        .slider-wrapper {            background: #2b2b2b;            color: var(--white);            text-align: center;            padding: 40px 20px;            position: relative;            border-bottom: 4px solid var(--primary-red);        }
 
-        .social-links a {
-            color: var(--white);
-            margin-left: 12px;
-            font-size: 1rem;
-        }
+        .slider-wrapper h2 {            font-family: 'Merriweather', serif;            font-size: 1.8rem;            margin-bottom: 8px;            font-weight: 300;        }
 
-        /* Banner Carousel Section */
-        .slider-wrapper {
-            background: #2b2b2b;
-            color: var(--white);
-            text-align: center;
-            padding: 40px 20px;
-            position: relative;
-            border-bottom: 4px solid var(--primary-red);
-        }
+        .slider-wrapper p {            font-size: 0.95rem;            color: #ddd;        }
 
-        .slider-wrapper h2 {
-            font-family: 'Merriweather', serif;
-            font-size: 1.8rem;
-            margin-bottom: 8px;
-            font-weight: 300;
-        }
+        /* Main Content Layout */        .page-content {            display: grid;            grid-template-columns: 3fr 1fr;            gap: 30px;            padding: 30px 20px;        }
 
-        .slider-wrapper p {
-            font-size: 0.95rem;
-            color: #ddd;
-        }
+        /* Catalog Grid Section */        .section-title {            font-family: 'Merriweather', serif;            font-size: 1.5rem;            color: var(--primary-red);            border-bottom: 2px solid var(--primary-red);            padding-bottom: 8px;            margin-bottom: 20px;        }
 
-        /* Main Content Layout */
-        .page-content {
-            display: grid;
-            grid-template-columns: 3fr 1fr;
-            gap: 30px;
-            padding: 30px 20px;
-        }
+        .books-grid {            display: grid;            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));            gap: 25px;        }
 
-        /* Catalog Grid Section */
-        .section-title {
-            font-family: 'Merriweather', serif;
-            font-size: 1.5rem;
-            color: var(--primary-red);
-            border-bottom: 2px solid var(--primary-red);
-            padding-bottom: 8px;
-            margin-bottom: 20px;
-        }
+        .book-card {            background: var(--white);            border: 1px solid var(--border-color);            padding: 15px;            display: flex;            flex-direction: column;            transition: transform 0.2s ease, box-shadow 0.2s ease;        }
 
-        .books-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 25px;
-        }
+        .book-card:hover {            transform: translateY(-3px);            box-shadow: 0 5px 15px rgba(0,0,0,0.08);        }
 
-        .book-card {
-            background: var(--white);
-            border: 1px solid var(--border-color);
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
+        .book-cover {            width: 100%;            height: 260px;            object-fit: cover;            background: #eaeaea;            margin-bottom: 12px;            border: 1px solid #ddd;        }
 
-        .book-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
+        .book-title {            font-family: 'Merriweather', serif;            font-size: 1rem;            color: var(--text-main);            margin-bottom: 4px;            line-height: 1.3;        }
 
-        .book-cover {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-            background: #eaeaea;
-            margin-bottom: 12px;
-            border: 1px solid #ddd;
-        }
+        .book-author {            font-size: 0.85rem;            color: var(--primary-red);            font-weight: 600;            margin-bottom: 8px;        }
 
-        .book-title {
-            font-family: 'Merriweather', serif;
-            font-size: 1rem;
-            color: var(--text-main);
-            margin-bottom: 4px;
-            line-height: 1.3;
-        }
+        .book-synopsis {            font-size: 0.8rem;            color: var(--text-muted);            line-height: 1.4;        }
 
-        .book-author {
-            font-size: 0.85rem;
-            color: var(--primary-red);
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
+        /* Sidebar Section */        .sidebar-box {            background: var(--bg-light);            border: 1px solid var(--border-color);            padding: 20px;            margin-bottom: 25px;        }
 
-        .book-synopsis {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            line-height: 1.4;
-        }
+        .sidebar-box h3 {            font-family: 'Merriweather', serif;            font-size: 1.1rem;            color: var(--text-main);            border-bottom: 1px solid var(--border-color);            padding-bottom: 8px;            margin-bottom: 15px;        }
 
-        /* Sidebar Section */
-        .sidebar-box {
-            background: var(--bg-light);
-            border: 1px solid var(--border-color);
-            padding: 20px;
-            margin-bottom: 25px;
-        }
+        .catalog-download-btn {            display: block;            background: var(--primary-red);            color: var(--white) !important;            text-align: center;            padding: 12px;            font-weight: bold;            font-size: 0.9rem;            border-radius: 3px;        }
 
-        .sidebar-box h3 {
-            font-family: 'Merriweather', serif;
-            font-size: 1.1rem;
-            color: var(--text-main);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
-            margin-bottom: 15px;
-        }
+        .catalog-download-btn:hover {            background: var(--secondary-red);        }
 
-        .catalog-download-btn {
-            display: block;
-            background: var(--primary-red);
-            color: var(--white) !important;
-            text-align: center;
-            padding: 12px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            border-radius: 3px;
-        }
+        .news-list {            list-style: none;        }
 
-        .catalog-download-btn:hover {
-            background: var(--secondary-red);
-        }
+        .news-item {            margin-bottom: 15px;            padding-bottom: 12px;            border-bottom: 1px dashed var(--border-color);        }
 
-        .news-list {
-            list-style: none;
-        }
+        .news-item:last-child {            border-bottom: none;        }
 
-        .news-item {
-            margin-bottom: 15px;
-            padding-bottom: 12px;
-            border-bottom: 1px dashed var(--border-color);
-        }
+        .news-date {            font-size: 0.75rem;            color: var(--text-muted);            display: block;        }
 
-        .news-item:last-child {
-            border-bottom: none;
-        }
+        .news-title {            font-size: 0.88rem;            font-weight: 600;            line-height: 1.3;        }
 
-        .news-date {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            display: block;
-        }
+        /* Submission Form Section (Despacho) */        .form-section {            grid-column: 1 / -1;            background: var(--bg-light);            border: 1px solid var(--border-color);            padding: 30px;            margin-top: 20px;        }
 
-        .news-title {
-            font-size: 0.88rem;
-            font-weight: 600;
-            line-height: 1.3;
-        }
+        .form-group {            margin-bottom: 15px;        }
 
-        /* Submission Form Section (Despacho) */
-        .form-section {
-            grid-column: 1 / -1;
-            background: var(--bg-light);
-            border: 1px solid var(--border-color);
-            padding: 30px;
-            margin-top: 20px;
-        }
+        .form-group label {            display: block;            font-size: 0.85rem;            font-weight: 600;            margin-bottom: 5px;        }
 
-        .form-group {
-            margin-bottom: 15px;
-        }
+        .form-group input,        .form-group textarea,        .form-group select {            width: 100%;            padding: 10px;            border: 1px solid var(--border-color);            border-radius: 3px;            font-family: inherit;            font-size: 0.9rem;        }
 
-        .form-group label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
+        .submit-btn {            background: var(--primary-red);            color: var(--white);            border: none;            padding: 12px 25px;            font-size: 0.9rem;            font-weight: bold;            cursor: pointer;            text-transform: uppercase;        }
 
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--border-color);
-            border-radius: 3px;
-            font-family: inherit;
-            font-size: 0.9rem;
-        }
+        .submit-btn:hover {            background: var(--secondary-red);        }
 
-        .submit-btn {
-            background: var(--primary-red);
-            color: var(--white);
-            border: none;
-            padding: 12px 25px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            cursor: pointer;
-            text-transform: uppercase;
-        }
+        /* Footer */        footer {            background: #1a1a1a;            color: #888;            text-align: center;            padding: 25px 20px;            font-size: 0.8rem;            border-top: 3px solid var(--primary-red);        }
 
-        .submit-btn:hover {
-            background: var(--secondary-red);
-        }
+        footer a {            color: #ccc;        }
 
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: #888;
-            text-align: center;
-            padding: 25px 20px;
-            font-size: 0.8rem;
-            border-top: 3px solid var(--primary-red);
-        }
+        /* Responsive Layout */        @media (max-width: 768px) {            .header-middle {                flex-direction: column;                gap: 15px;                text-align: center;            }
 
-        footer a {
-            color: #ccc;
-        }
+            .header-bottom {                flex-direction: column;                padding: 10px;            }
 
-        /* Responsive Layout */
-        @media (max-width: 768px) {
-            .header-middle {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
+            .nav-menu {                flex-wrap: wrap;                justify-content: center;            }
 
-            .header-bottom {
-                flex-direction: column;
-                padding: 10px;
-            }
+            .page-content {                grid-template-columns: 1fr;            }
 
-            .nav-menu {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .page-content {
-                grid-template-columns: 1fr;
-            }
-
-            .social-links {
-                margin-top: 10px;
-            }
-        }
-    </style>
-</head>
-<body>
-
+            .social-links {                margin-top: 10px;            }        }    </style></head><body>
 <div class="page-wrapper">
+    <!-- Top Links -->    <div class="header-top">        <a href="#convocatoria">Convocatoria</a>        <a href="#contacto">Contacto y Manuscritos</a>    </div>
 
-    <!-- Top Links -->
-    <div class="header-top">
-        <a href="#convocatoria">Convocatoria</a>
-        <a href="#contacto">Contacto y Manuscritos</a>
-    </div>
+    <!-- Main Header -->    <div class="header-middle">        <div class="logo">            <h1>Ediciones Belikones</h1>            <p>Catálogo editorial y proyectos de recepción abierta</p>        </div>        <div class="header-search">            <form action="#" method="get">                <input type="text" placeholder="Buscar en el catálogo..." aria-label="Buscar en el catálogo">                <button type="submit"><i class="fa fa-search"></i></button>            </form>        </div>    </div>
 
-    <!-- Main Header -->
-    <div class="header-middle">
-        <div class="logo">
-            <h1>Ediciones Belikones</h1>
-            <p>Catálogo editorial y proyectos de recepción abierta</p>
-        </div>
-        <div class="header-search">
-            <form action="#" method="get">
-                <input type="text" placeholder="Buscar en el catálogo..." aria-label="Buscar en el catálogo">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </div>
-    </div>
+    <!-- Navigation Bar -->    <div class="header-bottom">        <ul class="nav-menu">            <li><a href="#">Novedades</a></li>            <li><a href="#catalogo">Catálogo</a></li>            <li><a href="#convocatoria">Manuscritos</a></li>            <li><a href="#noticias">Noticias</a></li>            <li><a href="#contacto">Contacto</a></li>        </ul>        <div class="social-links">            <a href="#" aria-label="Facebook"><i class="fa fa-facebook"></i></a>            <a href="#" aria-label="Twitter"><i class="fa fa-twitter"></i></a>            <a href="#" aria-label="Instagram"><i class="fa fa-instagram"></i></a>            <a href="#" aria-label="YouTube"><i class="fa fa-youtube-play"></i></a>        </div>    </div>
 
-    <!-- Navigation Bar -->
-    <div class="header-bottom">
-        <ul class="nav-menu">
-            <li><a href="#">Novedades</a></li>
-            <li><a href="#catalogo">Catálogo</a></li>
-            <li><a href="#convocatoria">Manuscritos</a></li>
-            <li><a href="#noticias">Noticias</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-        <div class="social-links">
-            <a href="#" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
-            <a href="#" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
-            <a href="#" aria-label="YouTube"><i class="fa fa-youtube-play"></i></a>
-        </div>
-    </div>
+    <!-- Main Banner / Slider Replacement -->    <div class="slider-wrapper">        <h2>Convocatoria Abierta: Recepción Multiformato e IA</h2>        <p>Aceptamos proyectos literarios, visuales, sonoros y conceptuales sin restricción de tema o método de creación.</p>    </div>
 
-    <!-- Main Banner / Slider Replacement -->
-    <div class="slider-wrapper">
-        <h2>Convocatoria Abierta: Recepción Multiformato e IA</h2>
-        <p>Aceptamos proyectos literarios, visuales, sonoros y conceptuales sin restricción de tema o método de creación.</p>
-    </div>
+    <!-- Main Content Area -->    <div class="page-content">
 
-    <!-- Main Content Area -->
-    <div class="page-content">
+        <!-- Left Column: Catalog -->        <main>            <h2 class="section-title" id="catalogo">Novedades y Catálogo</h2>                        <div class="books-grid">                                <!-- Book Item 1 -->                <article class="book-card">                    <img src="cover1.jpg" alt="Portada de la obra" class="book-cover">                    <h3 class="book-title">El Conjuro de las Ranas</h3>                    <p class="book-author">Varios Autores</p>                    <p class="book-synopsis">Compilación de narrativa contemporánea y proyectos experimentales que exploran las fronteras del texto y la tecnología.</p>                </article>
 
-        <!-- Left Column: Catalog -->
-        <main>
-            <h2 class="section-title" id="catalogo">Novedades y Catálogo</h2>
-            
-            <div class="books-grid">
-                
-                <!-- Book Item 1 -->
-                <article class="book-card">
-                    <img src="cover1.jpg" alt="Portada de la obra" class="book-cover">
-                    <h3 class="book-title">El Conjuro de las Ranas</h3>
-                    <p class="book-author">Varios Autores</p>
-                    <p class="book-synopsis">Compilación de narrativa contemporánea y proyectos experimentales que exploran las fronteras del texto y la tecnología.</p>
-                </article>
+                <!-- Book Item 2 -->                <article class="book-card">                    <img src="cover2.jpg" alt="Portada de la obra" class="book-cover">                    <h3 class="book-title">Antropología del Silencio</h3>                    <p class="book-author">Iván Mata</p>                    <p class="book-synopsis">Un análisis profundo sobre las voces periféricas, los espacios de creación independiente y las estéticas alternativas.</p>                </article>
 
-                <!-- Book Item 2 -->
-                <article class="book-card">
-                    <img src="cover2.jpg" alt="Portada de la obra" class="book-cover">
-                    <h3 class="book-title">Antropología del Silencio</h3>
-                    <p class="book-author">Iván Mata</p>
-                    <p class="book-synopsis">Un análisis profundo sobre las voces periféricas, los espacios de creación independiente y las estéticas alternativas.</p>
-                </article>
+                <!-- Book Item 3 -->                <article class="book-card">                    <img src="cover3.jpg" alt="Portada de la obra" class="book-cover">                    <h3 class="book-title">Sistemas e Imágenes</h3>                    <p class="book-author">Gerardo Szae</p>                    <p class="book-synopsis">Exploración visual y conceptual sobre la relación entre el lenguaje maquínico y la creación literaria.</p>                </article>
 
-                <!-- Book Item 3 -->
-                <article class="book-card">
-                    <img src="cover3.jpg" alt="Portada de la obra" class="book-cover">
-                    <h3 class="book-title">Sistemas e Imágenes</h3>
-                    <p class="book-author">Gerardo Szae</p>
-                    <p class="book-synopsis">Exploración visual y conceptual sobre la relación entre el lenguaje maquínico y la creación literaria.</p>
-                </article>
+                <!-- Book Item 4 -->                <article class="book-card">                    <img src="cover4.jpg" alt="Portada de la obra" class="book-cover">                    <h3 class="book-title">Fronteras del Lenguaje</h3>                    <p class="book-author">Gustavo Narváez</p>                    <p class="book-synopsis">Ensayos críticos sobre las dinámicas de publicación digital y el desarrollo de nuevas formas narrativas.</p>                </article>
+            </div>        </main>
 
-                <!-- Book Item 4 -->
-                <article class="book-card">
-                    <img src="cover4.jpg" alt="Portada de la obra" class="book-cover">
-                    <h3 class="book-title">Fronteras del Lenguaje</h3>
-                    <p class="book-author">Gustavo Narváez</p>
-                    <p class="book-synopsis">Ensayos críticos sobre las dinámicas de publicación digital y el desarrollo de nuevas formas narrativas.</p>
-                </article>
+        <!-- Right Column: Sidebar -->        <aside>                        <!-- Catalog Download Box -->            <div class="sidebar-box">                <h3>Catálogo General</h3>                <p style="font-size: 0.85rem; margin-bottom: 12px; color: var(--text-muted);">Descarga nuestro listado completo de títulos y publicaciones disponibles.</p>                <a href="#" class="catalog-download-btn"><i class="fa fa-file-pdf-o"></i> Descargar Catálogo PDF</a>            </div>
 
-            </div>
-        </main>
-
-        <!-- Right Column: Sidebar -->
-        <aside>
-            
-            <!-- Catalog Download Box -->
-            <div class="sidebar-box">
-                <h3>Catálogo General</h3>
-                <p style="font-size: 0.85rem; margin-bottom: 12px; color: var(--text-muted);">Descarga nuestro listado completo de títulos y publicaciones disponibles.</p>
-                <a href="#" class="catalog-download-btn"><i class="fa fa-file-pdf-o"></i> Descargar Catálogo PDF</a>
-            </div>
-
-            <!-- News & Events Sidebar -->
-            <div class="sidebar-box" id="noticias">
-                <h3>Noticias y Eventos</h3>
-                <ul class="news-list">
-                    <li class="news-item">
-                        <span class="news-date">18-08-2026</span>
-                        <a href="#" class="news-title">Apertura de la convocatoria de proyectos multiformato</a>
-                    </li>
-                    <li class="news-item">
-                        <span class="news-date">05-06-2026</span>
-                        <a href="#" class="news-title">Presentación del repositorio de archivos independientes</a>
-                    </li>
-                    <li class="news-item">
-                        <span class="news-date">12-04-2026</span>
-                        <a href="#" class="news-title">Entrevista sobre edición independiente e inteligencia artificial</a>
-                    </li>
-                </ul>
-            </div>
-
+            <!-- News & Events Sidebar -->            <div class="sidebar-box" id="noticias">                <h3>Noticias y Eventos</h3>                <ul class="news-list">                    <li class="news-item">                        <span class="news-date">18-08-2026</span>                        <a href="#" class="news-title">Apertura de la convocatoria de proyectos multiformato</a>                    </li>                    <li class="news-item">                        <span class="news-date">05-06-2026</span>                        <a href="#" class="news-title">Presentación del repositorio de archivos independientes</a>                    </li>                    <li class="news-item">                        <span class="news-date">12-04-2026</span>                        <a href="#" class="news-title">Entrevista sobre edición independiente e inteligencia artificial</a>                    </li>                </ul>            </div>
         </aside>
 
-        <!-- Full Width Section: Submission Form -->
-        <section class="form-section" id="contacto">
-            <h2 class="section-title" id="convocatoria">Despacho de Manuscritos y Recepción de Proyectos</h2>
-            <p style="margin-bottom: 20px; font-size: 0.9rem; color: var(--text-muted);">
-                Envía tus proyectos (texto, imágenes, audio, video o contenido asistido por IA) directamente a nuestro equipo editorial a través de este formulario.
-            </p>
+        <!-- Full Width Section: Submission Form -->        <section class="form-section" id="contacto">            <h2 class="section-title" id="convocatoria">Despacho de Manuscritos y Recepción de Proyectos</h2>            <p style="margin-bottom: 20px; font-size: 0.9rem; color: var(--text-muted);">                Envía tus proyectos (texto, imágenes, audio, video o contenido asistido por IA) directamente a nuestro equipo editorial a través de este formulario.            </p>
 
-            <form action="https://formsubmit.co/edicionesbelikones@gmail.com" method="POST" enctype="multipart/form-data">
-                <input type="hidden" name="_subject" value="[NUEVO MATERIAL / MANUSCRITO] - Ediciones Nelikones">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_captcha" value="false">
+            <form action="https://formsubmit.co/edicionesbelikones@gmail.com" method="POST" enctype="multipart/form-data">                <input type="hidden" name="_subject" value="[NUEVO MATERIAL / MANUSCRITO] - Ediciones Nelikones">                <input type="hidden" name="_template" value="table">                <input type="hidden" name="_captcha" value="false">
 
-                <div class="form-group">
-                    <label for="author">Nombre o Seudónimo del Creador/Autor:</label>
-                    <input type="text" id="author" name="Autor / Seudónimo" placeholder="Tu nombre o seudónimo" required>
-                </div>
+                <div class="form-group">                    <label for="author">Nombre o Seudónimo del Creador/Autor:</label>                    <input type="text" id="author" name="Autor / Seudónimo" placeholder="Tu nombre o seudónimo" required>                </div>
 
-                <div class="form-group">
-                    <label for="title">Título del Proyecto o Asunto:</label>
-                    <input type="text" id="title" name="Título / Asunto" placeholder="Ej. Mi Proyecto Creativo" required>
-                </div>
+                <div class="form-group">                    <label for="title">Título del Proyecto o Asunto:</label>                    <input type="text" id="title" name="Título / Asunto" placeholder="Ej. Mi Proyecto Creativo" required>                </div>
 
-                <div class="form-group">
-                    <label for="email">Correo Electrónico de Contacto:</label>
-                    <input type="email" id="email" name="Email de Contacto" placeholder="tu-correo@contacto.com" required>
-                </div>
+                <div class="form-group">                    <label for="email">Correo Electrónico de Contacto:</label>                    <input type="email" id="email" name="Email de Contacto" placeholder="tu-correo@contacto.com" required>                </div>
 
-                <div class="form-group">
-                    <label for="synopsis">Descripción, Herramientas de IA utilizadas o Mensaje:</label>
-                    <textarea id="synopsis" name="Descripción / Mensaje" rows="5" placeholder="Escribe aquí los detalles de tu trabajo o comentarios para el comité editorial..." required></textarea>
-                </div>
+                <div class="form-group">                    <label for="synopsis">Descripción, Herramientas de IA utilizadas o Mensaje:</label>                    <textarea id="synopsis" name="Descripción / Mensaje" rows="5" placeholder="Escribe aquí los detalles de tu trabajo o comentarios para el comité editorial..." required></textarea>                </div>
 
-                <div class="form-group">
-                    <label for="attachment">Adjuntar Archivo (Documento, Imagen, Audio, Video, ZIP, etc.):</label>
-                    <input type="file" id="attachment" name="attachment" accept="*/*">
-                </div>
+                <div class="form-group">                    <label for="attachment">Adjuntar Archivo (Documento, Imagen, Audio, Video, ZIP, etc.):</label>                    <input type="file" id="attachment" name="attachment" accept="*/*">                </div>
 
-                <button type="submit" class="submit-btn">Enviar Proyecto a Evaluación</button>
-            </form>
-        </section>
-
+                <button type="submit" class="submit-btn">Enviar Proyecto a Evaluación</button>            </form>        </section>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 FELIPE PATIÑO &mdash; Plataforma Editorial Independiente.</p>
-        <p style="margin-top: 5px;"><a href="#">Condiciones de envío</a> | <a href="#">Quiénes somos</a> | <a href="#">Contacto</a></p>
-    </footer>
-
+    <!-- Footer -->    <footer>        <p>&copy; 2026 FELIPE PATIÑO &mdash; Plataforma Editorial Independiente.</p>        <p style="margin-top: 5px;"><a href="#">Condiciones de envío</a> | <a href="#">Quiénes somos</a> | <a href="#">Contacto</a></p>    </footer>
 </div>
-
-</body>
-</html>
+</body></html>
