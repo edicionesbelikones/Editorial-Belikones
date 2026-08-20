@@ -2,619 +2,563 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Editorial Belikones | Convocatoria Abierta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Novedades y catálogo general en Ediciones Nelikones">
+    <meta name="robots" content="index,follow">
+    <title>Ediciones Nelikones</title>
     
-    <!-- Fuentes Temáticas -->
+    <!-- Fuentes estilo Era / Clásico Editorial -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Oswald:wght@400;700&family=Share+Tech+Mono&family=Special+Elite&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
         :root {
-            --bg-color: #08090a;
-            --panel-bg: rgba(12, 14, 15, 0.88);
-            --red-blood: #8b0000;
-            --red-bright: #e60000;
-            --gold-military: #c29b38;
-            --text-light: #e0e0e0;
-            --text-dim: #9e9e9e;
-            --border-style: 2px solid var(--red-blood);
-            --radius-mobile: 8px;
+            --primary-red: #9e1b1b;
+            --secondary-red: #7c1414;
+            --bg-light: #f8f9fa;
+            --text-main: #2b2b2b;
+            --text-muted: #6c757d;
+            --border-color: #e2e2e2;
+            --white: #ffffff;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            -webkit-tap-highlight-color: transparent;
-            border-radius: 8px !important;
-        }
-
-        html {
-            min-height: 100vh;
         }
 
         body {
-            background-color: var(--bg-color);
-            background-image: 
-                linear-gradient(rgba(0, 0, 0, 0.75), rgba(8, 9, 10, 0.85)),
-                url('IMG_0061.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            color: var(--text-light);
-            font-family: 'Share Tech Mono', monospace;
-            line-height: 1.5;
-            padding: 12px;
-            min-height: 100vh;
+            background-color: #f4f4f4;
+            color: var(--text-main);
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
         }
 
-        .wrapper {
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        header {
-            text-align: center;
-            padding: 30px 15px;
-            border-bottom: 3px double var(--red-blood);
-            margin-bottom: 20px;
-            background: #000000;
-            box-shadow: 0 0 25px rgba(139, 0, 0, 0.45);
-            border-radius: var(--radius-mobile);
-            position: relative;
-        }
-
-        .header-title-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .payasito-logo {
-            height: clamp(50px, 8vw, 85px);
-            width: auto;
-            object-fit: contain;
-            display: inline-block;
-            vertical-align: middle;
-            mix-blend-mode: screen; 
-            filter: contrast(160%) brightness(95%);
-        }
-
-        header h1 {
-            font-family: 'Creepster', cursive;
-            font-size: clamp(2.2rem, 7vw, 4rem);
-            color: var(--red-bright);
-            text-shadow: 2px 2px 4px #000, 0 0 12px var(--red-blood);
-            letter-spacing: 2px;
-            word-wrap: break-word;
-            margin: 0;
-            display: inline-block;
-        }
-
-        header p.tagline {
-            font-family: 'Special Elite', cursive;
-            color: var(--gold-military);
-            font-size: clamp(0.9rem, 3vw, 1.25rem);
-            margin-top: 10px;
-            padding: 0 10px;
-        }
-
-        .status-badge {
-            display: inline-block;
-            background-color: var(--red-blood);
-            color: #fff;
-            padding: 8px 16px;
-            font-weight: bold;
-            font-size: clamp(0.75rem, 2.5vw, 0.95rem);
-            margin-top: 15px;
-            border: 1px solid var(--red-bright);
-            letter-spacing: 1.5px;
-            border-radius: 8px;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(230, 0, 0, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(230, 0, 0, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(230, 0, 0, 0); }
-        }
-
-        .btn-yt-micro {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2px 6px;
-            margin-top: 8px;
-            font-size: 9px;
-            font-family: 'Share Tech Mono', monospace;
-            font-weight: bold;
-            color: #ffffff;
-            background-color: var(--red-blood);
-            border: 1px solid var(--red-bright);
-            border-radius: 8px;
+        a {
+            color: var(--text-main);
             text-decoration: none;
-            letter-spacing: 0.5px;
-            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+            transition: color 0.2s ease;
         }
 
-        .btn-yt-micro:hover {
-            background-color: var(--red-bright);
-            box-shadow: 0 0 6px var(--red-bright);
+        a:hover {
+            color: var(--primary-red);
         }
 
-        .grid-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
+        .page-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--white);
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
         }
 
-        @media (min-width: 768px) {
-            body { padding: 24px; }
-            .grid-container { grid-template-columns: repeat(2, 1fr); }
-            .col-span-2 { grid-column: span 2; }
+        /* Top Header Navigation */
+        .header-top {
+            background-color: #1a1a1a;
+            color: #ccc;
+            font-size: 0.8rem;
+            padding: 6px 20px;
+            text-align: right;
         }
 
-        @media (min-width: 1024px) {
-            .grid-container { grid-template-columns: 2fr 1fr; }
-            .full-width { grid-column: 1 / -1; }
-            .col-span-2 { grid-column: 1 / -1; }
+        .header-top a {
+            color: #ccc;
+            margin-left: 15px;
         }
 
-        .panel {
-            background: var(--panel-bg);
-            border: var(--border-style);
-            padding: clamp(16px, 4vw, 28px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.9);
-            position: relative;
-            border-radius: var(--radius-mobile);
-            backdrop-filter: blur(2px);
+        .header-top a:hover {
+            color: var(--white);
         }
 
-        .panel::before {
-            content: "EDIT-BELIKONES // OPEN-RECEIPT";
-            position: absolute;
-            top: -10px;
-            right: 12px;
-            background: var(--bg-color);
-            color: var(--gold-military);
-            font-size: 0.65rem;
-            padding: 0 6px;
-            border: 1px solid var(--gold-military);
-            border-radius: 4px;
+        /* Main Header */
+        .header-middle {
+            padding: 25px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .panel h2 {
-            font-family: 'Oswald', sans-serif;
-            font-size: clamp(1.2rem, 4vw, 1.6rem);
-            color: var(--red-bright);
+        .logo h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.2rem;
+            color: var(--primary-red);
+            letter-spacing: -0.5px;
             text-transform: uppercase;
-            border-bottom: 1px solid var(--red-blood);
-            padding-bottom: 8px;
-            margin-bottom: 16px;
+        }
+
+        .logo p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .header-search form {
             display: flex;
             align-items: center;
-            gap: 8px;
         }
 
-        .manifesto-list { 
-            list-style: none; 
+        .header-search input[type="text"] {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 3px 0 0 3px;
+            outline: none;
+            font-size: 0.85rem;
+            width: 220px;
         }
 
-        .manifesto-list li { 
-            margin-bottom: 14px; 
-            padding-left: 14px; 
-            border-left: 3px solid var(--gold-military); 
+        .header-search button {
+            background: var(--primary-red);
+            color: var(--white);
+            border: 1px solid var(--primary-red);
+            padding: 8px 12px;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer;
         }
 
-        .manifesto-list strong { 
-            color: var(--gold-military); 
-            font-size: 1rem; 
+        /* Main Navigation Bar */
+        .header-bottom {
+            background-color: var(--primary-red);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
         }
 
-        .evaluator {
-            background: #101112;
-            border: 1px solid #2a2a2a;
-            padding: clamp(12px, 3vw, 20px);
-            margin-top: 12px;
-            border-radius: var(--radius-mobile);
+        .nav-menu {
+            display: flex;
+            list-style: none;
         }
 
-        .evaluator label { 
-            display: block; 
-            margin-top: 12px; 
-            color: var(--text-light); 
-            font-size: 0.9rem; 
+        .nav-menu li a {
+            display: block;
+            color: var(--white);
+            padding: 12px 18px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
         }
 
-        .evaluator input[type="range"] { 
-            width: 100%; 
-            height: 28px; 
-            accent-color: var(--red-bright); 
-            cursor: pointer; 
+        .nav-menu li a:hover {
+            background-color: var(--secondary-red);
         }
 
-        .evaluator select, 
-        .evaluator button, 
-        .evaluator input[type="text"], 
-        .evaluator input[type="email"], 
-        .evaluator input[type="file"],
-        .evaluator textarea {
-            width: 100%;
-            min-height: 48px;
-            padding: 12px;
-            margin-top: 6px;
-            background: #181a1b;
-            border: 1px solid var(--red-blood);
-            color: var(--text-light);
-            font-family: inherit;
+        .social-links a {
+            color: var(--white);
+            margin-left: 12px;
+            font-size: 1rem;
+        }
+
+        /* Banner Carousel Section */
+        .slider-wrapper {
+            background: #2b2b2b;
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            border-bottom: 4px solid var(--primary-red);
+        }
+
+        .slider-wrapper h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            font-weight: 300;
+        }
+
+        .slider-wrapper p {
             font-size: 0.95rem;
-            border-radius: 8px;
+            color: #ddd;
         }
 
-        .evaluator input[type="file"] { 
-            padding: 10px; 
-            cursor: pointer; 
+        /* Main Content Layout */
+        .page-content {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+            padding: 30px 20px;
         }
 
-        .evaluator input[type="file"]::file-selector-button {
-            background: var(--red-blood); 
-            color: white; 
-            border: none; 
-            padding: 6px 12px; 
-            margin-right: 12px; 
-            cursor: pointer; 
-            font-family: inherit; 
-            text-transform: uppercase; 
-            border-radius: 6px;
+        /* Catalog Grid Section */
+        .section-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.5rem;
+            color: var(--primary-red);
+            border-bottom: 2px solid var(--primary-red);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
         }
 
-        .evaluator input[type="file"]::file-selector-button:hover { 
-            background: var(--red-bright); 
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
         }
 
-        .evaluator button {
-            background: var(--red-blood); 
-            color: white; 
-            font-weight: bold; 
-            cursor: pointer; 
-            margin-top: 18px; 
-            transition: background 0.2s, box-shadow 0.2s; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
+        .book-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .book-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .book-cover {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            background: #eaeaea;
+            margin-bottom: 12px;
+            border: 1px solid #ddd;
+        }
+
+        .book-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1rem;
+            color: var(--text-main);
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .book-author {
+            font-size: 0.85rem;
+            color: var(--primary-red);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .book-synopsis {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* Sidebar Section */
+        .sidebar-box {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .sidebar-box h3 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        .catalog-download-btn {
+            display: block;
+            background: var(--primary-red);
+            color: var(--white) !important;
+            text-align: center;
+            padding: 12px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            border-radius: 3px;
+        }
+
+        .catalog-download-btn:hover {
+            background: var(--secondary-red);
+        }
+
+        .news-list {
+            list-style: none;
+        }
+
+        .news-item {
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            display: block;
+        }
+
+        .news-title {
+            font-size: 0.88rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        /* Submission Form Section (Despacho) */
+        .form-section {
+            grid-column: 1 / -1;
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+            font-family: inherit;
+            font-size: 0.9rem;
+        }
+
+        .submit-btn {
+            background: var(--primary-red);
+            color: var(--white);
             border: none;
+            padding: 12px 25px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
         }
 
-        .evaluator button:active, .evaluator button:hover { 
-            background: var(--red-bright); 
-            box-shadow: 0 0 12px var(--red-bright); 
+        .submit-btn:hover {
+            background: var(--secondary-red);
         }
 
-        #eval-result { 
-            margin-top: 16px; 
-            padding: 12px; 
-            display: none; 
-            font-weight: bold; 
-            text-align: center; 
-            border: 1px solid var(--gold-military); 
-            font-size: 0.9rem; 
-            line-height: 1.4; 
-            border-radius: 8px; 
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #888;
+            text-align: center;
+            padding: 25px 20px;
+            font-size: 0.8rem;
+            border-top: 3px solid var(--primary-red);
         }
 
-        details { 
-            background: #141516; 
-            border: 1px solid #2d2d2d; 
-            margin-bottom: 10px; 
-            padding: 12px; 
-            border-radius: var(--radius-mobile); 
+        footer a {
+            color: #ccc;
         }
 
-        summary { 
-            font-weight: bold; 
-            color: var(--gold-military); 
-            cursor: pointer; 
-            font-size: 0.95rem; 
-            outline: none; 
-        }
+        /* Responsive Layout */
+        @media (max-width: 768px) {
+            .header-middle {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
 
-        details[open] summary { 
-            color: var(--red-bright); 
-            margin-bottom: 8px; 
-        }
+            .header-bottom {
+                flex-direction: column;
+                padding: 10px;
+            }
 
-        details p { 
-            font-size: 0.88rem; 
-            color: var(--text-dim); 
-        }
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
 
-        .file-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); 
-            gap: 12px; 
-            margin-top: 15px; 
-        }
+            .page-content {
+                grid-template-columns: 1fr;
+            }
 
-        .file-card { 
-            background: #0d0e0f; 
-            border: 1px dashed var(--red-blood); 
-            padding: 16px 10px; 
-            text-align: center; 
-            border-radius: 8px; 
-            transition: border-color 0.2s, background-color 0.2s; 
-        }
-
-        .file-card:hover { 
-            border-color: var(--red-bright); 
-            background: rgba(139, 0, 0, 0.15); 
-        }
-
-        .file-card .file-tag { 
-            display: block; 
-            font-size: 0.7rem; 
-            color: var(--gold-military); 
-            margin-bottom: 6px; 
-        }
-
-        .file-card .file-status { 
-            font-size: 0.82rem; 
-            color: var(--text-dim); 
-            font-weight: bold; 
-        }
-
-        .table-responsive { 
-            width: 100%; 
-            overflow-x: auto; 
-            -webkit-overflow-scrolling: touch; 
-            margin-top: 10px; 
-            border-radius: 8px; 
-        }
-
-        table { 
-            width: 100%; 
-            border-collapse: separate; 
-            border-spacing: 0; 
-            min-width: 280px; 
-            border-radius: 8px; 
-            overflow: hidden; 
-        }
-
-        th, td { 
-            border: 1px solid #333; 
-            padding: 10px; 
-            text-align: left; 
-            font-size: 0.88rem; 
-        }
-
-        th { 
-            background: var(--red-blood); 
-            color: white; 
-        }
-
-        footer { 
-            text-align: center; 
-            padding: 24px 10px; 
-            color: var(--text-dim); 
-            font-size: 0.78rem; 
-            border-top: 1px solid var(--red-blood); 
-            margin-top: 35px; 
-            background: rgba(8, 9, 10, 0.95); 
-            border-radius: 8px; 
+            .social-links {
+                margin-top: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        <header>
-            <div class="header-title-container">
-                <img src="gt.png" alt="Payasito Belikones" class="payasito-logo">
-                <h1>EDITORIAL BELIKONES</h1>
-            </div>
-            <p class="tagline">-- "El teclado y el bolígrafo bien terciado." --</p>
-            <div class="status-badge">CONVOCATORIA ABIERTA: RECEPCIÓN MULTIFORMATO E IA</div>
-        </header>
 
-        <div class="grid-container">
-            <main class="panel">
-                <h2>RECEPCIÓN ABIERTA DE PROYECTOS</h2>
-                <p style="margin-bottom: 15px; font-size: 0.95rem;">En <strong>Editorial Belikones</strong> abrimos el espacio para todo tipo de expresiones e ideas. Aceptamos cualquier trabajo sin restricción de tema, género, formato o método de creación (incluyendo proyectos generados o asistidos por Inteligencia Artificial).</p>
-                <ul class="manifesto-list">
-                    <li>
-                        <strong>1. Diversidad Temática:</strong>
-                        Recibimos desde narrativa, poesía y ensayo hasta proyectos conceptuales, académicos o de libre creación.
-                    </li>
-                    <li>
-                        <strong>2. Libertad de Formatos e IA:</strong>
-                        Aceptamos textos, imágenes, audio y video tradicionales, así como contenido asistido o generado mediante Inteligencia Artificial (IA / AI).
-                    </li>
-                    <li>
-                        <strong>3. Espacio Abierto:</strong>
-                        Buscamos creadores, autores y colaboradores con propuestas auténticas, experimentales y diversas.
-                    </li>
-                </ul>
-            </main>
+<div class="page-wrapper">
 
-            <aside class="panel">
-                <h2>MATERIALES Y ARCHIVOS:</h2>
-                <p><small style="color: var(--text-dim);">Recibimos cualquier tipo de proyecto:</small></p>
-                <br>
-                <details>
-                    <summary>Documentos y Textos (IA o Tradicional)</summary>
-                    <p>Formatos PDF, DOCX, TXT, RTF, EPUB. Manuscritos humanos, asistidos o generados con IA.</p>
-                </details>
-                <details>
-                    <summary>Imágenes y Arte Visual / IA</summary>
-                    <p>Formatos JPG, PNG, WEBP, PSD, AI. Arte digital tradicional e imágenes generadas por IA.</p>
-                    <a href="https://www.youtube.com/watch?v=XagDtabD2qk" target="_blank" rel="noopener noreferrer" class="btn-yt-micro">YT // NICKO</a>
-                </details>
-                <details>
-                    <summary>Audio y Grabaciones / IA</summary>
-                    <p>Archivos MP3, WAV, AAC, proyectos sonoros, voces sintéticas, música e historias generadas por IA.</p>
-                </details>
-                <details>
-                    <summary>Video y Multimedia / IA</summary>
-                    <p>Formatos MP4, AVI, MOV, animaciones, cine sintético o clips de video asistidos por IA.</p>
-                    <a href="https://www.youtube.com/watch?v=WuhRkGhjYzY" target="_blank" rel="noopener noreferrer" class="btn-yt-micro">YT // EL MARA</a>
-                </details>
-            </aside>
-
-            <section class="panel full-width">
-                <h2>ARCHIVOS Y PUBLICACIONES</h2>
-                <p style="font-size: 0.9rem;">Repositorio de trabajos, documentos y producciones multimedia de la editorial.</p>
-
-                <details style="margin-top: 15px;">
-                    <summary>DESPLEGAR ARCHIVOS DISPONIBLES</summary>
-                    <div class="file-grid">
-                        <div class="file-card">
-                            <span class="file-tag">DOC-01</span>
-                            <span class="file-status">DISPONIBLE // LIBRE</span>
-                        </div>
-                        <div class="file-card">
-                            <span class="file-tag">DOC-02</span>
-                            <span class="file-status">DISPONIBLE // LIBRE</span>
-                        </div>
-                        <div class="file-card">
-                            <span class="file-tag">DOC-03</span>
-                            <span class="file-status">DISPONIBLE // LIBRE</span>
-                        </div>
-                        <div class="file-card">
-                            <span class="file-tag">DOC-04</span>
-                            <span class="file-status">DISPONIBLE // LIBRE</span>
-                        </div>
-                        <div class="file-card">
-                            <span class="file-tag">DOC-05</span>
-                            <span class="file-status">DISPONIBLE // LIBRE</span>
-                        </div>
-                    </div>
-                </details>
-            </section>
-
-            <section class="panel full-width">
-                <h2>EVALUADOR / SIMULADOR DE RECEPCIÓN DE MATERIALES</h2>
-                <p style="font-size: 0.9rem;">Verifica la compatibilidad de tu archivo antes de realizar el envío a nuestro despacho.</p>
-
-                <div class="evaluator">
-                    <label for="genre">Tipo de Proyecto / Categoría:</label>
-                    <select id="genre">
-                        <option value="texto">Texto / Documento Escrito</option>
-                        <option value="imagen">Imagen / Diseño / Fotografía / Arte IA</option>
-                        <option value="audio">Audio / Música / Voz Sintética IA</option>
-                        <option value="video">Video / Audiovisual / Animación IA</option>
-                        <option value="otro">Otro Formato / Compilado ZIP o RAR</option>
-                    </select>
-
-                    <label for="words">Origen / Método del Proyecto:</label>
-                    <select id="words">
-                        <option value="humano">Creación Humana / Tradicional</option>
-                        <option value="asistido_ia">Asistido por Inteligencia Artificial (IA)</option>
-                        <option value="generado_ia">100% Generado por Inteligencia Artificial (IA)</option>
-                    </select>
-
-                    <label for="darkness">Avance del Proyecto: <span id="dark-val" style="color:var(--red-bright); font-weight:bold;">100</span>%</label>
-                    <input type="range" id="darkness" min="0" max="100" value="100" oninput="document.getElementById('dark-val').innerText = this.value">
-
-                    <button type="button" onclick="evaluarManuscrito()">Verificar Compatibilidad</button>
-                    <div id="eval-result"></div>
-                </div>
-            </section>
-
-            <section class="panel">
-                <h2>ESPECIFICACIONES DE RECEPCIÓN</h2>
-                <div class="table-responsive">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Criterio</th>
-                                <th>Especificación</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Formatos Aceptados</td>
-                                <td>PDF, DOCX, JPG, PNG, MP3, MP4, ZIP, RAR y cualquier formato legible/ejecutable.</td>
-                            </tr>
-                            <tr>
-                                <td>Origen del Material</td>
-                                <td>Se acepta contenido tradicional, híbrido o 100% generado con Inteligencia Artificial (IA).</td>
-                            </tr>
-                            <tr>
-                                <td>Estilo / Temática</td>
-                                <td>Abierto a todo tipo de temas, géneros y formatos creativos.</td>
-                            </tr>
-                            <tr>
-                                <td>Idioma / Idiomas</td>
-                                <td>Español, Inglés o cualquier otro idioma/dialecto.</td>
-                            </tr>
-                            <tr>
-                                <td>Mensaje / Descripción</td>
-                                <td>Incluir una breve descripción del proyecto y si se utilizó alguna herramienta de IA.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <section class="panel">
-                <h2>DESPACHO DE ARCHIVOS Y MENSAJES</h2>
-                <p style="font-size: 0.88rem;">Envía tus archivos adjuntos, manuscritos, imágenes, audios, proyectos de IA o comentarios a través de nuestro formulario.</p>
-
-                <div class="evaluator">
-                    <form action="https://formsubmit.co/felipedejesusgarciapatino@gmail.com" method="POST" enctype="multipart/form-data">
-                        <input type="hidden" name="_subject" value="[NUEVO MATERIAL / IA / MENSAJE] - Editorial Belikones">
-                        <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_captcha" value="false">
-
-                        <label for="author">Nombre o Seudónimo del Creador/Autor:</label>
-                        <input type="text" id="author" name="Autor / Seudónimo" placeholder="Ej. Tu nombre o seudónimo" required autocomplete="off">
-
-                        <label for="title">Título del Proyecto o Asunto:</label>
-                        <input type="text" id="title" name="Título / Asunto" placeholder="Ej. Mi Proyecto Creativo / Generación IA" required autocomplete="off">
-
-                        <label for="email">Correo Electrónico de Contacto:</label>
-                        <input type="email" id="email" name="Email de Contacto" placeholder="tu-correo@contacto.com" required autocomplete="email">
-
-                        <label for="synopsis">Descripción, Herramientas de IA utilizadas o Mensaje:</label>
-                        <textarea id="synopsis" name="Descripción / Herramientas IA / Comentarios" rows="4" placeholder="Escribe aquí los detalles de tu trabajo, si usaste IA (prompts, modelos, etc.) y tus comentarios..." required></textarea>
-
-                        <label for="attachment">Adjuntar Archivo (PDF, DOCX, JPG, PNG, MP3, MP4, ZIP, etc.):</label>
-                        <input type="file" id="attachment" name="attachment" accept="*/*">
-
-                        <button type="submit">Enviar Trabajo y Archivos</button>
-                    </form>
-                </div>
-            </section>
-        </div>
-
-        <footer>
-            <p>EDITORIAL BELIKONES (C) 2026 -- PLATA-FORMA INDEPENDIENTE Y MULTIDISCIPLINARIA.</p>
-            <p><small>Adaptado para Móviles y Ordenadores.</small></p>
-        </footer>
+    <!-- Top Links -->
+    <div class="header-top">
+        <a href="#convocatoria">Convocatoria</a>
+        <a href="#contacto">Contacto y Manuscritos</a>
     </div>
 
-    <script>
-        function evaluarManuscrito() {
-            const resultDiv = document.getElementById('eval-result');
-            const fileInput = document.getElementById('attachment');
+    <!-- Main Header -->
+    <div class="header-middle">
+        <div class="logo">
+            <h1>Ediciones Nelikones</h1>
+            <p>Catálogo editorial y proyectos de recepción abierta</p>
+        </div>
+        <div class="header-search">
+            <form action="#" method="get">
+                <input type="text" placeholder="Buscar en el catálogo..." aria-label="Buscar en el catálogo">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </div>
 
-            resultDiv.style.display = 'block';
+    <!-- Navigation Bar -->
+    <div class="header-bottom">
+        <ul class="nav-menu">
+            <li><a href="#">Novedades</a></li>
+            <li><a href="#catalogo">Catálogo</a></li>
+            <li><a href="#convocatoria">Manuscritos</a></li>
+            <li><a href="#noticias">Noticias</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fa fa-youtube-play"></i></a>
+        </div>
+    </div>
 
-            if (!fileInput || fileInput.files.length === 0) {
-                resultDiv.style.background = 'rgba(139, 0, 0, 0.4)';
-                resultDiv.style.color = '#ff9999';
-                resultDiv.style.borderColor = '#e60000';
-                resultDiv.innerHTML = 'ATENCIÓN: No has cargado ningún archivo aún. Primero tienes que adjuntar tu documento o proyecto en la sección "DESPACHO DE ARCHIVOS Y MENSAJES" para verificar su recepción.';
-            } else {
-                const fileName = fileInput.files[0].name;
-                resultDiv.style.background = 'rgba(0, 120, 0, 0.4)';
-                resultDiv.style.color = '#85ff85';
-                resultDiv.style.borderColor = '#00ff00';
-                resultDiv.innerHTML = 'ARCHIVO DETECTADO (' + fileName + '): Tu proyecto es plenamente compatible. Procede a presionar el botón "Enviar Trabajo y Archivos" en el despacho.';
-            }
-        }
-    </script>
+    <!-- Main Banner / Slider Replacement -->
+    <div class="slider-wrapper">
+        <h2>Convocatoria Abierta: Recepción Multiformato e IA</h2>
+        <p>Aceptamos proyectos literarios, visuales, sonoros y conceptuales sin restricción de tema o método de creación.</p>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="page-content">
+
+        <!-- Left Column: Catalog -->
+        <main>
+            <h2 class="section-title" id="catalogo">Novedades y Catálogo</h2>
+            
+            <div class="books-grid">
+                
+                <!-- Book Item 1 -->
+                <article class="book-card">
+                    <img src="cover1.jpg" alt="Portada de la obra" class="book-cover">
+                    <h3 class="book-title">El Conjuro de las Ranas</h3>
+                    <p class="book-author">Varios Autores</p>
+                    <p class="book-synopsis">Compilación de narrativa contemporánea y proyectos experimentales que exploran las fronteras del texto y la tecnología.</p>
+                </article>
+
+                <!-- Book Item 2 -->
+                <article class="book-card">
+                    <img src="cover2.jpg" alt="Portada de la obra" class="book-cover">
+                    <h3 class="book-title">Antropología del Silencio</h3>
+                    <p class="book-author">Iván Mata</p>
+                    <p class="book-synopsis">Un análisis profundo sobre las voces periféricas, los espacios de creación independiente y las estéticas alternativas.</p>
+                </article>
+
+                <!-- Book Item 3 -->
+                <article class="book-card">
+                    <img src="cover3.jpg" alt="Portada de la obra" class="book-cover">
+                    <h3 class="book-title">Sistemas e Imágenes</h3>
+                    <p class="book-author">Gerardo Szae</p>
+                    <p class="book-synopsis">Exploración visual y conceptual sobre la relación entre el lenguaje maquínico y la creación literaria.</p>
+                </article>
+
+                <!-- Book Item 4 -->
+                <article class="book-card">
+                    <img src="cover4.jpg" alt="Portada de la obra" class="book-cover">
+                    <h3 class="book-title">Fronteras del Lenguaje</h3>
+                    <p class="book-author">Gustavo Narváez</p>
+                    <p class="book-synopsis">Ensayos críticos sobre las dinámicas de publicación digital y el desarrollo de nuevas formas narrativas.</p>
+                </article>
+
+            </div>
+        </main>
+
+        <!-- Right Column: Sidebar -->
+        <aside>
+            
+            <!-- Catalog Download Box -->
+            <div class="sidebar-box">
+                <h3>Catálogo General</h3>
+                <p style="font-size: 0.85rem; margin-bottom: 12px; color: var(--text-muted);">Descarga nuestro listado completo de títulos y publicaciones disponibles.</p>
+                <a href="#" class="catalog-download-btn"><i class="fa fa-file-pdf-o"></i> Descargar Catálogo PDF</a>
+            </div>
+
+            <!-- News & Events Sidebar -->
+            <div class="sidebar-box" id="noticias">
+                <h3>Noticias y Eventos</h3>
+                <ul class="news-list">
+                    <li class="news-item">
+                        <span class="news-date">18-08-2026</span>
+                        <a href="#" class="news-title">Apertura de la convocatoria de proyectos multiformato</a>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-date">05-06-2026</span>
+                        <a href="#" class="news-title">Presentación del repositorio de archivos independientes</a>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-date">12-04-2026</span>
+                        <a href="#" class="news-title">Entrevista sobre edición independiente e inteligencia artificial</a>
+                    </li>
+                </ul>
+            </div>
+
+        </aside>
+
+        <!-- Full Width Section: Submission Form -->
+        <section class="form-section" id="contacto">
+            <h2 class="section-title" id="convocatoria">Despacho de Manuscritos y Recepción de Proyectos</h2>
+            <p style="margin-bottom: 20px; font-size: 0.9rem; color: var(--text-muted);">
+                Envía tus proyectos (texto, imágenes, audio, video o contenido asistido por IA) directamente a nuestro equipo editorial a través de este formulario.
+            </p>
+
+            <form action="https://formsubmit.co/edicionesbelikones@gmail.com" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="_subject" value="[NUEVO MATERIAL / MANUSCRITO] - Ediciones Nelikones">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+
+                <div class="form-group">
+                    <label for="author">Nombre o Seudónimo del Creador/Autor:</label>
+                    <input type="text" id="author" name="Autor / Seudónimo" placeholder="Tu nombre o seudónimo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Título del Proyecto o Asunto:</label>
+                    <input type="text" id="title" name="Título / Asunto" placeholder="Ej. Mi Proyecto Creativo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo Electrónico de Contacto:</label>
+                    <input type="email" id="email" name="Email de Contacto" placeholder="tu-correo@contacto.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="synopsis">Descripción, Herramientas de IA utilizadas o Mensaje:</label>
+                    <textarea id="synopsis" name="Descripción / Mensaje" rows="5" placeholder="Escribe aquí los detalles de tu trabajo o comentarios para el comité editorial..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="attachment">Adjuntar Archivo (Documento, Imagen, Audio, Video, ZIP, etc.):</label>
+                    <input type="file" id="attachment" name="attachment" accept="*/*">
+                </div>
+
+                <button type="submit" class="submit-btn">Enviar Proyecto a Evaluación</button>
+            </form>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 FELIPE PATIÑO &mdash; Plataforma Editorial Independiente.</p>
+        <p style="margin-top: 5px;"><a href="#">Condiciones de envío</a> | <a href="#">Quiénes somos</a> | <a href="#">Contacto</a></p>
+    </footer>
+
+</div>
+
 </body>
 </html>
