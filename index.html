@@ -93,7 +93,7 @@
       position: relative;
     }
 
-    /* ========== CINTA DE POLICÍA / PÁGINA EN CONSTRUCCIÓN ========== */
+    /* ========== CINTA DE POLICÍA ========== */
     .construction-tape {
       position: fixed;
       top: 50%;
@@ -726,6 +726,94 @@
       background: var(--primary-light);
     }
 
+    /* ========== BIOGRAFÍA DESPLEGABLE ========== */
+    .bio-section {
+      padding: 0 16px 28px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .bio-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .bio-toggle:hover {
+      border-color: var(--primary-light);
+      color: #e8b0b0;
+    }
+
+    .bio-toggle i {
+      transition: transform 0.3s ease;
+    }
+
+    .bio-toggle.active i {
+      transform: rotate(180deg);
+    }
+
+    .bio-panel {
+      display: none;
+      margin-top: 18px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 24px;
+      animation: fadeInBio 0.35s ease;
+    }
+
+    .bio-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeInBio {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .bio-content {
+      display: flex;
+      gap: 22px;
+      align-items: flex-start;
+    }
+
+    .bio-photo {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid #444;
+      flex-shrink: 0;
+    }
+
+    .bio-text h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.25rem;
+      color: #d4a0a0;
+      margin-bottom: 12px;
+    }
+
+    .bio-text p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      line-height: 1.65;
+    }
+
+    .bio-text p:last-child {
+      margin-bottom: 0;
+    }
+
     /* ========== FOOTER ========== */
     footer {
       background: var(--bg-header);
@@ -858,6 +946,17 @@
         font-size: 0.95rem;
         letter-spacing: 2px;
       }
+
+      .bio-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .bio-photo {
+        width: 120px;
+        height: 120px;
+      }
     }
 
     @media (max-width: 420px) {
@@ -902,7 +1001,7 @@
 </head>
 <body>
 
-  <!-- ===== CINTA DE POLICÍA ===== -->
+  <!-- CINTA DE POLICÍA -->
   <div class="construction-tape">
     <div class="construction-tape-text">⚠ PÁGINA EN CONSTRUCCIÓN ⚠ &nbsp;&nbsp;&nbsp; PÁGINA EN CONSTRUCCIÓN &nbsp;&nbsp;&nbsp; ⚠ PÁGINA EN CONSTRUCCIÓN ⚠</div>
   </div>
@@ -1106,6 +1205,28 @@
 
     </div>
 
+    <!-- ===== BIOGRAFÍA DEL EDITOR (BOTÓN DESPLEGABLE) ===== -->
+    <div class="bio-section">
+      <button class="bio-toggle" id="bioToggle" aria-expanded="false">
+        <i class="fa-solid fa-chevron-down"></i>
+        Biografía del editor
+      </button>
+
+      <div class="bio-panel" id="bioPanel">
+        <div class="bio-content">
+          <img src="fff.jpg" alt="Felipe Patiño" class="bio-photo" loading="lazy">
+          <div class="bio-text">
+            <h3>Felipe Patiño</h3>
+            <p>Felipe Patiño es editor, creador de contenido y desarrollador de páginas web. Su trayectoria se ha construido entre la creación literaria, la cultura digital, la calle y una curiosidad permanente por los límites de la experiencia humana.</p>
+            <p>Estudió Arquitectura y Filosofía, aunque no por demasiado tiempo: desertó de ambas carreras para seguir formándose por caminos menos convencionales. También trabajó como cadenero de topógrafo, un oficio que lo acercó a la vida de campo, al trabajo técnico y a esa mezcla particular de polvo, mediciones y paisaje que rara vez aparece en los planes de estudio universitarios.</p>
+            <p>Se define como explorador de sustancias y experiencias border, siempre con una mirada inquieta hacia lo que ocurre en los márgenes de la normalidad. Tras pasar recientemente por el anexo “Vida en Plenitud”, incorpora a su recorrido una experiencia que, lejos de cerrar su historia, se convierte en otro capítulo de su búsqueda personal.</p>
+            <p>Es un entusiasta de la obra de Antonio Escohotado, cuya influencia se refleja en su interés por las drogas, la libertad, la cultura, la conciencia y las contradicciones de la sociedad contemporánea.</p>
+            <p>Patiño se considera, además, testigo de primera fila de la llamada “Poesía de la Memeración”, un movimiento nacido de la colisión entre literatura, internet, humor absurdo, cultura de memes y las nuevas formas de expresión de una generación acostumbrada a convertir casi cualquier experiencia en lenguaje.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <footer>
       <p>&copy; 2026 FELIPE PATIÑO &mdash; Plataforma Editorial Independiente.</p>
       <p style="margin-top: 7px;">
@@ -1118,6 +1239,7 @@
   </div>
 
   <script>
+    // Menú móvil
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
 
@@ -1136,6 +1258,18 @@
           navToggle.setAttribute('aria-expanded', 'false');
           navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
         });
+      });
+    }
+
+    // Biografía desplegable
+    const bioToggle = document.getElementById('bioToggle');
+    const bioPanel = document.getElementById('bioPanel');
+
+    if (bioToggle && bioPanel) {
+      bioToggle.addEventListener('click', () => {
+        const isOpen = bioPanel.classList.toggle('active');
+        bioToggle.classList.toggle('active', isOpen);
+        bioToggle.setAttribute('aria-expanded', isOpen);
       });
     }
   </script>
