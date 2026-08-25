@@ -90,6 +90,44 @@
       background: rgba(18, 18, 18, 0.92);
       box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
       min-height: 100vh;
+      position: relative;
+    }
+
+    /* ========== CINTA DE POLICÍA / PÁGINA EN CONSTRUCCIÓN ========== */
+    .construction-tape {
+      position: fixed;
+      top: 50%;
+      left: -10%;
+      width: 140%;
+      height: 52px;
+      background: repeating-linear-gradient(
+        90deg,
+        #ffcc00 0px,
+        #ffcc00 40px,
+        #111 40px,
+        #111 50px
+      );
+      transform: translateY(-50%) rotate(-18deg);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.55);
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .construction-tape-text {
+      color: #111;
+      font-family: 'Source Sans 3', system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+      background: #ffcc00;
+      padding: 0 30px;
     }
 
     /* ========== HEADER ========== */
@@ -377,7 +415,6 @@
       margin-bottom: 12px;
     }
 
-    /* Botón Facebook */
     .fb-link {
       display: inline-flex;
       align-items: center;
@@ -397,7 +434,6 @@
       color: #fff !important;
     }
 
-    /* ===== BANNER GERARDO SZAE ===== */
     .author-banner {
       display: block;
       margin-top: 10px;
@@ -812,6 +848,16 @@
       .submit-btn {
         max-width: 100%;
       }
+
+      .construction-tape {
+        height: 44px;
+        transform: translateY(-50%) rotate(-15deg);
+      }
+
+      .construction-tape-text {
+        font-size: 0.95rem;
+        letter-spacing: 2px;
+      }
     }
 
     @media (max-width: 420px) {
@@ -831,6 +877,15 @@
       .logo-image {
         max-height: 130px;
       }
+
+      .construction-tape {
+        height: 38px;
+      }
+
+      .construction-tape-text {
+        font-size: 0.82rem;
+        letter-spacing: 1.5px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -846,6 +901,12 @@
   </style>
 </head>
 <body>
+
+  <!-- ===== CINTA DE POLICÍA ===== -->
+  <div class="construction-tape">
+    <div class="construction-tape-text">⚠ PÁGINA EN CONSTRUCCIÓN ⚠ &nbsp;&nbsp;&nbsp; PÁGINA EN CONSTRUCCIÓN &nbsp;&nbsp;&nbsp; ⚠ PÁGINA EN CONSTRUCCIÓN ⚠</div>
+  </div>
+
   <div class="page-wrapper">
 
     <!-- Top Links -->
@@ -924,14 +985,13 @@
             <p class="book-synopsis">Un análisis profundo sobre las voces periféricas, los espacios de creación independiente y las estéticas alternativas.</p>
           </article>
 
-          <!-- ===== GERARDO SZAE (con banner + Linktree) ===== -->
+          <!-- Gerardo Szae -->
           <article class="book-card">
             <img src="cover3.jpg" alt="Portada de Sistemas e Imágenes" class="book-cover" loading="lazy" decoding="async" width="220" height="260">
             <h3 class="book-title">Sistemas e Imágenes</h3>
             <p class="book-author">Gerardo Szae</p>
             <p class="book-synopsis">Exploración visual y conceptual sobre la relación entre el lenguaje maquínico y la creación literaria.</p>
 
-            <!-- Banner del autor -->
             <a href="https://linktr.ee/szaeta" target="_blank" rel="noopener noreferrer" class="author-banner">
               <img src="szae.jpg" alt="Gerardo Szae" loading="lazy">
               <div class="author-banner-info">
