@@ -1,840 +1,923 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Novedades y catálogo general en Ediciones Belikones">
-    <meta name="robots" content="index,follow">
-    <meta name="theme-color" content="#6b1010">
-    <title>Editorial Belikones</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Novedades y catálogo general en Ediciones Belikones">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#6b1010">
+  <title>Editorial Belikones</title>
 
-    <!-- Preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-    <!-- Fuentes formales y legibles -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
-    <style>
-        :root {
-            --primary: #6b1010;
-            --primary-dark: #4a0b0b;
-            --primary-light: #8a1a1a;
-            --bg-body: #121212;
-            --bg-card: #1e1e1e;
-            --bg-elevated: #252525;
-            --bg-header: #0d0d0d;
-            --text-main: #e8e8e8;
-            --text-muted: #a0a0a0;
-            --border-color: #333333;
-            --white: #ffffff;
-            --accent: #9e2a2a;
-        }
+  <style>
+    :root {
+      --primary: #6b1010;
+      --primary-dark: #4a0b0b;
+      --primary-light: #8a1a1a;
+      --bg-body: #121212;
+      --bg-card: #1e1e1e;
+      --bg-elevated: #252525;
+      --bg-header: #0d0d0d;
+      --text-main: #e8e8e8;
+      --text-muted: #a0a0a0;
+      --border-color: #333333;
+      --white: #ffffff;
+      --accent: #9e2a2a;
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        body {
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            font-family: 'Source Sans 3', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            line-height: 1.65;
-            position: relative;
-            min-height: 100vh;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      font-family: 'Source Sans 3', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        /* Fondo gt.png visible pero sin tapar el contenido */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 140vw;
-            height: 140vh;
-            background-image: url('gt.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            opacity: 0.18;
-            z-index: -1;
-            pointer-events: none;
-            will-change: transform;
-        }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 140vw;
+      height: 140vh;
+      background-image: url('gt.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      opacity: 0.18;
+      z-index: -1;
+      pointer-events: none;
+      will-change: transform;
+    }
 
-        a {
-            color: var(--text-main);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        a:hover {
-            color: var(--accent);
-        }
+    a {
+      color: var(--text-main);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
 
-        .page-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: rgba(18, 18, 18, 0.92);
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
-            min-height: 100vh;
-        }
+    a:hover {
+      color: var(--accent);
+    }
 
-        /* ========== HEADER ========== */
-        .header-top {
-            background-color: var(--bg-header);
-            color: #888;
-            font-size: 0.8rem;
-            padding: 7px 16px;
-            text-align: right;
-            border-bottom: 1px solid #222;
-        }
-        .header-top a {
-            color: #999;
-            margin-left: 14px;
-        }
-        .header-top a:hover {
-            color: var(--white);
-        }
+    .page-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: rgba(18, 18, 18, 0.92);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+      min-height: 100vh;
+    }
 
-        .header-middle {
-            padding: 32px 16px 28px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 1px solid var(--border-color);
-            gap: 22px;
-            background: rgba(22, 22, 22, 0.72);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+    /* ========== HEADER ========== */
+    .header-top {
+      background-color: var(--bg-header);
+      color: #888;
+      font-size: 0.8rem;
+      padding: 7px 16px;
+      text-align: right;
+      border-bottom: 1px solid #222;
+    }
 
-        /* Halo sutil detrás del logo */
-        .header-middle::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70%;
-            height: 80%;
-            background: radial-gradient(ellipse at center, rgba(107, 16, 16, 0.18) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-        }
+    .header-top a {
+      color: #999;
+      margin-left: 14px;
+    }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            position: relative;
-            z-index: 1;
-        }
+    .header-top a:hover {
+      color: var(--white);
+    }
 
-        /* ===== TRABAJO ESPECIAL EN ggg.png ===== */
-        .logo-image {
-            display: block;
-            width: min(920px, 96%);
-            height: auto;
-            max-height: 240px;
-            object-fit: contain;
-            object-position: center;
+    .header-middle {
+      padding: 32px 16px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border-color);
+      gap: 22px;
+      background: rgba(22, 22, 22, 0.72);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
 
-            /* Transparencia controlada */
-            opacity: 0.88;
+    .header-middle::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70%;
+      height: 80%;
+      background: radial-gradient(ellipse at center, rgba(107, 16, 16, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-            /* Profundidad y suavidad */
-            filter: 
-                drop-shadow(0 6px 18px rgba(0, 0, 0, 0.55))
-                drop-shadow(0 0 35px rgba(107, 16, 16, 0.22))
-                brightness(1.05);
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
 
-            transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease;
-        }
+    /* ===== LOGO CON RESPLANDOR Y DIFUMINADO (estilo Conjuro) ===== */
+    .logo-image {
+      display: block;
+      width: min(920px, 96%);
+      height: auto;
+      max-height: 240px;
+      object-fit: contain;
+      object-position: center;
+      /* Resplandor suave + profundidad */
+      filter:
+        drop-shadow(0 0 12px rgba(255, 255, 255, 0.35))
+        drop-shadow(0 0 28px rgba(255, 255, 255, 0.15))
+        drop-shadow(0 8px 18px rgba(0, 0, 0, 0.8));
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
 
-        .logo-image:hover {
-            opacity: 1;
-            filter: 
-                drop-shadow(0 8px 26px rgba(0, 0, 0, 0.65))
-                drop-shadow(0 0 50px rgba(107, 16, 16, 0.35))
-                brightness(1.1);
-            transform: scale(1.015);
-        }
+    .logo-image:hover {
+      transform: scale(1.015);
+      filter:
+        drop-shadow(0 0 20px rgba(255, 255, 255, 0.5))
+        drop-shadow(0 0 40px rgba(255, 255, 255, 0.22))
+        drop-shadow(0 10px 25px rgba(0, 0, 0, 0.9));
+    }
 
-        .header-search {
-            width: 100%;
-            max-width: 420px;
-            position: relative;
-            z-index: 1;
-        }
-        .header-search form {
-            display: flex;
-            align-items: center;
-            width: 100%;
-        }
-        .header-search input[type="text"] {
-            padding: 11px 14px;
-            border: 1px solid var(--border-color);
-            border-radius: 4px 0 0 4px;
-            outline: none;
-            font-size: 0.95rem;
-            flex: 1;
-            min-width: 0;
-            background: var(--bg-elevated);
-            color: var(--text-main);
-        }
-        .header-search input::placeholder {
-            color: #777;
-        }
-        .header-search button {
-            background: var(--primary);
-            color: var(--white);
-            border: 1px solid var(--primary);
-            padding: 11px 16px;
-            border-radius: 0 4px 4px 0;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background 0.2s;
-        }
-        .header-search button:hover {
-            background: var(--primary-light);
-        }
+    .header-search {
+      width: 100%;
+      max-width: 420px;
+      position: relative;
+      z-index: 1;
+    }
 
-        /* ========== NAV ========== */
-        .header-bottom {
-            background-color: var(--primary);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 12px;
-            position: relative;
-        }
+    .header-search form {
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
 
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            padding: 12px;
-            cursor: pointer;
-        }
+    .header-search input[type="text"] {
+      padding: 11px 14px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px 0 0 4px;
+      outline: none;
+      font-size: 0.95rem;
+      flex: 1;
+      min-width: 0;
+      background: var(--bg-elevated);
+      color: var(--text-main);
+    }
 
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            flex-wrap: wrap;
-        }
-        .nav-menu li a {
-            display: block;
-            color: var(--white);
-            padding: 15px 18px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            letter-spacing: 0.6px;
-            text-transform: uppercase;
-            font-family: 'Source Sans 3', sans-serif;
-        }
-        .nav-menu li a:hover,
-        .nav-menu li a:focus {
-            background-color: var(--primary-dark);
-        }
+    .header-search input::placeholder {
+      color: #777;
+    }
 
-        .social-links {
-            display: flex;
-            align-items: center;
-            gap: 2px;
-        }
-        .social-links a {
-            color: var(--white);
-            padding: 10px 9px;
-            font-size: 1.05rem;
-        }
-        .social-links a:hover {
-            color: #ffcccc;
-        }
+    .header-search button {
+      background: var(--primary);
+      color: var(--white);
+      border: 1px solid var(--primary);
+      padding: 11px 16px;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.2s;
+    }
 
-        /* ========== BANNER ========== */
-        .slider-wrapper {
-            background: linear-gradient(180deg, #1a1a1a 0%, #151515 100%);
-            color: var(--white);
-            text-align: center;
-            padding: 42px 16px;
-            border-bottom: 3px solid var(--primary);
-        }
-        .slider-wrapper h2 {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-size: clamp(1.45rem, 4.2vw, 2rem);
-            margin-bottom: 10px;
-            font-weight: 600;
-            line-height: 1.3;
-            letter-spacing: 0.3px;
-        }
-        .slider-wrapper p {
-            font-size: 1rem;
-            color: #bbb;
-            max-width: 680px;
-            margin: 0 auto;
-            font-weight: 400;
-        }
+    .header-search button:hover {
+      background: var(--primary-light);
+    }
 
-        /* ========== CONTENIDO ========== */
-        .page-content {
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 28px;
-            padding: 32px 16px;
-        }
+    /* ========== NAV ========== */
+    .header-bottom {
+      background-color: var(--primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 12px;
+      position: relative;
+    }
 
-        .section-title {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-size: clamp(1.35rem, 3vw, 1.65rem);
-            color: #d4a0a0;
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 10px;
-            margin-bottom: 22px;
-            font-weight: 600;
-        }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      padding: 12px;
+      cursor: pointer;
+    }
 
-        .books-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 22px;
-        }
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      flex-wrap: wrap;
+    }
 
-        .book-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
-            border-radius: 5px;
-        }
-        .book-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.4);
-            border-color: #444;
-        }
+    .nav-menu li a {
+      display: block;
+      color: var(--white);
+      padding: 15px 18px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      font-family: 'Source Sans 3', sans-serif;
+    }
 
-        .book-cover {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-            background: #2a2a2a;
-            margin-bottom: 14px;
-            border: 1px solid #333;
-            border-radius: 3px;
-        }
+    .nav-menu li a:hover,
+    .nav-menu li a:focus {
+      background-color: var(--primary-dark);
+    }
 
-        .book-title {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-size: 1.08rem;
-            color: var(--text-main);
-            margin-bottom: 5px;
-            line-height: 1.35;
-            font-weight: 600;
-        }
-        .book-author {
-            font-size: 0.88rem;
-            color: #c07070;
-            font-weight: 600;
-            margin-bottom: 9px;
-            letter-spacing: 0.2px;
-        }
-        .book-synopsis {
-            font-size: 0.86rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-            flex-grow: 1;
-        }
+    .social-links {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
 
-        /* ========== SIDEBAR ========== */
-        .sidebar-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 20px;
-            margin-bottom: 22px;
-            border-radius: 5px;
-        }
-        .sidebar-box h3 {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-size: 1.15rem;
-            color: var(--text-main);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 9px;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
+    .social-links a {
+      color: var(--white);
+      padding: 10px 9px;
+      font-size: 1.05rem;
+    }
 
-        .catalog-download-btn {
-            display: block;
-            background: var(--primary);
-            color: var(--white) !important;
-            text-align: center;
-            padding: 13px;
-            font-weight: 600;
-            font-size: 0.92rem;
-            border-radius: 4px;
-            transition: background 0.2s;
-            letter-spacing: 0.3px;
-        }
-        .catalog-download-btn:hover {
-            background: var(--primary-light);
-        }
+    .social-links a:hover {
+      color: #ffcccc;
+    }
 
-        .news-list {
-            list-style: none;
-        }
-        .news-item {
-            margin-bottom: 15px;
-            padding-bottom: 13px;
-            border-bottom: 1px dashed #333;
-        }
-        .news-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        .news-date {
-            font-size: 0.76rem;
-            color: #777;
-            display: block;
-            margin-bottom: 3px;
-        }
-        .news-title {
-            font-size: 0.9rem;
-            font-weight: 600;
-            line-height: 1.4;
-            color: #d0d0d0;
-        }
-        .news-title:hover {
-            color: #e8b0b0;
-        }
+    /* ========== BANNER ========== */
+    .slider-wrapper {
+      background: linear-gradient(180deg, #1a1a1a 0%, #151515 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 42px 16px;
+      border-bottom: 3px solid var(--primary);
+    }
 
-        /* ========== FORMULARIO ========== */
-        .form-section {
-            grid-column: 1 / -1;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 30px 22px;
-            margin-top: 8px;
-            border-radius: 5px;
-        }
+    .slider-wrapper h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.45rem, 4.2vw, 2rem);
+      margin-bottom: 10px;
+      font-weight: 600;
+      line-height: 1.3;
+      letter-spacing: 0.3px;
+    }
 
-        .form-group {
-            margin-bottom: 18px;
-        }
-        .form-group label {
-            display: block;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 7px;
-            color: #ccc;
-        }
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px 14px;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            font-family: 'Source Sans 3', sans-serif;
-            font-size: 0.95rem;
-            background: var(--bg-elevated);
-            color: var(--text-main);
-            -webkit-appearance: none;
-            appearance: none;
-            transition: border-color 0.2s;
-        }
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-light);
-        }
-        .form-group input[type="file"] {
-            padding: 11px;
-            background: #1a1a1a;
-            color: #aaa;
-        }
+    .slider-wrapper p {
+      font-size: 1rem;
+      color: #bbb;
+      max-width: 680px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
 
-        .submit-btn {
-            background: var(--primary);
-            color: var(--white);
-            border: none;
-            padding: 14px 30px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            text-transform: uppercase;
-            border-radius: 4px;
-            width: 100%;
-            max-width: 340px;
-            letter-spacing: 0.5px;
-            transition: background 0.2s;
-            font-family: 'Source Sans 3', sans-serif;
-        }
-        .submit-btn:hover {
-            background: var(--primary-light);
-        }
+    /* ========== CONTENIDO ========== */
+    .page-content {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 28px;
+      padding: 32px 16px;
+    }
 
-        /* ========== FOOTER ========== */
-        footer {
-            background: var(--bg-header);
-            color: #777;
-            text-align: center;
-            padding: 30px 16px;
-            font-size: 0.84rem;
-            border-top: 3px solid var(--primary);
-        }
-        footer a {
-            color: #aaa;
-        }
-        footer a:hover {
-            color: #ddd;
-        }
+    .section-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.35rem, 3vw, 1.65rem);
+      color: #d4a0a0;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 10px;
+      margin-bottom: 22px;
+      font-weight: 600;
+    }
 
-        /* ============================================
-           RESPONSIVE
-           ============================================ */
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 22px;
+    }
 
-        @media (max-width: 900px) {
-            .page-content {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-            .books-grid {
-                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            }
-        }
+    .book-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
+      border-radius: 5px;
+    }
 
-        @media (max-width: 768px) {
-            body::before {
-                width: 100vw;
-                height: 100vh;
-                opacity: 0.12;
-                background-size: cover;
-            }
+    .book-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.4);
+      border-color: #444;
+    }
 
-            .header-top {
-                text-align: center;
-                font-size: 0.76rem;
-                padding: 8px 12px;
-            }
-            .header-top a {
-                margin: 0 8px;
-            }
+    .book-cover {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      background: #2a2a2a;
+      margin-bottom: 14px;
+      border: 1px solid #333;
+      border-radius: 3px;
+    }
 
-            .header-middle {
-                padding: 24px 12px 20px;
-                gap: 18px;
-            }
+    .book-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.08rem;
+      color: var(--text-main);
+      margin-bottom: 5px;
+      line-height: 1.35;
+      font-weight: 600;
+    }
 
-            .logo-image {
-                width: min(100%, 620px);
-                max-height: 160px;
-            }
+    .book-author {
+      font-size: 0.88rem;
+      color: #c07070;
+      font-weight: 600;
+      margin-bottom: 9px;
+      letter-spacing: 0.2px;
+    }
 
-            .header-search {
-                max-width: 100%;
-            }
+    .book-synopsis {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      flex-grow: 1;
+    }
 
-            .nav-toggle {
-                display: block;
-                margin-left: auto;
-            }
+    /* ========== SIDEBAR ========== */
+    .sidebar-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      margin-bottom: 22px;
+      border-radius: 5px;
+    }
 
-            .header-bottom {
-                flex-direction: column;
-                padding: 0;
-            }
+    .sidebar-box h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.15rem;
+      color: var(--text-main);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 9px;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
 
-            .nav-menu {
-                display: none;
-                width: 100%;
-                flex-direction: column;
-                background: var(--primary);
-            }
-            .nav-menu.active {
-                display: flex;
-            }
-            .nav-menu li a {
-                padding: 14px 20px;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
-                text-align: center;
-            }
+    .catalog-download-btn {
+      display: block;
+      background: var(--primary);
+      color: var(--white) !important;
+      text-align: center;
+      padding: 13px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      border-radius: 4px;
+      transition: background 0.2s;
+      letter-spacing: 0.3px;
+    }
 
-            .social-links {
-                padding: 12px;
-                justify-content: center;
-                width: 100%;
-                border-top: 1px solid rgba(255,255,255,0.12);
-            }
+    .catalog-download-btn:hover {
+      background: var(--primary-light);
+    }
 
-            .slider-wrapper {
-                padding: 32px 14px;
-            }
+    /* Botón de anuncio */
+    .ad-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #8a1a1a 0%, #6b1010 50%, #4a0b0b 100%);
+      color: #fff !important;
+      text-align: center;
+      padding: 14px 18px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      box-shadow: 0 6px 20px rgba(107, 16, 16, 0.45),
+                  0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
 
-            .page-content {
-                padding: 22px 12px;
-            }
+    .ad-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+      transition: left 0.5s ease;
+    }
 
-            .books-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-                gap: 14px;
-            }
+    .ad-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(107, 16, 16, 0.6),
+                  0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+      background: linear-gradient(135deg, #9e2a2a 0%, #8a1a1a 50%, #6b1010 100%);
+    }
 
-            .book-cover {
-                height: 200px;
-            }
+    .ad-btn:hover::before {
+      left: 100%;
+    }
 
-            .form-section {
-                padding: 24px 14px;
-            }
+    .ad-btn i {
+      font-size: 1.15rem;
+    }
 
-            .submit-btn {
-                max-width: 100%;
-            }
-        }
+    .news-list {
+      list-style: none;
+    }
 
-        @media (max-width: 420px) {
-            .books-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 12px;
-            }
-            .book-cover {
-                height: 170px;
-            }
-            .book-title {
-                font-size: 0.95rem;
-            }
-            .logo-image {
-                max-height: 130px;
-            }
-        }
+    .news-item {
+      margin-bottom: 15px;
+      padding-bottom: 13px;
+      border-bottom: 1px dashed #333;
+    }
 
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                transition: none !important;
-                animation: none !important;
-            }
-            html {
-                scroll-behavior: auto;
-            }
-        }
-    </style>
+    .news-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .news-date {
+      font-size: 0.76rem;
+      color: #777;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .news-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      line-height: 1.4;
+      color: #d0d0d0;
+    }
+
+    .news-title:hover {
+      color: #e8b0b0;
+    }
+
+    /* ========== FORMULARIO ========== */
+    .form-section {
+      grid-column: 1 / -1;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 30px 22px;
+      margin-top: 8px;
+      border-radius: 5px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 7px;
+      color: #ccc;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.95rem;
+      background: var(--bg-elevated);
+      color: var(--text-main);
+      -webkit-appearance: none;
+      appearance: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-light);
+    }
+
+    .form-group input[type="file"] {
+      padding: 11px;
+      background: #1a1a1a;
+      color: #aaa;
+    }
+
+    .submit-btn {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 14px 30px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-transform: uppercase;
+      border-radius: 4px;
+      width: 100%;
+      max-width: 340px;
+      letter-spacing: 0.5px;
+      transition: background 0.2s;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+
+    .submit-btn:hover {
+      background: var(--primary-light);
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: var(--bg-header);
+      color: #777;
+      text-align: center;
+      padding: 30px 16px;
+      font-size: 0.84rem;
+      border-top: 3px solid var(--primary);
+    }
+
+    footer a {
+      color: #aaa;
+    }
+
+    footer a:hover {
+      color: #ddd;
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 900px) {
+      .page-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .books-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      body::before {
+        width: 100vw;
+        height: 100vh;
+        opacity: 0.12;
+        background-size: cover;
+      }
+
+      .header-top {
+        text-align: center;
+        font-size: 0.76rem;
+        padding: 8px 12px;
+      }
+
+      .header-top a {
+        margin: 0 8px;
+      }
+
+      .header-middle {
+        padding: 24px 12px 20px;
+        gap: 18px;
+      }
+
+      .logo-image {
+        width: min(100%, 620px);
+        max-height: 160px;
+      }
+
+      .header-search {
+        max-width: 100%;
+      }
+
+      .nav-toggle {
+        display: block;
+        margin-left: auto;
+      }
+
+      .header-bottom {
+        flex-direction: column;
+        padding: 0;
+      }
+
+      .nav-menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background: var(--primary);
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+
+      .nav-menu li a {
+        padding: 14px 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        text-align: center;
+      }
+
+      .social-links {
+        padding: 12px;
+        justify-content: center;
+        width: 100%;
+        border-top: 1px solid rgba(255,255,255,0.12);
+      }
+
+      .slider-wrapper {
+        padding: 32px 14px;
+      }
+
+      .page-content {
+        padding: 22px 12px;
+      }
+
+      .books-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 14px;
+      }
+
+      .book-cover {
+        height: 200px;
+      }
+
+      .form-section {
+        padding: 24px 14px;
+      }
+
+      .submit-btn {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .books-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .book-cover {
+        height: 170px;
+      }
+
+      .book-title {
+        font-size: 0.95rem;
+      }
+
+      .logo-image {
+        max-height: 130px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none !important;
+        animation: none !important;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
 </head>
 <body>
-<div class="page-wrapper">
+  <div class="page-wrapper">
 
     <!-- Top Links -->
     <div class="header-top">
-        <a href="#convocatoria">Convocatoria</a>
-        <a href="#contacto">Contacto y Manuscritos</a>
+      <a href="#convocatoria">Convocatoria</a>
+      <a href="#contacto">Contacto y Manuscritos</a>
     </div>
 
     <!-- Main Header -->
     <div class="header-middle">
-        <div class="logo">
-            <img
-                src="ggg.jpg"
-                alt="Ediciones Belikones — Catálogo editorial y proyectos de recepción abierta"
-                class="logo-image"
-                width="920"
-                height="240"
-                decoding="async"
-            >
-        </div>
-        <div class="header-search">
-            <form action="#" method="get" role="search">
-                <input type="text" placeholder="Buscar en el catálogo..." aria-label="Buscar en el catálogo" name="q">
-                <button type="submit" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
-        </div>
+      <div class="logo">
+        <img src="ggg.jpg" alt="Ediciones Belikones — Catálogo editorial y proyectos de recepción abierta" class="logo-image" width="920" height="240" decoding="async">
+      </div>
+
+      <div class="header-search">
+        <form action="#" method="get" role="search">
+          <input type="text" placeholder="Buscar en el catálogo..." aria-label="Buscar en el catálogo" name="q">
+          <button type="submit" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+      </div>
     </div>
 
     <!-- Navigation Bar -->
     <div class="header-bottom">
-        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" id="navToggle">
-            <i class="fa-solid fa-bars"></i>
-        </button>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" id="navToggle">
+        <i class="fa-solid fa-bars"></i>
+      </button>
 
-        <ul class="nav-menu" id="navMenu">
-            <li><a href="#">Novedades</a></li>
-            <li><a href="#catalogo">Catálogo</a></li>
-            <li><a href="#convocatoria">Manuscritos</a></li>
-            <li><a href="#noticias">Noticias</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#">Novedades</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#convocatoria">Manuscritos</a></li>
+        <li><a href="#noticias">Noticias</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
 
-        <div class="social-links">
-            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-        </div>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
     </div>
 
     <!-- Main Banner -->
     <div class="slider-wrapper">
-        <h2>Convocatoria Abierta: Recepción Multiformato e IA</h2>
-        <p>Aceptamos proyectos literarios, visuales, sonoros y conceptuales sin restricción de tema o método de creación.</p>
+      <h2>Convocatoria Abierta: Recepción Multiformato e IA</h2>
+      <p>Aceptamos proyectos literarios, visuales, sonoros y conceptuales sin restricción de tema o método de creación.</p>
     </div>
 
     <!-- Main Content Area -->
     <div class="page-content">
 
-        <main>
-            <h2 class="section-title" id="catalogo">Novedades y Catálogo</h2>
+      <main>
+        <h2 class="section-title" id="catalogo">Novedades y Catálogo</h2>
 
-            <div class="books-grid">
-                <article class="book-card">
-                    <img src="cover1.jpg" alt="Portada de El Conjuro de las Ranas" class="book-cover" loading="lazy" decoding="async" width="220" height="260">
-                    <h3 class="book-title">El Conjuro de las Ranas</h3>
-                    <p class="book-author">Varios Autores</p>
-                    <p class="book-synopsis">Compilación de narrativa contemporánea y proyectos experimentales que exploran las fronteras del texto y la tecnología.</p>
-                </article>
+        <div class="books-grid">
+          <article class="book-card">
+            <img src="cover1.jpg" alt="Portada de El Conjuro de las Ranas" class="book-cover" loading="lazy" decoding="async" width="220" height="260">
+            <h3 class="book-title">El Conjuro de las Ranas</h3>
+            <p class="book-author">Varios Autores</p>
+            <p class="book-synopsis">Compilación de narrativa contemporánea y proyectos experimentales que exploran las fronteras del texto y la tecnología.</p>
+          </article>
 
-                <article class="book-card">
-                    <img src="cover2.jpg" alt="Portada de Antropología del Silencio" class="book-cover" loading="lazy" decoding="async" width="220" height="260">
-                    <h3 class="book-title">Antropología del Silencio</h3>
-                    <p class="book-author">Iván Mata</p>
-                    <p class="book-synopsis">Un análisis profundo sobre las voces periféricas, los espacios de creación independiente y las estéticas alternativas.</p>
-                </article>
+          <article class="book-card">
+            <img src="cover2.jpg" alt="Portada de Antropología del Silencio" class="book-cover" loading="lazy" decoding="async" width="220" height="260">
+            <h3 class="book-title">Antropología del Silencio</h3>
+            <p class="book-author">Iván Mata</p>
+            <p class="book-synopsis">Un análisis profundo sobre las voces periféricas, los espacios de creación independiente y las estéticas alternativas.</p>
+          </article>
 
-                <article class="book-card">
-                    <img src="cover3.jpg" alt="Portada de Sistemas e Imágenes" class="book-cover" loading="lazy" decoding="async" width="220" height="260">
-                    <h3 class="book-title">Sistemas e Imágenes</h3>
-                    <p class="book-author">Gerardo Szae</p>
-                    <p class="book-synopsis">Exploración visual y conceptual sobre la relación entre el lenguaje maquínico y la creación literaria.</p>
-                </article>
+          <article class="book-card">
+            <img src="cover3.jpg" alt="Portada de Sistemas e Imágenes" class="book-cover" loading="lazy" decoding="async" width="220" height="260">
+            <h3 class="book-title">Sistemas e Imágenes</h3>
+            <p class="book-author">Gerardo Szae</p>
+            <p class="book-synopsis">Exploración visual y conceptual sobre la relación entre el lenguaje maquínico y la creación literaria.</p>
+          </article>
 
-                <article class="book-card">
-                    <img src="cover4.jpg" alt="Portada de Fronteras del Lenguaje" class="book-cover" loading="lazy" decoding="async" width="220" height="260">
-                    <h3 class="book-title">Fronteras del Lenguaje</h3>
-                    <p class="book-author">Gustavo Narváez</p>
-                    <p class="book-synopsis">Ensayos críticos sobre las dinámicas de publicación digital y el desarrollo de nuevas formas narrativas.</p>
-                </article>
-            </div>
-        </main>
+          <article class="book-card">
+            <img src="cover4.jpg" alt="Portada de Fronteras del Lenguaje" class="book-cover" loading="lazy" decoding="async" width="220" height="260">
+            <h3 class="book-title">Fronteras del Lenguaje</h3>
+            <p class="book-author">Gustavo Narváez</p>
+            <p class="book-synopsis">Ensayos críticos sobre las dinámicas de publicación digital y el desarrollo de nuevas formas narrativas.</p>
+          </article>
+        </div>
+      </main>
 
-        <aside>
-            <div class="sidebar-box">
-                <h3>Catálogo General</h3>
-                <p style="font-size: 0.88rem; margin-bottom: 14px; color: var(--text-muted);">
-                    Descarga nuestro listado completo de títulos y publicaciones disponibles.
-                </p>
-                <a href="#" class="catalog-download-btn">
-                    <i class="fa-solid fa-file-pdf"></i> Descargar Catálogo PDF
-                </a>
-            </div>
+      <aside>
+        <div class="sidebar-box">
+          <h3>Catálogo General</h3>
+          <p style="font-size: 0.88rem; margin-bottom: 14px; color: var(--text-muted);">
+            Descarga nuestro listado completo de títulos y publicaciones disponibles.
+          </p>
+          <a href="#" class="catalog-download-btn">
+            <i class="fa-solid fa-file-pdf"></i> Descargar Catálogo PDF
+          </a>
+        </div>
 
-            <div class="sidebar-box" id="noticias">
-                <h3>Noticias y Eventos</h3>
-                <ul class="news-list">
-                    <li class="news-item">
-                        <span class="news-date">18-08-2026</span>
-                        <a href="#" class="news-title">Apertura de la convocatoria de proyectos multiformato</a>
-                    </li>
-                    <li class="news-item">
-                        <span class="news-date">05-06-2026</span>
-                        <a href="#" class="news-title">Presentación del repositorio de archivos independientes</a>
-                    </li>
-                    <li class="news-item">
-                        <span class="news-date">12-04-2026</span>
-                        <a href="#" class="news-title">Entrevista sobre edición independiente e inteligencia artificial</a>
-                    </li>
-                </ul>
-            </div>
-        </aside>
+        <!-- Botón de anuncio -->
+        <div class="sidebar-box">
+          <h3>Recomendado</h3>
+          <a href="https://golfa.mx/junior-tumbado/" target="_blank" rel="noopener noreferrer" class="ad-btn">
+            <i class="fa-solid fa-fire"></i>
+            <span>Junior Tumbado</span>
+          </a>
+        </div>
 
-        <section class="form-section" id="contacto">
-            <h2 class="section-title" id="convocatoria">Despacho de Manuscritos y Recepción de Proyectos</h2>
-            <p style="margin-bottom: 22px; font-size: 0.95rem; color: var(--text-muted);">
-                Envía tus proyectos (texto, imágenes, audio, video o contenido asistido por IA) directamente a nuestro equipo editorial a través de este formulario.
-            </p>
+        <div class="sidebar-box" id="noticias">
+          <h3>Noticias y Eventos</h3>
+          <ul class="news-list">
+            <li class="news-item">
+              <span class="news-date">18-08-2026</span>
+              <a href="#" class="news-title">Apertura de la convocatoria de proyectos multiformato</a>
+            </li>
+            <li class="news-item">
+              <span class="news-date">05-06-2026</span>
+              <a href="#" class="news-title">Presentación del repositorio de archivos independientes</a>
+            </li>
+            <li class="news-item">
+              <span class="news-date">12-04-2026</span>
+              <a href="#" class="news-title">Entrevista sobre edición independiente e inteligencia artificial</a>
+            </li>
+          </ul>
+        </div>
+      </aside>
 
-            <form action="https://formsubmit.co/edicionesbelikones@gmail.com" method="POST" enctype="multipart/form-data">
-                <input type="hidden" name="_subject" value="[NUEVO MATERIAL / MANUSCRITO] - Ediciones Belikones">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_captcha" value="false">
+      <section class="form-section" id="contacto">
+        <h2 class="section-title" id="convocatoria">Despacho de Manuscritos y Recepción de Proyectos</h2>
+        <p style="margin-bottom: 22px; font-size: 0.95rem; color: var(--text-muted);">
+          Envía tus proyectos (texto, imágenes, audio, video o contenido asistido por IA) directamente a nuestro equipo editorial a través de este formulario.
+        </p>
 
-                <div class="form-group">
-                    <label for="author">Nombre o Seudónimo del Creador/Autor:</label>
-                    <input type="text" id="author" name="Autor / Seudónimo" placeholder="Tu nombre o seudónimo" required autocomplete="name">
-                </div>
+        <form action="https://formsubmit.co/edicionesbelikones@gmail.com" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="_subject" value="[NUEVO MATERIAL / MANUSCRITO] - Ediciones Belikones">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
 
-                <div class="form-group">
-                    <label for="title">Título del Proyecto o Asunto:</label>
-                    <input type="text" id="title" name="Título / Asunto" placeholder="Ej. Mi Proyecto Creativo" required>
-                </div>
+          <div class="form-group">
+            <label for="author">Nombre o Seudónimo del Creador/Autor:</label>
+            <input type="text" id="author" name="Autor / Seudónimo" placeholder="Tu nombre o seudónimo" required autocomplete="name">
+          </div>
 
-                <div class="form-group">
-                    <label for="email">Correo Electrónico de Contacto:</label>
-                    <input type="email" id="email" name="Email de Contacto" placeholder="tu-correo@contacto.com" required autocomplete="email">
-                </div>
+          <div class="form-group">
+            <label for="title">Título del Proyecto o Asunto:</label>
+            <input type="text" id="title" name="Título / Asunto" placeholder="Ej. Mi Proyecto Creativo" required>
+          </div>
 
-                <div class="form-group">
-                    <label for="synopsis">Descripción, Herramientas de IA utilizadas o Mensaje:</label>
-                    <textarea id="synopsis" name="Descripción / Mensaje" rows="5" placeholder="Escribe aquí los detalles de tu trabajo o comentarios para el comité editorial..." required></textarea>
-                </div>
+          <div class="form-group">
+            <label for="email">Correo Electrónico de Contacto:</label>
+            <input type="email" id="email" name="Email de Contacto" placeholder="tu-correo@contacto.com" required autocomplete="email">
+          </div>
 
-                <div class="form-group">
-                    <label for="attachment">Adjuntar Archivo (Documento, Imagen, Audio, Video, ZIP, etc.):</label>
-                    <input type="file" id="attachment" name="attachment" accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png,.gif,.mp3,.mp4,.zip,.rar">
-                </div>
+          <div class="form-group">
+            <label for="synopsis">Descripción, Herramientas de IA utilizadas o Mensaje:</label>
+            <textarea id="synopsis" name="Descripción / Mensaje" rows="5" placeholder="Escribe aquí los detalles de tu trabajo o comentarios para el comité editorial..." required></textarea>
+          </div>
 
-                <button type="submit" class="submit-btn">Enviar Proyecto a Evaluación</button>
-            </form>
-        </section>
+          <div class="form-group">
+            <label for="attachment">Adjuntar Archivo (Documento, Imagen, Audio, Video, ZIP, etc.):</label>
+            <input type="file" id="attachment" name="attachment" accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png,.gif,.mp3,.mp4,.zip,.rar">
+          </div>
+
+          <button type="submit" class="submit-btn">Enviar Proyecto a Evaluación</button>
+        </form>
+      </section>
+
     </div>
 
     <footer>
-        <p>&copy; 2026 FELIPE PATIÑO &mdash; Plataforma Editorial Independiente.</p>
-        <p style="margin-top: 7px;">
-            <a href="#">Condiciones de envío</a> |
-            <a href="#">Quiénes somos</a> |
-            <a href="#">Contacto</a>
-        </p>
+      <p>&copy; 2026 FELIPE PATIÑO &mdash; Plataforma Editorial Independiente.</p>
+      <p style="margin-top: 7px;">
+        <a href="#">Condiciones de envío</a> |
+        <a href="#">Quiénes somos</a> |
+        <a href="#">Contacto</a>
+      </p>
     </footer>
-</div>
 
-<script>
+  </div>
+
+  <script>
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
 
     if (navToggle && navMenu) {
-        navToggle.addEventListener('click', () => {
-            const isOpen = navMenu.classList.toggle('active');
-            navToggle.setAttribute('aria-expanded', isOpen);
-            navToggle.innerHTML = isOpen
-                ? '<i class="fa-solid fa-xmark"></i>'
-                : '<i class="fa-solid fa-bars"></i>';
-        });
+      navToggle.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('active');
+        navToggle.setAttribute('aria-expanded', isOpen);
+        navToggle.innerHTML = isOpen
+          ? '<i class="fa-solid fa-xmark"></i>'
+          : '<i class="fa-solid fa-bars"></i>';
+      });
 
-        navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                navToggle.setAttribute('aria-expanded', 'false');
-                navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-            });
+      navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('active');
+          navToggle.setAttribute('aria-expanded', 'false');
+          navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
         });
+      });
     }
-</script>
+  </script>
 </body>
 </html>
