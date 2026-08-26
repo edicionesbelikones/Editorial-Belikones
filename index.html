@@ -182,26 +182,29 @@
     }
 
     .logo-image {
-      display: block;
-      width: min(920px, 96%);
-      height: auto;
-      max-height: 240px;
-      object-fit: contain;
-      object-position: center;
-      filter:
-        drop-shadow(0 0 12px rgba(255, 255, 255, 0.35))
-        drop-shadow(0 0 28px rgba(255, 255, 255, 0.15))
-        drop-shadow(0 8px 18px rgba(0, 0, 0, 0.8));
-      transition: transform 0.35s ease, filter 0.35s ease;
-    }
+  display: block;
+  width: min(920px, 96%);
+  height: auto;
+  max-height: 408px; /* Aumentado 70% */
+  object-fit: contain;
+  object-position: center;
+  filter:
+    drop-shadow(0 0 12px rgba(255, 255, 255, 0.35))
+    drop-shadow(0 0 28px rgba(255, 255, 255, 0.15))
+    drop-shadow(0 8px 18px rgba(0, 0, 0, 0.8));
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
 
-    .logo-image:hover {
-      transform: scale(1.015);
-      filter:
-        drop-shadow(0 0 20px rgba(255, 255, 255, 0.5))
-        drop-shadow(0 0 40px rgba(255, 255, 255, 0.22))
-        drop-shadow(0 10px 25px rgba(0, 0, 0, 0.9));
-    }
+.book-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Mantiene proporciones sin estirar */
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
+  border-radius: 5px;
+}
 
     .header-search {
       width: 100%;
