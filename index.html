@@ -764,7 +764,8 @@
     }
 
     .form-group input:focus,
-    .form-group textarea:focus {
+    .form-group textarea:focus,
+    .form-group select:focus {
       outline: none;
       border-color: var(--primary-light);
     }
@@ -773,6 +774,13 @@
       padding: 11px;
       background: #1a1a1a;
       color: #aaa;
+    }
+
+    .form-group small {
+      display: block;
+      margin-top: 8px;
+      color: var(--text-muted);
+      font-size: 0.82rem;
     }
 
     .submit-btn {
@@ -790,6 +798,10 @@
       letter-spacing: 0.5px;
       transition: background 0.2s;
       font-family: 'Source Sans 3', sans-serif;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
     }
 
     .submit-btn:hover {
@@ -1156,16 +1168,63 @@
         </p>
 
         <form action="https://formsubmit.co/edicionesbelikones@gmail.com" method="POST" enctype="multipart/form-data">
+          <!-- Campos ocultos de FormSubmit -->
           <input type="hidden" name="_subject" value="[NUEVO MATERIAL / MANUSCRITO] - Ediciones Belikones">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="gracias.html">
 
+          <!-- Datos del autor -->
           <div class="form-group">
-            <label for="author">Nombre o Seudónimo del Creador/Autor:</label>
+            <label for="author">Nombre o Seudónimo del Creador/Autor *</label>
             <input type="text" id="author" name="Autor / Seudónimo" placeholder="Tu nombre o seudónimo" required autocomplete="name">
           </div>
 
-          <!-- Aquí puedes seguir agregando más campos del formulario -->
+          <div class="form-group">
+            <label for="email">Correo electrónico *</label>
+            <input type="email" id="email" name="Email" placeholder="tu@email.com" required autocomplete="email">
+          </div>
+
+          <div class="form-group">
+            <label for="title">Título del proyecto / manuscrito *</label>
+            <input type="text" id="title" name="Título del proyecto" placeholder="Título de la obra o proyecto" required>
+          </div>
+
+          <div class="form-group">
+            <label for="type">Tipo de proyecto *</label>
+            <select id="type" name="Tipo de proyecto" required>
+              <option value="" disabled selected>Selecciona una opción</option>
+              <option value="Narrativa">Narrativa (cuento, novela, etc.)</option>
+              <option value="Poesía">Poesía</option>
+              <option value="Ensayo">Ensayo / Crítica</option>
+              <option value="Visual">Proyecto visual / Ilustración</option>
+              <option value="Sonoro">Proyecto sonoro / Audio</option>
+              <option value="Multiformato">Multiformato / Híbrido</option>
+              <option value="IA">Asistido o generado con IA</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Descripción o sinopsis del proyecto *</label>
+            <textarea id="description" name="Descripción / Sinopsis" rows="6" placeholder="Cuéntanos brevemente de qué trata tu proyecto, su extensión aproximada y cualquier detalle relevante..." required></textarea>
+          </div>
+
+          <!-- Subida de manuscritos -->
+          <div class="form-group">
+            <label for="manuscript">Subir manuscrito / archivos *</label>
+            <input type="file" id="manuscript" name="Archivo(s)" multiple accept=".pdf,.doc,.docx,.txt,.epub,.zip,.jpg,.jpeg,.png,.mp3,.mp4,.wav" required>
+            <small>Puedes subir varios archivos (PDF, Word, ZIP, imágenes, audio o video). Tamaño máximo recomendado: 20 MB por archivo.</small>
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Notas adicionales (opcional)</label>
+            <textarea id="notes" name="Notas adicionales" rows="3" placeholder="Cualquier información extra que quieras compartir con el equipo editorial..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <i class="fa-solid fa-paper-plane"></i> Enviar proyecto
+          </button>
         </form>
       </section>
     </div>
@@ -1201,7 +1260,6 @@
       let matches = [];
       let currentIndex = -1;
 
-      // Nodos de texto que no deben ser tocados
       function isSkippable(node) {
         const parent = node.parentNode;
         if (!parent) return true;
@@ -1212,7 +1270,6 @@
                parent.classList.contains('construction-tape-text');
       }
 
-      // Limpia todos los resaltados anteriores
       function clearHighlights() {
         const highlights = document.querySelectorAll('.highlight-yellow');
         highlights.forEach(span => {
@@ -1229,7 +1286,6 @@
         searchInput.classList.remove('no-results-glow');
       }
 
-      // Resalta todas las coincidencias
       function highlightMatches(term) {
         clearHighlights();
         if (!term || term.length < 2) return;
@@ -1265,12 +1321,10 @@
 
           regex.lastIndex = 0;
           while ((match = regex.exec(text)) !== null) {
-            // Texto antes del match
             if (match.index > lastIndex) {
               frag.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
             }
 
-            // Span resaltado
             const span = document.createElement('span');
             span.className = 'highlight-yellow';
             span.textContent = match[0];
@@ -1280,7 +1334,6 @@
             lastIndex = regex.lastIndex;
           }
 
-          // Texto restante
           if (lastIndex < text.length) {
             frag.appendChild(document.createTextNode(text.slice(lastIndex)));
           }
@@ -1327,14 +1380,12 @@
         updateActiveMatch();
       }
 
-      // Eventos
       searchForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const term = searchInput.value.trim();
         highlightMatches(term);
       });
 
-      // Búsqueda en tiempo real (opcional, con debounce)
       let debounceTimer;
       searchInput.addEventListener('input', () => {
         clearTimeout(debounceTimer);
@@ -1351,7 +1402,6 @@
       nextBtn.addEventListener('click', goToNext);
       prevBtn.addEventListener('click', goToPrev);
 
-      // Teclas de flecha mientras el input tiene foco
       searchInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
           e.preventDefault();
