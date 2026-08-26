@@ -7,14 +7,18 @@
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#6b1010">
   <title>Editorial Belikones</title>
+
   <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
   <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
   <style>
     :root {
       --primary: #6b1010;
@@ -89,7 +93,7 @@
       position: relative;
     }
 
-    /* ========== CINTA DE POLICÍA ========== */
+    /* ========== CINTA DE CONSTRUCCIÓN ========== */
     .construction-tape {
       position: fixed;
       top: 50%;
@@ -182,30 +186,20 @@
     }
 
     .logo-image {
-  display: block;
-  width: min(920px, 96%);
-  height: auto;
-  max-height: 408px; /* Aumentado 70% */
-  object-fit: contain;
-  object-position: center;
-  filter:
-    drop-shadow(0 0 12px rgba(255, 255, 255, 0.35))
-    drop-shadow(0 0 28px rgba(255, 255, 255, 0.15))
-    drop-shadow(0 8px 18px rgba(0, 0, 0, 0.8));
-  transition: transform 0.35s ease, filter 0.35s ease;
-}
+      display: block;
+      width: min(920px, 96%);
+      height: auto;
+      max-height: 408px;
+      object-fit: contain;
+      object-position: center;
+      filter:
+        drop-shadow(0 0 12px rgba(255, 255, 255, 0.35))
+        drop-shadow(0 0 28px rgba(255, 255, 255, 0.15))
+        drop-shadow(0 8px 18px rgba(0, 0, 0, 0.8));
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
 
-.book-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Mantiene proporciones sin estirar */
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
-  border-radius: 5px;
-}
-
+    /* ========== BUSCADOR ========== */
     .header-search {
       width: 100%;
       max-width: 460px;
@@ -237,7 +231,7 @@
       color: #777;
     }
 
-    .header-search button {
+    .header-search button[type="submit"] {
       background: var(--primary);
       color: var(--white);
       border: 1px solid var(--primary);
@@ -248,11 +242,10 @@
       transition: background 0.2s;
     }
 
-    .header-search button:hover {
+    .header-search button[type="submit"]:hover {
       background: var(--primary-light);
     }
 
-    /* ESTILOS DE BUSCADOR Y RESPLANDOR (GLOW) */
     .search-nav-controls {
       display: none;
       align-items: center;
@@ -298,6 +291,7 @@
       text-align: left;
       font-weight: 600;
       pointer-events: none;
+      min-height: 1.2em;
     }
 
     .highlight-yellow {
@@ -319,21 +313,10 @@
     }
 
     @keyframes glowRed {
-      0% {
-        box-shadow: 0 0 0px transparent;
-      }
-      20% {
-        box-shadow: 0 0 15px #ff0055, 0 0 25px #ff0055;
-        border-color: #ff0055 !important;
-      }
-      80% {
-        box-shadow: 0 0 15px #ff0055, 0 0 25px #ff0055;
-        border-color: #ff0055 !important;
-      }
-      100% {
-        box-shadow: 0 0 0px transparent;
-        border-color: var(--border-color) !important;
-      }
+      0%   { box-shadow: 0 0 0 transparent; }
+      20%  { box-shadow: 0 0 15px #ff0055, 0 0 25px #ff0055; border-color: #ff0055 !important; }
+      80%  { box-shadow: 0 0 15px #ff0055, 0 0 25px #ff0055; border-color: #ff0055 !important; }
+      100% { box-shadow: 0 0 0 transparent; border-color: var(--border-color) !important; }
     }
 
     /* ========== NAV ========== */
@@ -450,6 +433,7 @@
       padding: 16px;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
       border-radius: 5px;
     }
@@ -631,6 +615,7 @@
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
+      margin-bottom: 16px;
     }
 
     .ad-btn::before {
@@ -811,94 +796,6 @@
       background: var(--primary-light);
     }
 
-    /* ========== BIOGRAFÍA DESPLEGABLE ========== */
-    .bio-section {
-      padding: 0 16px 28px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .bio-toggle {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      color: var(--text-main);
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.88rem;
-      font-weight: 600;
-      padding: 10px 18px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all 0.25s ease;
-    }
-
-    .bio-toggle:hover {
-      border-color: var(--primary-light);
-      color: #e8b0b0;
-    }
-
-    .bio-toggle i {
-      transition: transform 0.3s ease;
-    }
-
-    .bio-toggle.active i {
-      transform: rotate(180deg);
-    }
-
-    .bio-panel {
-      display: none;
-      margin-top: 18px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 24px;
-      animation: fadeInBio 0.35s ease;
-    }
-
-    .bio-panel.active {
-      display: block;
-    }
-
-    @keyframes fadeInBio {
-      from { opacity: 0; transform: translateY(-8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .bio-content {
-      display: flex;
-      gap: 22px;
-      align-items: flex-start;
-    }
-
-    .bio-photo {
-      width: 140px;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 8px;
-      border: 2px solid #444;
-      flex-shrink: 0;
-    }
-
-    .bio-text h3 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.25rem;
-      color: #d4a0a0;
-      margin-bottom: 12px;
-    }
-
-    .bio-text p {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      margin-bottom: 12px;
-      line-height: 1.65;
-    }
-
-    .bio-text p:last-child {
-      margin-bottom: 0;
-    }
-
     /* ========== FOOTER ========== */
     footer {
       background: var(--bg-header);
@@ -917,7 +814,7 @@
       color: #ddd;
     }
 
-    /* RESPONSIVE */
+    /* ========== RESPONSIVE ========== */
     @media (max-width: 900px) {
       .page-content {
         grid-template-columns: 1fr;
@@ -1029,17 +926,6 @@
         font-size: 0.95rem;
         letter-spacing: 2px;
       }
-
-      .bio-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .bio-photo {
-        width: 120px;
-        height: 120px;
-      }
     }
 
     @media (max-width: 420px) {
@@ -1083,12 +969,14 @@
   </style>
 </head>
 <body>
-  <!-- CINTA DE POLICÍA -->
+
+  <!-- CINTA DE CONSTRUCCIÓN -->
   <div class="construction-tape">
     <div class="construction-tape-text">⚠ PÁGINA EN CONSTRUCCIÓN ⚠ &nbsp;&nbsp;&nbsp; PÁGINA EN CONSTRUCCIÓN &nbsp;&nbsp;&nbsp; ⚠ PÁGINA EN CONSTRUCCIÓN ⚠</div>
   </div>
 
   <div class="page-wrapper" id="mainContainer">
+
     <!-- Top Links -->
     <div class="header-top">
       <a href="#convocatoria">Convocatoria</a>
@@ -1101,11 +989,11 @@
         <img src="ggg.png" alt="Ediciones Belikones — Catálogo editorial y proyectos de recepción abierta" class="logo-image" width="920" height="240" decoding="async">
       </div>
 
-      <!-- Buscador con Controles Integrados -->
+      <!-- Buscador -->
       <div class="header-search">
-        <form id="searchForm" onsubmit="return false;" role="search">
+        <form id="searchForm" role="search" onsubmit="return false;">
           <input type="text" id="searchInput" placeholder="Buscar en el catálogo..." aria-label="Buscar en la página" name="q" autocomplete="off">
-          
+
           <div class="search-nav-controls" id="searchNavControls">
             <button type="button" class="search-nav-btn" id="prevMatchBtn" title="Anterior"><i class="fa-solid fa-chevron-up"></i></button>
             <span class="search-counter" id="searchCounter">0/0</span>
@@ -1118,7 +1006,7 @@
       </div>
     </div>
 
-    <!-- Navigation Bar -->
+    <!-- Navigation -->
     <div class="header-bottom">
       <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" id="navToggle">
         <i class="fa-solid fa-bars"></i>
@@ -1140,13 +1028,13 @@
       </div>
     </div>
 
-    <!-- Main Banner -->
+    <!-- Banner -->
     <div class="slider-wrapper">
       <h2>Convocatoria Abierta: Recepción Multiformato e IA</h2>
       <p>Aceptamos proyectos literarios, visuales, sonoros y conceptuales sin restricción de tema o método de creación.</p>
     </div>
 
-    <!-- Main Content Area -->
+    <!-- Contenido principal -->
     <div class="page-content">
       <main>
         <h2 class="section-title" id="catalogo">Novedades y Catálogo</h2>
@@ -1165,6 +1053,7 @@
             </a>
           </article>
 
+          <!-- Antropología del Silencio -->
           <article class="book-card">
             <img src="cover2.jpg" alt="Portada de Antropología del Silencio" class="book-cover" loading="lazy" decoding="async" width="220" height="260">
             <h3 class="book-title">Antropología del Silencio</h3>
@@ -1172,13 +1061,12 @@
             <p class="book-synopsis">Un análisis profundo sobre las voces periféricas, los espacios de creación independiente y las estéticas alternativas.</p>
           </article>
 
-          <!-- Gerardo Szae -->
+          <!-- Sistemas e Imágenes -->
           <article class="book-card">
             <img src="cover3.jpg" alt="Portada de Sistemas e Imágenes" class="book-cover" loading="lazy" decoding="async" width="220" height="260">
             <h3 class="book-title">Sistemas e Imágenes</h3>
             <p class="book-author">Gerardo Szae</p>
             <p class="book-synopsis">Exploración visual y conceptual sobre la relación entre el lenguaje maquínico y la creación literaria.</p>
-
             <a href="https://linktr.ee/szaeta" target="_blank" rel="noopener noreferrer" class="author-banner">
               <img src="szae.jpg" alt="Gerardo Szae" loading="lazy">
               <div class="author-banner-info">
@@ -1190,30 +1078,27 @@
               </div>
             </a>
           </article>
-          
-<!-- Gustavo Narváez -->
-<article class="book-card">
-  <div>
-    <h3 class="book-title">Fronteras del Lenguaje</h3>
-    <p class="book-author">Gustavo Narváez</p>
-    <p class="book-synopsis">Ensayos críticos sobre las dinámicas de publicación digital y el desarrollo de nuevas formas narrativas.</p>
-  </div>
-  
-  <a href="https://felipedejesusgarciapatino-sudo.github.io/Felipe-Plein/" target="_blank" rel="noopener noreferrer" class="author-banner">
-    <img src="uuu.jpg" alt="Gustavo Narváez" loading="lazy">
-    <div class="author-banner-info">
-      <div class="author-banner-text">
-        Gustavo Narváez
-        <span>Sitio Web</span>
-      </div>
-      <i class="fa-solid fa-arrow-up-right-from-square author-banner-icon"></i>
-    </div>
-  </a>
-</article>
-      <i class="fa-solid fa-arrow-up-right-from-square author-banner-icon"></i>
-    </div>
-  </a>
-</article>
+
+          <!-- Fronteras del Lenguaje -->
+          <article class="book-card">
+            <h3 class="book-title">Fronteras del Lenguaje</h3>
+            <p class="book-author">Gustavo Narváez</p>
+            <p class="book-synopsis">Ensayos críticos sobre las dinámicas de publicación digital y el desarrollo de nuevas formas narrativas.</p>
+            <a href="https://felipedejesusgarciapatino-sudo.github.io/Felipe-Plein/" target="_blank" rel="noopener noreferrer" class="author-banner">
+              <img src="uuu.jpg" alt="Gustavo Narváez" loading="lazy">
+              <div class="author-banner-info">
+                <div class="author-banner-text">
+                  Gustavo Narváez
+                  <span>Sitio Web</span>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square author-banner-icon"></i>
+              </div>
+            </a>
+          </article>
+        </div>
+      </main>
+
+      <!-- Sidebar -->
       <aside>
         <div class="sidebar-box">
           <h3>Catálogo General</h3>
@@ -1225,11 +1110,9 @@
           </a>
         </div>
 
-        <!-- Recomendados -->
         <div class="sidebar-box">
           <h3>Recomendados</h3>
-
-          <a href="https://golfa.mx/junior-tumbado/" target="_blank" rel="noopener noreferrer" class="ad-btn" style="margin-bottom: 16px;">
+          <a href="https://golfa.mx/junior-tumbado/" target="_blank" rel="noopener noreferrer" class="ad-btn">
             <i class="fa-solid fa-fire"></i>
             <span>Junior Tumbado</span>
           </a>
@@ -1265,6 +1148,7 @@
         </div>
       </aside>
 
+      <!-- Formulario -->
       <section class="form-section" id="contacto">
         <h2 class="section-title" id="convocatoria">Despacho de Manuscritos y Recepción de Proyectos</h2>
         <p style="margin-bottom: 22px; font-size: 0.95rem; color: var(--text-muted);">
@@ -1280,9 +1164,209 @@
             <label for="author">Nombre o Seudónimo del Creador/Autor:</label>
             <input type="text" id="author" name="Autor / Seudónimo" placeholder="Tu nombre o seudónimo" required autocomplete="name">
           </div>
+
+          <!-- Aquí puedes seguir agregando más campos del formulario -->
         </form>
       </section>
     </div>
+
+    <footer>
+      <p>© 2026 Ediciones Belikones. Todos los derechos reservados.</p>
+    </footer>
   </div>
+
+  <script>
+    // ========== MENÚ MÓVIL ==========
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    if (navToggle && navMenu) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('active');
+        navToggle.setAttribute('aria-expanded', isOpen);
+      });
+    }
+
+    // ========== BUSCADOR REAL CON RESALTADO ==========
+    (function () {
+      const searchInput = document.getElementById('searchInput');
+      const searchForm = document.getElementById('searchForm');
+      const searchMessage = document.getElementById('searchMessage');
+      const searchNavControls = document.getElementById('searchNavControls');
+      const searchCounter = document.getElementById('searchCounter');
+      const prevBtn = document.getElementById('prevMatchBtn');
+      const nextBtn = document.getElementById('nextMatchBtn');
+      const mainContainer = document.getElementById('mainContainer');
+
+      let matches = [];
+      let currentIndex = -1;
+
+      // Nodos de texto que no deben ser tocados
+      function isSkippable(node) {
+        const parent = node.parentNode;
+        if (!parent) return true;
+        const tag = parent.tagName ? parent.tagName.toLowerCase() : '';
+        return ['script', 'style', 'noscript', 'textarea', 'input', 'button', 'select'].includes(tag) ||
+               parent.classList.contains('highlight-yellow') ||
+               parent.classList.contains('construction-tape') ||
+               parent.classList.contains('construction-tape-text');
+      }
+
+      // Limpia todos los resaltados anteriores
+      function clearHighlights() {
+        const highlights = document.querySelectorAll('.highlight-yellow');
+        highlights.forEach(span => {
+          const parent = span.parentNode;
+          parent.replaceChild(document.createTextNode(span.textContent), span);
+          parent.normalize();
+        });
+        matches = [];
+        currentIndex = -1;
+        searchNavControls.classList.remove('active');
+        searchCounter.textContent = '0/0';
+        searchMessage.textContent = '';
+        searchMessage.classList.remove('no-results-glow');
+        searchInput.classList.remove('no-results-glow');
+      }
+
+      // Resalta todas las coincidencias
+      function highlightMatches(term) {
+        clearHighlights();
+        if (!term || term.length < 2) return;
+
+        const walker = document.createTreeWalker(
+          mainContainer,
+          NodeFilter.SHOW_TEXT,
+          {
+            acceptNode: function (node) {
+              if (isSkippable(node) || !node.nodeValue.trim()) {
+                return NodeFilter.FILTER_REJECT;
+              }
+              return NodeFilter.FILTER_ACCEPT;
+            }
+          }
+        );
+
+        const textNodes = [];
+        let node;
+        while (node = walker.nextNode()) {
+          textNodes.push(node);
+        }
+
+        const regex = new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+
+        textNodes.forEach(textNode => {
+          const text = textNode.nodeValue;
+          if (!regex.test(text)) return;
+
+          const frag = document.createDocumentFragment();
+          let lastIndex = 0;
+          let match;
+
+          regex.lastIndex = 0;
+          while ((match = regex.exec(text)) !== null) {
+            // Texto antes del match
+            if (match.index > lastIndex) {
+              frag.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
+            }
+
+            // Span resaltado
+            const span = document.createElement('span');
+            span.className = 'highlight-yellow';
+            span.textContent = match[0];
+            frag.appendChild(span);
+            matches.push(span);
+
+            lastIndex = regex.lastIndex;
+          }
+
+          // Texto restante
+          if (lastIndex < text.length) {
+            frag.appendChild(document.createTextNode(text.slice(lastIndex)));
+          }
+
+          textNode.parentNode.replaceChild(frag, textNode);
+        });
+
+        if (matches.length > 0) {
+          currentIndex = 0;
+          updateActiveMatch();
+          searchNavControls.classList.add('active');
+          searchCounter.textContent = `1/${matches.length}`;
+          searchMessage.textContent = '';
+          searchMessage.classList.remove('no-results-glow');
+          searchInput.classList.remove('no-results-glow');
+        } else {
+          searchMessage.textContent = 'No hay resultados';
+          searchMessage.style.color = '#ff0055';
+          searchMessage.classList.add('no-results-glow');
+          searchInput.classList.add('no-results-glow');
+          searchNavControls.classList.remove('active');
+        }
+      }
+
+      function updateActiveMatch() {
+        matches.forEach((m, i) => {
+          m.classList.toggle('active-match', i === currentIndex);
+        });
+        if (matches[currentIndex]) {
+          matches[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        searchCounter.textContent = `${currentIndex + 1}/${matches.length}`;
+      }
+
+      function goToNext() {
+        if (matches.length === 0) return;
+        currentIndex = (currentIndex + 1) % matches.length;
+        updateActiveMatch();
+      }
+
+      function goToPrev() {
+        if (matches.length === 0) return;
+        currentIndex = (currentIndex - 1 + matches.length) % matches.length;
+        updateActiveMatch();
+      }
+
+      // Eventos
+      searchForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const term = searchInput.value.trim();
+        highlightMatches(term);
+      });
+
+      // Búsqueda en tiempo real (opcional, con debounce)
+      let debounceTimer;
+      searchInput.addEventListener('input', () => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+          const term = searchInput.value.trim();
+          if (term.length >= 2) {
+            highlightMatches(term);
+          } else {
+            clearHighlights();
+          }
+        }, 300);
+      });
+
+      nextBtn.addEventListener('click', goToNext);
+      prevBtn.addEventListener('click', goToPrev);
+
+      // Teclas de flecha mientras el input tiene foco
+      searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          highlightMatches(searchInput.value.trim());
+        }
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+          e.preventDefault();
+          goToNext();
+        }
+        if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+          e.preventDefault();
+          goToPrev();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
