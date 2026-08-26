@@ -209,7 +209,7 @@
 
     .header-search {
       width: 100%;
-      max-width: 420px;
+      max-width: 460px;
       position: relative;
       z-index: 1;
     }
@@ -218,6 +218,7 @@
       display: flex;
       align-items: center;
       width: 100%;
+      position: relative;
     }
 
     .header-search input[type="text"] {
@@ -230,6 +231,7 @@
       min-width: 0;
       background: var(--bg-elevated);
       color: var(--text-main);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     .header-search input::placeholder {
@@ -249,6 +251,90 @@
 
     .header-search button:hover {
       background: var(--primary-light);
+    }
+
+    /* ESTILOS DE BUSCADOR Y RESPLANDOR (GLOW) */
+    .search-nav-controls {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-left: none;
+      padding: 0 10px;
+      height: 44px;
+    }
+
+    .search-nav-controls.active {
+      display: flex;
+    }
+
+    .search-nav-btn {
+      background: transparent !important;
+      border: none !important;
+      color: var(--text-muted) !important;
+      padding: 4px 8px !important;
+      font-size: 0.85rem !important;
+      cursor: pointer;
+    }
+
+    .search-nav-btn:hover {
+      color: var(--white) !important;
+    }
+
+    .search-counter {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      margin: 0 4px;
+    }
+
+    .search-message-glow {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      margin-top: 6px;
+      font-size: 0.85rem;
+      text-align: left;
+      font-weight: 600;
+      pointer-events: none;
+    }
+
+    .highlight-yellow {
+      background-color: #ffe600;
+      color: #000;
+      box-shadow: 0 0 10px #ffe600, 0 0 20px #ffe600;
+      border-radius: 2px;
+      padding: 0 2px;
+      transition: all 0.2s ease;
+    }
+
+    .highlight-yellow.active-match {
+      background-color: #ff9900;
+      box-shadow: 0 0 15px #ff9900, 0 0 30px #ff9900;
+    }
+
+    .no-results-glow {
+      animation: glowRed 2s ease-in-out forwards;
+    }
+
+    @keyframes glowRed {
+      0% {
+        box-shadow: 0 0 0px transparent;
+      }
+      20% {
+        box-shadow: 0 0 15px #ff0055, 0 0 25px #ff0055;
+        border-color: #ff0055 !important;
+      }
+      80% {
+        box-shadow: 0 0 15px #ff0055, 0 0 25px #ff0055;
+        border-color: #ff0055 !important;
+      }
+      100% {
+        box-shadow: 0 0 0px transparent;
+        border-color: var(--border-color) !important;
+      }
     }
 
     /* ========== NAV ========== */
@@ -832,9 +918,7 @@
       color: #ddd;
     }
 
-    /* ============================================
-       RESPONSIVE
-       ============================================ */
+    /* RESPONSIVE */
     @media (max-width: 900px) {
       .page-content {
         grid-template-columns: 1fr;
@@ -1006,8 +1090,7 @@
     <div class="construction-tape-text">⚠ PÁGINA EN CONSTRUCCIÓN ⚠ &nbsp;&nbsp;&nbsp; PÁGINA EN CONSTRUCCIÓN &nbsp;&nbsp;&nbsp; ⚠ PÁGINA EN CONSTRUCCIÓN ⚠</div>
   </div>
 
-  <div class="page-wrapper">
-
+  <div class="page-wrapper" id="mainContainer">
     <!-- Top Links -->
     <div class="header-top">
       <a href="#convocatoria">Convocatoria</a>
@@ -1020,11 +1103,20 @@
         <img src="ggg.png" alt="Ediciones Belikones — Catálogo editorial y proyectos de recepción abierta" class="logo-image" width="920" height="240" decoding="async">
       </div>
 
+      <!-- Buscador con Controles Integrados -->
       <div class="header-search">
-        <form action="#" method="get" role="search">
-          <input type="text" placeholder="Buscar en el catálogo..." aria-label="Buscar en el catálogo" name="q">
-          <button type="submit" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <form id="searchForm" onsubmit="return false;" role="search">
+          <input type="text" id="searchInput" placeholder="Buscar en el catálogo..." aria-label="Buscar en la página" name="q" autocomplete="off">
+          
+          <div class="search-nav-controls" id="searchNavControls">
+            <button type="button" class="search-nav-btn" id="prevMatchBtn" title="Anterior"><i class="fa-solid fa-chevron-up"></i></button>
+            <span class="search-counter" id="searchCounter">0/0</span>
+            <button type="button" class="search-nav-btn" id="nextMatchBtn" title="Siguiente"><i class="fa-solid fa-chevron-down"></i></button>
+          </div>
+
+          <button type="submit" id="searchSubmitBtn" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
+        <div id="searchMessage" class="search-message-glow"></div>
       </div>
     </div>
 
@@ -1058,12 +1150,10 @@
 
     <!-- Main Content Area -->
     <div class="page-content">
-
       <main>
         <h2 class="section-title" id="catalogo">Novedades y Catálogo</h2>
 
         <div class="books-grid">
-
           <!-- El Conjuro de las Ranas -->
           <article class="book-card">
             <a href="https://www.facebook.com/ElConjurodelasRanas/" target="_blank" rel="noopener noreferrer">
@@ -1202,7 +1292,6 @@
           <button type="submit" class="submit-btn">Enviar Proyecto a Evaluación</button>
         </form>
       </section>
-
     </div>
 
     <!-- ===== BIOGRAFÍA DEL EDITOR (BOTÓN DESPLEGABLE) ===== -->
@@ -1219,58 +1308,145 @@
             <h3>Felipe Patiño</h3>
             <p>Habito entre la creación literaria, la cultura digital, la calle y una curiosidad permanente por los límites de la experiencia humana.</p>
             <p>Me he venido formando por caminos menos convencionales. También trabajo de cadenero de topógrafo, un oficio que me ha cacheteado y dirigido al trabajo técnico, que rara vez aparece en los planes de estudio universitarios.</p>
-            <p>Soy explorador de sustancias y experiencias border, siempre con una mirada inquieta hacia lo que ocurre en los márgenes de la normalidad. Tras pasar recientemente por el anexo “Vida en Plenitud”, he incorporado a mi recorrido una experiencia que, lejos de cerrar mi historia, se convierte en otro capítulo de su búsqueda personal.</p>
-            <p>Soy un entusiasta de la obra de Antonio Escohotado, cuya influencia se refleja en mi interés por las drogas, la libertad, la cultura, la conciencia y las contradicciones de la sociedad contemporánea.</p>
-            <p>Me considero además, testigo de primera fila de la llamada “Poesía de la Memeración”, un movimiento nacido de la colisión entre literatura, internet, humor absurdo, cultura de memes y las nuevas formas de expresión de una generación acostumbrada a convertir casi cualquier experiencia en lenguaje.</p>
+            <p>Soy explorador de sustancias y experiencias border, siempre con una mirada inquieta hacia lo que ocurre en los márgenes de la normalidad. Tras pasar recientemente por el anexo “Vida en Plenitud”, he incorporado a mi recorrido una experiencia que, lejos de cerrar mi historia, se convierte en otro espacio de observación y reconfiguración personal.</p>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- FOOTER -->
     <footer>
-      <p>&copy; 2026 FELIPE PATIÑO &mdash; Plataforma Editorial Independiente.</p>
-      <p style="margin-top: 7px;">
-        <a href="#">Condiciones de envío</a> |
-        <a href="#">Quiénes somos</a> |
-        <a href="#">Contacto</a>
-      </p>
+      <p>&copy; 2026 Ediciones Belikones. Todos los derechos reservados.</p>
+      <p><a href="#contacto">Contacto</a> | <a href="#convocatoria">Envío de Manuscritos</a></p>
     </footer>
-
   </div>
 
   <script>
-    // Menú móvil
+    // LÓGICA DEL MENÚ NAVEGACIÓN Y DESPLEGABLE DE BIOGRAFÍA
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
-
     if (navToggle && navMenu) {
       navToggle.addEventListener('click', () => {
-        const isOpen = navMenu.classList.toggle('active');
-        navToggle.setAttribute('aria-expanded', isOpen);
-        navToggle.innerHTML = isOpen
-          ? '<i class="fa-solid fa-xmark"></i>'
-          : '<i class="fa-solid fa-bars"></i>';
-      });
-
-      navMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          navMenu.classList.remove('active');
-          navToggle.setAttribute('aria-expanded', 'false');
-          navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-        });
+        navMenu.classList.toggle('active');
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+        navToggle.setAttribute('aria-expanded', !expanded);
       });
     }
 
-    // Biografía desplegable
     const bioToggle = document.getElementById('bioToggle');
     const bioPanel = document.getElementById('bioPanel');
-
     if (bioToggle && bioPanel) {
       bioToggle.addEventListener('click', () => {
-        const isOpen = bioPanel.classList.toggle('active');
-        bioToggle.classList.toggle('active', isOpen);
-        bioToggle.setAttribute('aria-expanded', isOpen);
+        const isActive = bioPanel.classList.toggle('active');
+        bioToggle.classList.toggle('active');
+        bioToggle.setAttribute('aria-expanded', isActive);
       });
+    }
+
+    // LÓGICA DEL BUSCADOR CON RESPLANDOR Y NAVEGACIÓN
+    const searchForm = document.getElementById('searchForm');
+    const searchInput = document.getElementById('searchInput');
+    const searchSubmitBtn = document.getElementById('searchSubmitBtn');
+    const searchNavControls = document.getElementById('searchNavControls');
+    const prevMatchBtn = document.getElementById('prevMatchBtn');
+    const nextMatchBtn = document.getElementById('nextMatchBtn');
+    const searchCounter = document.getElementById('searchCounter');
+    const searchMessage = document.getElementById('searchMessage');
+    const mainContainer = document.getElementById('mainContainer');
+
+    let coincidencias = [];
+    let indiceActual = -1;
+
+    searchSubmitBtn.addEventListener('click', ejecutarBusqueda);
+    searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') ejecutarBusqueda();
+    });
+
+    prevMatchBtn.addEventListener('click', () => navegarCoincidencia(-1));
+    nextMatchBtn.addEventListener('click', () => navegarCoincidencia(1));
+
+    function ejecutarBusqueda() {
+      const query = searchInput.value.trim();
+
+      limpiarResaltados();
+      ocultarNavegacion();
+      searchMessage.textContent = '';
+      searchMessage.style.textShadow = 'none';
+      searchInput.classList.remove('no-results-glow');
+
+      if (!query) return;
+
+      const queryEscaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`(${queryEscaped})`, 'gi');
+
+      resaltarCoincidencias(mainContainer, regex);
+
+      coincidencias = Array.from(document.querySelectorAll('mark.highlight-yellow'));
+
+      if (coincidencias.length > 0) {
+        indiceActual = 0;
+        actualizarNavegacion();
+      } else {
+        // EFECTO RESPLANDOR ROJO SI NO HAY RESULTADOS (POR 2 SEGUNDOS)
+        searchInput.classList.add('no-results-glow');
+        searchMessage.style.color = '#ff0055';
+        searchMessage.style.textShadow = '0 0 10px #ff0055';
+        searchMessage.textContent = 'Sin resultados';
+
+        setTimeout(() => {
+          searchInput.classList.remove('no-results-glow');
+          searchMessage.textContent = '';
+        }, 2000);
+      }
+    }
+
+    function resaltarCoincidencias(nodo, regex) {
+      if (nodo.nodeType === Node.TEXT_NODE) {
+        const texto = nodo.nodeValue;
+        // Evita buscar dentro del propio buscador o scripts
+        if (regex.test(texto) && nodo.parentNode.id !== 'searchInput' && nodo.parentNode.id !== 'searchMessage') {
+          const spanTemp = document.createElement('span');
+          spanTemp.innerHTML = texto.replace(regex, '<mark class="highlight-yellow">$1</mark>');
+          nodo.parentNode.replaceChild(spanTemp, nodo);
+        }
+      } else if (nodo.nodeType === Node.ELEMENT_NODE && !['SCRIPT', 'STYLE', 'INPUT', 'BUTTON', 'TEXTAREA'].includes(nodo.tagName)) {
+        Array.from(nodo.childNodes).forEach(child => resaltarCoincidencias(child, regex));
+      }
+    }
+
+    function navegarCoincidencia(direccion) {
+      if (coincidencias.length === 0) return;
+
+      coincidencias[indiceActual].classList.remove('active-match');
+      indiceActual = (indiceActual + direccion + coincidencias.length) % coincidencias.length;
+      actualizarNavegacion();
+    }
+
+    function actualizarNavegacion() {
+      const elementoActual = coincidencias[indiceActual];
+      elementoActual.classList.add('active-match');
+
+      // Scroll suave hacia la coincidencia encontrada
+      elementoActual.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      searchCounter.textContent = `${indiceActual + 1}/${coincidencias.length}`;
+      searchNavControls.classList.add('active');
+    }
+
+    function limpiarResaltados() {
+      const marcas = mainContainer.querySelectorAll('mark.highlight-yellow');
+      marcas.forEach(mark => {
+        const parent = mark.parentNode;
+        parent.replaceChild(document.createTextNode(mark.textContent), mark);
+        parent.normalize();
+      });
+      coincidencias = [];
+      indiceActual = -1;
+    }
+
+    function ocultarNavegacion() {
+      searchNavControls.classList.remove('active');
+      searchCounter.textContent = '0/0';
     }
   </script>
 </body>
