@@ -7,18 +7,14 @@
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#6b1010">
   <title>Editorial Belikones</title>
-
   <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-
   <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
-
   <style>
     :root {
       --primary: #6b1010;
@@ -1084,7 +1080,6 @@
   </style>
 </head>
 <body>
-
   <!-- CINTA DE POLICÍA -->
   <div class="construction-tape">
     <div class="construction-tape-text">⚠ PÁGINA EN CONSTRUCCIÓN ⚠ &nbsp;&nbsp;&nbsp; PÁGINA EN CONSTRUCCIÓN &nbsp;&nbsp;&nbsp; ⚠ PÁGINA EN CONSTRUCCIÓN ⚠</div>
@@ -1193,11 +1188,23 @@
             </a>
           </article>
 
+          <!-- Gustavo Narváez -->
           <article class="book-card">
             <img src="cover4.jpg" alt="Portada de Fronteras del Lenguaje" class="book-cover" loading="lazy" decoding="async" width="220" height="260">
             <h3 class="book-title">Fronteras del Lenguaje</h3>
             <p class="book-author">Gustavo Narváez</p>
             <p class="book-synopsis">Ensayos críticos sobre las dinámicas de publicación digital y el desarrollo de nuevas formas narrativas.</p>
+
+            <a href="https://felipedejesusgarciapatino-sudo.github.io/Felipe-Plein/" target="_blank" rel="noopener noreferrer" class="author-banner">
+              <img src="uuu.jpg" alt="Gustavo Narváez" loading="lazy">
+              <div class="author-banner-info">
+                <div class="author-banner-text">
+                  Gustavo Narváez
+                  <span>Sitio Web</span>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square author-banner-icon"></i>
+              </div>
+            </a>
           </article>
         </div>
       </main>
@@ -1268,186 +1275,9 @@
             <label for="author">Nombre o Seudónimo del Creador/Autor:</label>
             <input type="text" id="author" name="Autor / Seudónimo" placeholder="Tu nombre o seudónimo" required autocomplete="name">
           </div>
-
-          <div class="form-group">
-            <label for="title">Título del Proyecto o Asunto:</label>
-            <input type="text" id="title" name="Título / Asunto" placeholder="Ej. Mi Proyecto Creativo" required>
-          </div>
-
-          <div class="form-group">
-            <label for="email">Correo Electrónico de Contacto:</label>
-            <input type="email" id="email" name="Email de Contacto" placeholder="tu-correo@contacto.com" required autocomplete="email">
-          </div>
-
-          <div class="form-group">
-            <label for="synopsis">Descripción, Herramientas de IA utilizadas o Mensaje:</label>
-            <textarea id="synopsis" name="Descripción / Mensaje" rows="5" placeholder="Escribe aquí los detalles de tu trabajo o comentarios para el comité editorial..." required></textarea>
-          </div>
-
-          <div class="form-group">
-            <label for="attachment">Adjuntar Archivo (Documento, Imagen, Audio, Video, ZIP, etc.):</label>
-            <input type="file" id="attachment" name="attachment" accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png,.gif,.mp3,.mp4,.zip,.rar">
-          </div>
-
-          <button type="submit" class="submit-btn">Enviar Proyecto a Evaluación</button>
         </form>
       </section>
     </div>
-
-    <!-- ===== BIOGRAFÍA DEL EDITOR (BOTÓN DESPLEGABLE) ===== -->
-    <div class="bio-section">
-      <button class="bio-toggle" id="bioToggle" aria-expanded="false">
-        <i class="fa-solid fa-chevron-down"></i>
-        Biografía del editor
-      </button>
-
-      <div class="bio-panel" id="bioPanel">
-        <div class="bio-content">
-          <img src="fff.jpg" alt="Felipe Patiño" class="bio-photo" loading="lazy">
-          <div class="bio-text">
-            <h3>Felipe Patiño</h3>
-            <p>Habito entre la creación literaria, la cultura digital, la calle y una curiosidad permanente por los límites de la experiencia humana.</p>
-            <p>Me he venido formando por caminos menos convencionales. También trabajo de cadenero de topógrafo, un oficio que me ha cacheteado y dirigido al trabajo técnico, que rara vez aparece en los planes de estudio universitarios.</p>
-            <p>Soy explorador de sustancias y experiencias border, siempre con una mirada inquieta hacia lo que ocurre en los márgenes de la normalidad. Tras pasar recientemente por el anexo “Vida en Plenitud”, he incorporado a mi recorrido una experiencia que, lejos de cerrar mi historia, se convierte en otro espacio de observación y reconfiguración personal.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- FOOTER -->
-    <footer>
-      <p>&copy; 2026 Ediciones Belikones. Todos los derechos reservados.</p>
-      <p><a href="#contacto">Contacto</a> | <a href="#convocatoria">Envío de Manuscritos</a></p>
-    </footer>
   </div>
-
-  <script>
-    // LÓGICA DEL MENÚ NAVEGACIÓN Y DESPLEGABLE DE BIOGRAFÍA
-    const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navMenu');
-    if (navToggle && navMenu) {
-      navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
-        navToggle.setAttribute('aria-expanded', !expanded);
-      });
-    }
-
-    const bioToggle = document.getElementById('bioToggle');
-    const bioPanel = document.getElementById('bioPanel');
-    if (bioToggle && bioPanel) {
-      bioToggle.addEventListener('click', () => {
-        const isActive = bioPanel.classList.toggle('active');
-        bioToggle.classList.toggle('active');
-        bioToggle.setAttribute('aria-expanded', isActive);
-      });
-    }
-
-    // LÓGICA DEL BUSCADOR CON RESPLANDOR Y NAVEGACIÓN
-    const searchForm = document.getElementById('searchForm');
-    const searchInput = document.getElementById('searchInput');
-    const searchSubmitBtn = document.getElementById('searchSubmitBtn');
-    const searchNavControls = document.getElementById('searchNavControls');
-    const prevMatchBtn = document.getElementById('prevMatchBtn');
-    const nextMatchBtn = document.getElementById('nextMatchBtn');
-    const searchCounter = document.getElementById('searchCounter');
-    const searchMessage = document.getElementById('searchMessage');
-    const mainContainer = document.getElementById('mainContainer');
-
-    let coincidencias = [];
-    let indiceActual = -1;
-
-    searchSubmitBtn.addEventListener('click', ejecutarBusqueda);
-    searchInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') ejecutarBusqueda();
-    });
-
-    prevMatchBtn.addEventListener('click', () => navegarCoincidencia(-1));
-    nextMatchBtn.addEventListener('click', () => navegarCoincidencia(1));
-
-    function ejecutarBusqueda() {
-      const query = searchInput.value.trim();
-
-      limpiarResaltados();
-      ocultarNavegacion();
-      searchMessage.textContent = '';
-      searchMessage.style.textShadow = 'none';
-      searchInput.classList.remove('no-results-glow');
-
-      if (!query) return;
-
-      const queryEscaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      const regex = new RegExp(`(${queryEscaped})`, 'gi');
-
-      resaltarCoincidencias(mainContainer, regex);
-
-      coincidencias = Array.from(document.querySelectorAll('mark.highlight-yellow'));
-
-      if (coincidencias.length > 0) {
-        indiceActual = 0;
-        actualizarNavegacion();
-      } else {
-        // EFECTO RESPLANDOR ROJO SI NO HAY RESULTADOS (POR 2 SEGUNDOS)
-        searchInput.classList.add('no-results-glow');
-        searchMessage.style.color = '#ff0055';
-        searchMessage.style.textShadow = '0 0 10px #ff0055';
-        searchMessage.textContent = 'Sin resultados';
-
-        setTimeout(() => {
-          searchInput.classList.remove('no-results-glow');
-          searchMessage.textContent = '';
-        }, 2000);
-      }
-    }
-
-    function resaltarCoincidencias(nodo, regex) {
-      if (nodo.nodeType === Node.TEXT_NODE) {
-        const texto = nodo.nodeValue;
-        // Evita buscar dentro del propio buscador o scripts
-        if (regex.test(texto) && nodo.parentNode.id !== 'searchInput' && nodo.parentNode.id !== 'searchMessage') {
-          const spanTemp = document.createElement('span');
-          spanTemp.innerHTML = texto.replace(regex, '<mark class="highlight-yellow">$1</mark>');
-          nodo.parentNode.replaceChild(spanTemp, nodo);
-        }
-      } else if (nodo.nodeType === Node.ELEMENT_NODE && !['SCRIPT', 'STYLE', 'INPUT', 'BUTTON', 'TEXTAREA'].includes(nodo.tagName)) {
-        Array.from(nodo.childNodes).forEach(child => resaltarCoincidencias(child, regex));
-      }
-    }
-
-    function navegarCoincidencia(direccion) {
-      if (coincidencias.length === 0) return;
-
-      coincidencias[indiceActual].classList.remove('active-match');
-      indiceActual = (indiceActual + direccion + coincidencias.length) % coincidencias.length;
-      actualizarNavegacion();
-    }
-
-    function actualizarNavegacion() {
-      const elementoActual = coincidencias[indiceActual];
-      elementoActual.classList.add('active-match');
-
-      // Scroll suave hacia la coincidencia encontrada
-      elementoActual.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-      searchCounter.textContent = `${indiceActual + 1}/${coincidencias.length}`;
-      searchNavControls.classList.add('active');
-    }
-
-    function limpiarResaltados() {
-      const marcas = mainContainer.querySelectorAll('mark.highlight-yellow');
-      marcas.forEach(mark => {
-        const parent = mark.parentNode;
-        parent.replaceChild(document.createTextNode(mark.textContent), mark);
-        parent.normalize();
-      });
-      coincidencias = [];
-      indiceActual = -1;
-    }
-
-    function ocultarNavegacion() {
-      searchNavControls.classList.remove('active');
-      searchCounter.textContent = '0/0';
-    }
-  </script>
 </body>
 </html>
