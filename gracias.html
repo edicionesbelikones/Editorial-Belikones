@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Gracias! — Ediciones Belikones</title>
+  <meta name="theme-color" content="#6b1010">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6b1010;
+      --primary-light: #8a1a1a;
+      --bg: #121212;
+      --text: #e8e8e8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Source Sans 3', system-ui, sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* Círculo que crece hasta llenar la pantalla */
+    .grow-circle {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, #9e2a2a 0%, #6b1010 60%, #4a0b0b 100%);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      z-index: 10;
+      animation: growToFull 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    @keyframes growToFull {
+      0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+      }
+      70% {
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(80);
+        opacity: 0.97;
+      }
+    }
+
+    /* Contenido del agradecimiento */
+    .thank-you {
+      position: relative;
+      z-index: 20;
+      text-align: center;
+      opacity: 0;
+      transform: scale(0.6);
+      animation: appearContent 0.9s ease 1.1s forwards;
+      padding: 0 20px;
+      max-width: 620px;
+    }
+
+    @keyframes appearContent {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .thank-you h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.2rem, 7vw, 3.4rem);
+      color: #fff;
+      margin-bottom: 16px;
+      text-shadow: 0 0 30px rgba(255, 200, 200, 0.4);
+    }
+
+    .thank-you p {
+      font-size: clamp(1.05rem, 3vw, 1.25rem);
+      color: #f0d0d0;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(6px);
+    }
+
+    .back-btn:hover {
+      background: rgba(255, 255, 255, 0.22);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Canvas para confeti */
+    #confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 30;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Círculo que crece -->
+  <div class="grow-circle"></div>
+
+  <!-- Mensaje de agradecimiento -->
+  <div class="thank-you">
+    <h1>¡Gracias por tu envío!</h1>
+    <p>
+      Hemos recibido tu manuscrito / proyecto correctamente.<br>
+      Nuestro equipo editorial lo revisará con atención y te contactará pronto.
+    </p>
+    <a href="index.html" class="back-btn">
+      ← Volver al inicio
+    </a>
+  </div>
+
+  <!-- Canvas de confeti -->
+  <canvas id="confetti"></canvas>
+
+  <script>
+    // ========== CONFETI DESTELLANTE ==========
+    const canvas = document.getElementById('confetti');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const colors = ['#ffcc00', '#ff9900', '#ff0055', '#ffffff', '#ff66aa', '#ffe600', '#ff3333'];
+    const particles = [];
+    const particleCount = 180;
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height - canvas.height;
+        this.size = Math.random() * 9 + 4;
+        this.speedY = Math.random() * 4 + 2.5;
+        this.speedX = Math.random() * 4 - 2;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.rotation = Math.random() * 360;
+        this.rotationSpeed = Math.random() * 8 - 4;
+        this.opacity = 1;
+        this.sparkle = Math.random() > 0.6;
+      }
+
+      update() {
+        this.y += this.speedY;
+        this.x += this.speedX;
+        this.rotation += this.rotationSpeed;
+
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+
+        if (this.y > canvas.height + 20) {
+          this.y = -20;
+          this.x = Math.random() * canvas.width;
+          this.opacity = 1;
+        }
+      }
+
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate((this.rotation * Math.PI) / 180);
+        ctx.globalAlpha = this.opacity;
+
+        ctx.fillStyle = this.color;
+        ctx.shadowBlur = this.sparkle ? 18 : 6;
+        ctx.shadowColor = this.color;
+        ctx.fillRect(-this.size / 2, -this.size / 4, this.size, this.size / 2);
+
+        if (this.sparkle) {
+          ctx.beginPath();
+          ctx.arc(0, 0, this.size * 0.3, 0, Math.PI * 2);
+          ctx.fillStyle = '#fff';
+          ctx.globalAlpha = 0.7;
+          ctx.fill();
+        }
+
+        ctx.restore();
+      }
+    }
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    // Esperar a que el círculo crezca y luego lanzar confeti
+    setTimeout(() => {
+      animate();
+    }, 900);
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+</body>
+</html>
