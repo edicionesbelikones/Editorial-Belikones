@@ -2,19 +2,33 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ediciones Belikonas</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Novedades y catálogo general en Ediciones Belikones">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#6b1010">
+  <title>Editorial Belikones</title>
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <style>
     :root {
-      --bg-dark: #121212;
+      --primary: #6b1010;
+      --primary-dark: #4a0b0b;
+      --primary-light: #8a1a1a;
+      --bg-body: #121212;
       --bg-card: #1e1e1e;
-      --border-color: #333333;
-      --accent-red: #8b0000;
-      --accent-red-hover: #b22222;
-      --text-main: #e0e0e0;
+      --bg-elevated: #252525;
+      --bg-header: #0d0d0d;
+      --text-main: #e8e8e8;
       --text-muted: #a0a0a0;
-      --text-author: #d9534f;
+      --border-color: #333333;
+      --white: #ffffff;
+      --accent: #9e2a2a;
     }
 
     * {
@@ -23,34 +37,155 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      background-color: var(--bg-dark);
+      background-color: var(--bg-body);
       color: var(--text-main);
-      font-family: Arial, sans-serif;
-      line-height: 1.5;
+      font-family: 'Source Sans 3', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 140vw;
+      height: 140vh;
+      background-image: url('gt.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      opacity: 0.18;
+      z-index: -1;
+      pointer-events: none;
+      will-change: transform;
     }
 
     a {
+      color: var(--text-main);
       text-decoration: none;
-      color: inherit;
+      transition: color 0.2s ease;
     }
 
-    /* --- HEADER & LOGO MAC --- */
-    header {
-      padding: 30px 20px 20px 20px;
+    a:hover {
+      color: var(--accent);
+    }
+
+    .page-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: rgba(18, 18, 18, 0.92);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* ========== CINTA DE POLICÍA ========== */
+    .construction-tape {
+      position: fixed;
+      top: 50%;
+      left: -10%;
+      width: 140%;
+      height: 52px;
+      background: repeating-linear-gradient(
+        90deg,
+        #ffcc00 0px,
+        #ffcc00 40px,
+        #111 40px,
+        #111 50px
+      );
+      transform: translateY(-50%) rotate(-18deg);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.55);
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .construction-tape-text {
+      color: #111;
+      font-family: 'Source Sans 3', system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+      background: #ffcc00;
+      padding: 0 30px;
+    }
+
+    /* ========== HEADER ========== */
+    .header-top {
+      background-color: var(--bg-header);
+      color: #888;
+      font-size: 0.8rem;
+      padding: 7px 16px;
+      text-align: right;
+      border-bottom: 1px solid #222;
+    }
+
+    .header-top a {
+      color: #999;
+      margin-left: 14px;
+    }
+
+    .header-top a:hover {
+      color: var(--white);
+    }
+
+    .header-middle {
+      padding: 32px 16px 28px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
-      background: linear-gradient(180deg, #181818 0%, #121212 100%);
+      justify-content: center;
+      border-bottom: 1px solid var(--border-color);
+      gap: 22px;
+      background: rgba(22, 22, 22, 0.72);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    /* Logo Mac agrandado un 70% */
+    .header-middle::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70%;
+      height: 80%;
+      background: radial-gradient(ellipse at center, rgba(107, 16, 16, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
     .logo-image {
       display: block;
       width: min(920px, 96%);
       height: auto;
-      max-height: 408px; /* Incrementado 70% desde 240px */
+      max-height: 240px;
       object-fit: contain;
       object-position: center;
       filter:
@@ -60,98 +195,250 @@
       transition: transform 0.35s ease, filter 0.35s ease;
     }
 
-    .search-bar {
-      display: flex;
-      max-width: 450px;
+    .logo-image:hover {
+      transform: scale(1.015);
+      filter:
+        drop-shadow(0 0 20px rgba(255, 255, 255, 0.5))
+        drop-shadow(0 0 40px rgba(255, 255, 255, 0.22))
+        drop-shadow(0 10px 25px rgba(0, 0, 0, 0.9));
+    }
+
+    .header-search {
       width: 100%;
+      max-width: 460px;
+      position: relative;
+      z-index: 1;
     }
 
-    .search-bar input {
-      flex: 1;
-      padding: 8px 12px;
-      background: #252525;
+    .header-search form {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      position: relative;
+    }
+
+    .header-search input[type="text"] {
+      padding: 11px 14px;
       border: 1px solid var(--border-color);
-      color: #fff;
-      border-radius: 3px 0 0 3px;
+      border-radius: 4px 0 0 4px;
+      outline: none;
+      font-size: 0.95rem;
+      flex: 1;
+      min-width: 0;
+      background: var(--bg-elevated);
+      color: var(--text-main);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .search-bar button {
-      background: var(--accent-red);
-      color: #fff;
-      border: none;
-      padding: 8px 15px;
+    .header-search input::placeholder {
+      color: #777;
+    }
+
+    .header-search button {
+      background: var(--primary);
+      color: var(--white);
+      border: 1px solid var(--primary);
+      padding: 11px 16px;
+      border-radius: 0 4px 4px 0;
       cursor: pointer;
-      border-radius: 0 3px 3px 0;
+      font-size: 1rem;
+      transition: background 0.2s;
     }
 
-    /* --- NAV --- */
-    nav {
-      background: #000;
-      border-top: 1px solid var(--border-color);
-      border-bottom: 1px solid var(--border-color);
-      padding: 10px 20px;
+    .header-search button:hover {
+      background: var(--primary-light);
+    }
+
+    /* ESTILOS DE BUSCADOR Y RESPLANDOR (GLOW) */
+    .search-nav-controls {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-left: none;
+      padding: 0 10px;
+      height: 44px;
+    }
+
+    .search-nav-controls.active {
+      display: flex;
+    }
+
+    .search-nav-btn {
+      background: transparent !important;
+      border: none !important;
+      color: var(--text-muted) !important;
+      padding: 4px 8px !important;
+      font-size: 0.85rem !important;
+      cursor: pointer;
+    }
+
+    .search-nav-btn:hover {
+      color: var(--white) !important;
+    }
+
+    .search-counter {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      margin: 0 4px;
+    }
+
+    .search-message-glow {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      margin-top: 6px;
+      font-size: 0.85rem;
+      text-align: left;
+      font-weight: 600;
+      pointer-events: none;
+    }
+
+    .highlight-yellow {
+      background-color: #ffe600;
+      color: #000;
+      box-shadow: 0 0 10px #ffe600, 0 0 20px #ffe600;
+      border-radius: 2px;
+      padding: 0 2px;
+      transition: all 0.2s ease;
+    }
+
+    .highlight-yellow.active-match {
+      background-color: #ff9900;
+      box-shadow: 0 0 15px #ff9900, 0 0 30px #ff9900;
+    }
+
+    .no-results-glow {
+      animation: glowRed 2s ease-in-out forwards;
+    }
+
+    @keyframes glowRed {
+      0% {
+        box-shadow: 0 0 0px transparent;
+      }
+      20% {
+        box-shadow: 0 0 15px #ff0055, 0 0 25px #ff0055;
+        border-color: #ff0055 !important;
+      }
+      80% {
+        box-shadow: 0 0 15px #ff0055, 0 0 25px #ff0055;
+        border-color: #ff0055 !important;
+      }
+      100% {
+        box-shadow: 0 0 0px transparent;
+        border-color: var(--border-color) !important;
+      }
+    }
+
+    /* ========== NAV ========== */
+    .header-bottom {
+      background-color: var(--primary);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 15px;
+      padding: 0 12px;
+      position: relative;
     }
 
-    .nav-links {
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      padding: 12px;
+      cursor: pointer;
+    }
+
+    .nav-menu {
       display: flex;
-      gap: 15px;
       list-style: none;
-      font-weight: bold;
-      font-size: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-menu li a {
+      display: block;
+      color: var(--white);
+      padding: 15px 18px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+
+    .nav-menu li a:hover,
+    .nav-menu li a:focus {
+      background-color: var(--primary-dark);
     }
 
     .social-links {
       display: flex;
-      gap: 12px;
-      color: #fff;
+      align-items: center;
+      gap: 2px;
     }
 
-    /* --- HERO --- */
-    .hero-section {
+    .social-links a {
+      color: var(--white);
+      padding: 10px 9px;
+      font-size: 1.05rem;
+    }
+
+    .social-links a:hover {
+      color: #ffcccc;
+    }
+
+    /* ========== BANNER ========== */
+    .slider-wrapper {
+      background: linear-gradient(180deg, #1a1a1a 0%, #151515 100%);
+      color: var(--white);
       text-align: center;
-      padding: 40px 20px;
-      border-bottom: 1px solid var(--border-color);
+      padding: 42px 16px;
+      border-bottom: 3px solid var(--primary);
     }
 
-    .hero-section h1 {
-      font-family: Georgia, serif;
-      font-size: 1.8rem;
+    .slider-wrapper h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.45rem, 4.2vw, 2rem);
       margin-bottom: 10px;
+      font-weight: 600;
+      line-height: 1.3;
+      letter-spacing: 0.3px;
     }
 
-    .hero-section p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      max-width: 700px;
+    .slider-wrapper p {
+      font-size: 1rem;
+      color: #bbb;
+      max-width: 680px;
       margin: 0 auto;
+      font-weight: 400;
     }
 
-    /* --- MAIN CONTENT & GRID --- */
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 30px 20px;
+    /* ========== CONTENIDO ========== */
+    .page-content {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 28px;
+      padding: 32px 16px;
     }
 
     .section-title {
-      font-family: Georgia, serif;
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-      border-bottom: 2px solid var(--accent-red);
-      display: inline-block;
-      padding-bottom: 4px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.35rem, 3vw, 1.65rem);
+      color: #d4a0a0;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 10px;
+      margin-bottom: 22px;
+      font-weight: 600;
     }
 
     .books-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      align-items: start;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 22px;
     }
 
     .book-card {
@@ -160,201 +447,831 @@
       padding: 16px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between; /* Agrupamiento ajustado */
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
       border-radius: 5px;
-      height: 100%;
+    }
+
+    .book-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.4);
+      border-color: #444;
     }
 
     .book-cover {
       width: 100%;
-      height: auto;
+      height: 240px;
       object-fit: cover;
+      background: #2a2a2a;
+      margin-bottom: 14px;
+      border: 1px solid #333;
       border-radius: 3px;
-      margin-bottom: 12px;
+      transition: opacity 0.2s;
+    }
+
+    .book-cover:hover {
+      opacity: 0.9;
     }
 
     .book-title {
-      font-family: Georgia, serif;
-      font-size: 1.2rem;
-      margin-bottom: 4px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.08rem;
+      color: var(--text-main);
+      margin-bottom: 5px;
+      line-height: 1.35;
+      font-weight: 600;
     }
 
     .book-author {
-      color: var(--text-author);
-      font-size: 0.9rem;
-      margin-bottom: 10px;
+      font-size: 0.88rem;
+      color: #c07070;
+      font-weight: 600;
+      margin-bottom: 9px;
+      letter-spacing: 0.2px;
     }
 
     .book-synopsis {
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       color: var(--text-muted);
-      margin-bottom: 15px;
+      line-height: 1.5;
+      flex-grow: 1;
+      margin-bottom: 12px;
     }
 
-    .btn-action {
-      display: inline-block;
-      background: #2563eb;
-      color: #fff;
-      padding: 8px 12px;
-      border-radius: 4px;
-      font-size: 0.85rem;
-      font-weight: bold;
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    /* BANNER DE AUTOR */
-    .author-banner {
-      display: flex;
+    .fb-link {
+      display: inline-flex;
       align-items: center;
-      background: #151515;
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      overflow: hidden;
-      margin-top: auto; /* Empuja el banner al fondo sin distorsionar */
+      gap: 7px;
+      background: #1877f2;
+      color: #fff !important;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 7px 12px;
+      border-radius: 4px;
+      margin-top: auto;
       transition: background 0.2s;
     }
 
+    .fb-link:hover {
+      background: #0d65d9;
+      color: #fff !important;
+    }
+
+    .author-banner {
+      display: block;
+      margin-top: 10px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid #444;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      background: #111;
+    }
+
     .author-banner:hover {
-      background: #222222;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.45);
     }
 
     .author-banner img {
-      width: 80px;
-      height: 80px;
+      width: 100%;
+      height: 110px;
       object-fit: cover;
+      display: block;
+      filter: brightness(0.92);
+      transition: filter 0.25s;
+    }
+
+    .author-banner:hover img {
+      filter: brightness(1.05);
     }
 
     .author-banner-info {
+      padding: 10px 12px;
+      background: linear-gradient(180deg, #1c1c1c, #141414);
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      flex: 1;
-      padding: 0 12px;
+      justify-content: space-between;
+      gap: 8px;
     }
 
     .author-banner-text {
-      font-weight: bold;
-      font-size: 0.9rem;
-      display: flex;
-      flex-direction: column;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #e0e0e0;
+      line-height: 1.3;
     }
 
     .author-banner-text span {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      font-weight: normal;
+      display: block;
+      font-size: 0.72rem;
+      color: #999;
+      font-weight: 400;
+      margin-top: 2px;
     }
 
     .author-banner-icon {
-      color: var(--text-author);
+      color: #c07070;
       font-size: 1.1rem;
+    }
+
+    /* ========== SIDEBAR ========== */
+    .sidebar-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      margin-bottom: 22px;
+      border-radius: 5px;
+    }
+
+    .sidebar-box h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.15rem;
+      color: var(--text-main);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 9px;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .catalog-download-btn {
+      display: block;
+      background: var(--primary);
+      color: var(--white) !important;
+      text-align: center;
+      padding: 13px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      border-radius: 4px;
+      transition: background 0.2s;
+      letter-spacing: 0.3px;
+    }
+
+    .catalog-download-btn:hover {
+      background: var(--primary-light);
+    }
+
+    .ad-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #8a1a1a 0%, #6b1010 50%, #4a0b0b 100%);
+      color: #fff !important;
+      text-align: center;
+      padding: 14px 18px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      box-shadow: 0 6px 20px rgba(107, 16, 16, 0.45),
+                  0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ad-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .ad-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(107, 16, 16, 0.6),
+                  0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+      background: linear-gradient(135deg, #9e2a2a 0%, #8a1a1a 50%, #6b1010 100%);
+    }
+
+    .ad-btn:hover::before {
+      left: 100%;
+    }
+
+    .ad-btn i {
+      font-size: 1.15rem;
+    }
+
+    .song-ad {
+      display: block;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #444;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      background: #111;
+    }
+
+    .song-ad:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    .song-ad img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+
+    .song-ad-info {
+      padding: 12px 14px;
+      background: linear-gradient(180deg, #1a1a1a, #111);
+    }
+
+    .song-ad-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .song-ad-meta {
+      font-size: 0.78rem;
+      color: #aaa;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .song-ad-meta i {
+      color: #ff0000;
+    }
+
+    .news-list {
+      list-style: none;
+    }
+
+    .news-item {
+      margin-bottom: 15px;
+      padding-bottom: 13px;
+      border-bottom: 1px dashed #333;
+    }
+
+    .news-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .news-date {
+      font-size: 0.76rem;
+      color: #777;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .news-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      line-height: 1.4;
+      color: #d0d0d0;
+    }
+
+    .news-title:hover {
+      color: #e8b0b0;
+    }
+
+    /* ========== FORMULARIO ========== */
+    .form-section {
+      grid-column: 1 / -1;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 30px 22px;
+      margin-top: 8px;
+      border-radius: 5px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 7px;
+      color: #ccc;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.95rem;
+      background: var(--bg-elevated);
+      color: var(--text-main);
+      -webkit-appearance: none;
+      appearance: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-light);
+    }
+
+    .form-group input[type="file"] {
+      padding: 11px;
+      background: #1a1a1a;
+      color: #aaa;
+    }
+
+    .submit-btn {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 14px 30px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-transform: uppercase;
+      border-radius: 4px;
+      width: 100%;
+      max-width: 340px;
+      letter-spacing: 0.5px;
+      transition: background 0.2s;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+
+    .submit-btn:hover {
+      background: var(--primary-light);
+    }
+
+    /* ========== BIOGRAFÍA DESPLEGABLE ========== */
+    .bio-section {
+      padding: 0 16px 28px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .bio-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .bio-toggle:hover {
+      border-color: var(--primary-light);
+      color: #e8b0b0;
+    }
+
+    .bio-toggle i {
+      transition: transform 0.3s ease;
+    }
+
+    .bio-toggle.active i {
+      transform: rotate(180deg);
+    }
+
+    .bio-panel {
+      display: none;
+      margin-top: 18px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 24px;
+      animation: fadeInBio 0.35s ease;
+    }
+
+    .bio-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeInBio {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .bio-content {
+      display: flex;
+      gap: 22px;
+      align-items: flex-start;
+    }
+
+    .bio-photo {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid #444;
+      flex-shrink: 0;
+    }
+
+    .bio-text h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.25rem;
+      color: #d4a0a0;
+      margin-bottom: 12px;
+    }
+
+    .bio-text p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      line-height: 1.65;
+    }
+
+    .bio-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: var(--bg-header);
+      color: #777;
+      text-align: center;
+      padding: 30px 16px;
+      font-size: 0.84rem;
+      border-top: 3px solid var(--primary);
+    }
+
+    footer a {
+      color: #aaa;
+    }
+
+    footer a:hover {
+      color: #ddd;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .page-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .books-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      body::before {
+        width: 100vw;
+        height: 100vh;
+        opacity: 0.12;
+        background-size: cover;
+      }
+
+      .header-top {
+        text-align: center;
+        font-size: 0.76rem;
+        padding: 8px 12px;
+      }
+
+      .header-top a {
+        margin: 0 8px;
+      }
+
+      .header-middle {
+        padding: 24px 12px 20px;
+        gap: 18px;
+      }
+
+      .logo-image {
+        width: min(100%, 620px);
+        max-height: 160px;
+      }
+
+      .header-search {
+        max-width: 100%;
+      }
+
+      .nav-toggle {
+        display: block;
+        margin-left: auto;
+      }
+
+      .header-bottom {
+        flex-direction: column;
+        padding: 0;
+      }
+
+      .nav-menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background: var(--primary);
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+
+      .nav-menu li a {
+        padding: 14px 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        text-align: center;
+      }
+
+      .social-links {
+        padding: 12px;
+        justify-content: center;
+        width: 100%;
+        border-top: 1px solid rgba(255,255,255,0.12);
+      }
+
+      .slider-wrapper {
+        padding: 32px 14px;
+      }
+
+      .page-content {
+        padding: 22px 12px;
+      }
+
+      .books-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 14px;
+      }
+
+      .book-cover {
+        height: 200px;
+      }
+
+      .form-section {
+        padding: 24px 14px;
+      }
+
+      .submit-btn {
+        max-width: 100%;
+      }
+
+      .construction-tape {
+        height: 44px;
+        transform: translateY(-50%) rotate(-15deg);
+      }
+
+      .construction-tape-text {
+        font-size: 0.95rem;
+        letter-spacing: 2px;
+      }
+
+      .bio-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .bio-photo {
+        width: 120px;
+        height: 120px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .books-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .book-cover {
+        height: 170px;
+      }
+
+      .book-title {
+        font-size: 0.95rem;
+      }
+
+      .logo-image {
+        max-height: 130px;
+      }
+
+      .construction-tape {
+        height: 38px;
+      }
+
+      .construction-tape-text {
+        font-size: 0.82rem;
+        letter-spacing: 1.5px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none !important;
+        animation: none !important;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- CINTA DE POLICÍA -->
+  <div class="construction-tape">
+    <div class="construction-tape-text">⚠ PÁGINA EN CONSTRUCCIÓN ⚠ &nbsp;&nbsp;&nbsp; PÁGINA EN CONSTRUCCIÓN &nbsp;&nbsp;&nbsp; ⚠ PÁGINA EN CONSTRUCCIÓN ⚠</div>
+  </div>
 
-  <!-- HEADER CON MAC AGRANDADA -->
-  <header>
-    <img src="mac_logo.png" alt="Ediciones Belikonas Mac" class="logo-image">
-    <div class="search-bar">
-      <input type="text" placeholder="Buscar en el catálogo...">
-      <button><i class="fa-solid fa-magnifying-glass"></i></button>
+  <div class="page-wrapper" id="mainContainer">
+    <!-- Top Links -->
+    <div class="header-top">
+      <a href="#convocatoria">Convocatoria</a>
+      <a href="#contacto">Contacto y Manuscritos</a>
     </div>
-  </header>
 
-  <!-- NAVEGACIÓN -->
-  <nav>
-    <ul class="nav-links">
-      <li><a href="#">NOVEDADES</a></li>
-      <li><a href="#">CATÁLOGO</a></li>
-      <li><a href="#">MANUSCRITOS</a></li>
-      <li><a href="#">NOTICIAS</a></li>
-      <li><a href="#">CONTACTO</a></li>
-    </ul>
-    <div class="social-links">
-      <a href="#"><i class="fa-brands fa-facebook"></i></a>
-      <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-      <a href="#"><i class="fa-brands fa-instagram"></i></a>
-      <a href="#"><i class="fa-brands fa-youtube"></i></a>
-    </div>
-  </nav>
+    <!-- Main Header -->
+    <div class="header-middle">
+      <div class="logo">
+        <img src="ggg.png" alt="Ediciones Belikones — Catálogo editorial y proyectos de recepción abierta" class="logo-image" width="920" height="240" decoding="async">
+      </div>
 
-  <!-- SECCIÓN HERO -->
-  <section class="hero-section">
-    <h1>Convocatoria Abierta: Recepción Multiformato e IA</h1>
-    <p>Aceptamos proyectos literarios, visuales, sonoros y conceptuales sin restricción de tema o método de creación.</p>
-  </section>
-
-  <!-- CONTENIDO PRINCIPAL -->
-  <main>
-    <h2 class="section-title">Novedades y Catálogo</h2>
-
-    <div class="books-grid">
-
-      <!-- El Conjuro de las Ranas -->
-      <article class="book-card">
-        <div>
-          <img src="11.jpg" alt="Portada El Conjuro de las Ranas" class="book-cover">
-          <h3 class="book-title">El Conjuro de las Ranas</h3>
-          <p class="book-author">Varios Autores</p>
-          <p class="book-synopsis">Compilación de narrativa contemporánea y proyectos experimentales que exploran las fronteras del texto y la tecnología.</p>
-        </div>
-        <a href="#" class="btn-action"><i class="fa-brands fa-facebook"></i> Ver en Facebook</a>
-      </article>
-
-      <!-- Antropología del Silencio -->
-      <article class="book-card">
-        <div>
-          <img src="cover2.jpg" alt="Portada de Antropología del Silencio" class="book-cover">
-          <h3 class="book-title">Antropología del Silencio</h3>
-          <p class="book-author">Iván Mata</p>
-          <p class="book-synopsis">Un análisis profundo sobre las voces periféricas, los lenguajes de creación independiente y las estéticas alternativas.</p>
-        </div>
-      </article>
-
-      <!-- Sistemas e Imágenes -->
-      <article class="book-card">
-        <div>
-          <img src="cover3.jpg" alt="Portada Sistemas e Imágenes" class="book-cover">
-          <h3 class="book-title">Sistemas e Imágenes</h3>
-          <p class="book-author">Gerardo Szae</p>
-          <p class="book-synopsis">Exploración visual y conceptual sobre la relación entre el lenguaje maquínico y la creación humana.</p>
-        </div>
-        <a href="#" class="author-banner">
-          <img src="gerardo.jpg" alt="Gerardo Szae">
-          <div class="author-banner-info">
-            <div class="author-banner-text">
-              Gerardo Szae
-              <span>Poeta - Editor</span>
-            </div>
-            <i class="fa-solid fa-arrow-up-right-from-square author-banner-icon"></i>
+      <!-- Buscador con Controles Integrados -->
+      <div class="header-search">
+        <form id="searchForm" onsubmit="return false;" role="search">
+          <input type="text" id="searchInput" placeholder="Buscar en el catálogo..." aria-label="Buscar en la página" name="q" autocomplete="off">
+          
+          <div class="search-nav-controls" id="searchNavControls">
+            <button type="button" class="search-nav-btn" id="prevMatchBtn" title="Anterior"><i class="fa-solid fa-chevron-up"></i></button>
+            <span class="search-counter" id="searchCounter">0/0</span>
+            <button type="button" class="search-nav-btn" id="nextMatchBtn" title="Siguiente"><i class="fa-solid fa-chevron-down"></i></button>
           </div>
-        </a>
-      </article>
 
-      <!-- TARJETA REESTRUCTURADA: Gustavo Narváez (Sin imagen vacía arriba ni espacios sobrantes) -->
-      <article class="book-card">
-        <div>
-          <h3 class="book-title">Fronteras del Lenguaje</h3>
-          <p class="book-author">Gustavo Narváez</p>
-          <p class="book-synopsis">Ensayos críticos sobre las dinámicas de publicación digital y el desarrollo de nuevas formas narrativas.</p>
+          <button type="submit" id="searchSubmitBtn" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+        <div id="searchMessage" class="search-message-glow"></div>
+      </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="header-bottom">
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" id="navToggle">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#">Novedades</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#convocatoria">Manuscritos</a></li>
+        <li><a href="#noticias">Noticias</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+
+      <div class="social-links">
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <!-- Main Banner -->
+    <div class="slider-wrapper">
+      <h2>Convocatoria Abierta: Recepción Multiformato e IA</h2>
+      <p>Aceptamos proyectos literarios, visuales, sonoros y conceptuales sin restricción de tema o método de creación.</p>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="page-content">
+      <main>
+        <h2 class="section-title" id="catalogo">Novedades y Catálogo</h2>
+
+        <div class="books-grid">
+          <!-- El Conjuro de las Ranas -->
+          <article class="book-card">
+            <a href="https://www.facebook.com/ElConjurodelasRanas/" target="_blank" rel="noopener noreferrer">
+              <img src="cover1.jpg" alt="Portada de El Conjuro de las Ranas" class="book-cover" loading="lazy" decoding="async" width="220" height="260">
+            </a>
+            <h3 class="book-title">El Conjuro de las Ranas</h3>
+            <p class="book-author">Varios Autores</p>
+            <p class="book-synopsis">Compilación de narrativa contemporánea y proyectos experimentales que exploran las fronteras del texto y la tecnología.</p>
+            <a href="https://www.facebook.com/ElConjurodelasRanas/" target="_blank" rel="noopener noreferrer" class="fb-link">
+              <i class="fa-brands fa-facebook-f"></i> Ver en Facebook
+            </a>
+          </article>
+
+          <article class="book-card">
+            <img src="cover2.jpg" alt="Portada de Antropología del Silencio" class="book-cover" loading="lazy" decoding="async" width="220" height="260">
+            <h3 class="book-title">Antropología del Silencio</h3>
+            <p class="book-author">Iván Mata</p>
+            <p class="book-synopsis">Un análisis profundo sobre las voces periféricas, los espacios de creación independiente y las estéticas alternativas.</p>
+          </article>
+
+          <!-- Gerardo Szae -->
+          <article class="book-card">
+            <img src="cover3.jpg" alt="Portada de Sistemas e Imágenes" class="book-cover" loading="lazy" decoding="async" width="220" height="260">
+            <h3 class="book-title">Sistemas e Imágenes</h3>
+            <p class="book-author">Gerardo Szae</p>
+            <p class="book-synopsis">Exploración visual y conceptual sobre la relación entre el lenguaje maquínico y la creación literaria.</p>
+
+            <a href="https://linktr.ee/szaeta" target="_blank" rel="noopener noreferrer" class="author-banner">
+              <img src="szae.jpg" alt="Gerardo Szae" loading="lazy">
+              <div class="author-banner-info">
+                <div class="author-banner-text">
+                  Gerardo Szae
+                  <span>Poeta · Linktree</span>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square author-banner-icon"></i>
+              </div>
+            </a>
+          </article>
+<!-- Gustavo Narváez -->
+<article class="book-card">
+  <h3 class="book-title">Fronteras del Lenguaje</h3>
+  <p class="book-author">Gustavo Narváez</p>
+  <p class="book-synopsis">Ensayos críticos sobre las dinámicas de publicación digital y el desarrollo de nuevas formas narrativas.</p>
+  <a href="https://felipedejesusgarciapatino-sudo.github.io/Felipe-Plein/" target="_blank" rel="noopener noreferrer" class="author-banner" style="margin-top: auto;">
+    <img src="uuu.jpg" alt="Gustavo Narváez" loading="lazy">
+    <div class="author-banner-info">
+      <div class="author-banner-text">
+        Gustavo Narváez
+        <span>Sitio Web</span>
+      </div>
+      <i class="fa-solid fa-arrow-up-right-from-square author-banner-icon"></i>
+    </div>
+  </a>
+</article>
+      <aside>
+        <div class="sidebar-box">
+          <h3>Catálogo General</h3>
+          <p style="font-size: 0.88rem; margin-bottom: 14px; color: var(--text-muted);">
+            Descarga nuestro listado completo de títulos y publicaciones disponibles.
+          </p>
+          <a href="#" class="catalog-download-btn">
+            <i class="fa-solid fa-file-pdf"></i> Descargar Catálogo PDF
+          </a>
         </div>
 
-        <a href="https://felipedejesusgarciapatino-sudo.github.io/Felipe-Plein/" target="_blank" rel="noopener noreferrer" class="author-banner">
-          <img src="uuu.jpg" alt="Gustavo Narváez" loading="lazy">
-          <div class="author-banner-info">
-            <div class="author-banner-text">
-              Gustavo Narváez
-              <span>Sitio Web</span>
+        <!-- Recomendados -->
+        <div class="sidebar-box">
+          <h3>Recomendados</h3>
+
+          <a href="https://golfa.mx/junior-tumbado/" target="_blank" rel="noopener noreferrer" class="ad-btn" style="margin-bottom: 16px;">
+            <i class="fa-solid fa-fire"></i>
+            <span>Junior Tumbado</span>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=JWOWieTbUxQ" target="_blank" rel="noopener noreferrer" class="song-ad">
+            <img src="https://img.youtube.com/vi/JWOWieTbUxQ/hqdefault.jpg" alt="Neton Vega - Nalguita Y Teta" loading="lazy">
+            <div class="song-ad-info">
+              <div class="song-ad-title">🔥 Neton Vega – Nalguita Y Teta (Video Oficial)</div>
+              <div class="song-ad-meta">
+                <i class="fa-brands fa-youtube"></i>
+                <span>Escuchar ahora</span>
+              </div>
             </div>
-            <i class="fa-solid fa-arrow-up-right-from-square author-banner-icon"></i>
+          </a>
+        </div>
+
+        <div class="sidebar-box" id="noticias">
+          <h3>Noticias y Eventos</h3>
+          <ul class="news-list">
+            <li class="news-item">
+              <span class="news-date">18-08-2026</span>
+              <a href="#" class="news-title">Apertura de la convocatoria de proyectos multiformato</a>
+            </li>
+            <li class="news-item">
+              <span class="news-date">05-06-2026</span>
+              <a href="#" class="news-title">Presentación del repositorio de archivos independientes</a>
+            </li>
+            <li class="news-item">
+              <span class="news-date">12-04-2026</span>
+              <a href="#" class="news-title">Entrevista sobre edición independiente e inteligencia artificial</a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <section class="form-section" id="contacto">
+        <h2 class="section-title" id="convocatoria">Despacho de Manuscritos y Recepción de Proyectos</h2>
+        <p style="margin-bottom: 22px; font-size: 0.95rem; color: var(--text-muted);">
+          Envía tus proyectos (texto, imágenes, audio, video o contenido asistido por IA) directamente a nuestro equipo editorial a través de este formulario.
+        </p>
+
+        <form action="https://formsubmit.co/edicionesbelikones@gmail.com" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="_subject" value="[NUEVO MATERIAL / MANUSCRITO] - Ediciones Belikones">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+
+          <div class="form-group">
+            <label for="author">Nombre o Seudónimo del Creador/Autor:</label>
+            <input type="text" id="author" name="Autor / Seudónimo" placeholder="Tu nombre o seudónimo" required autocomplete="name">
           </div>
-        </a>
-      </article>
-
+        </form>
+      </section>
     </div>
-  </main>
-
+  </div>
 </body>
 </html>
