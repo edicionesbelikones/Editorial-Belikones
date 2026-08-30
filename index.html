@@ -3,337 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ediciones Belikones - Envío de Manuscritos</title>
+  <title>Ediciones Belikones - Convocatoria</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --bg-color: #0d0d0d;
-      --card-bg: #171717;
-      --accent-color: #ff0055;
-      --text-color: #e0e0e0;
-      --text-muted: #a0a0a0;
-      --border-color: #2a2a2a;
-      --input-bg: #222222;
-    }
-    
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      padding: 20px;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      background: var(--card-bg);
-      border-radius: 12px;
-      border: 1px solid var(--border-color);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      overflow: hidden;
-    }
-
-    header {
-      padding: 30px 20px;
-      text-align: center;
-      border-bottom: 1px solid var(--border-color);
-      background: linear-gradient(180deg, #1f1f1f 0%, #171717 100%);
-    }
-
-    header h1 {
-      font-size: 2.2rem;
-      letter-spacing: 2px;
-      color: #fff;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    header p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-
-    /* Search Bar Styles */
-    .search-section {
-      padding: 20px;
-      border-bottom: 1px solid var(--border-color);
-      background: #121212;
-    }
-
-    .search-box {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .search-box input {
-      flex: 1;
-      padding: 10px 14px;
-      background: var(--input-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      color: #fff;
-      font-size: 0.95rem;
-    }
-
-    .search-box input:focus {
-      outline: none;
-      border-color: var(--accent-color);
-    }
-
-    .search-btn {
-      padding: 10px 16px;
-      background: var(--border-color);
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .search-btn:hover {
-      background: #333;
-    }
-
-    .search-controls {
-      display: none;
-      align-items: center;
-      gap: 10px;
-      margin-top: 10px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .search-controls.active {
-      display: flex;
-    }
-
-    .search-nav-btn {
-      background: var(--input-bg);
-      border: 1px solid var(--border-color);
-      color: #fff;
-      padding: 4px 8px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .highlight-yellow {
-      background-color: #ffd700;
-      color: #000;
-      font-weight: bold;
-      border-radius: 2px;
-    }
-
-    .highlight-yellow.active-match {
-      background-color: #ff0055;
-      color: #fff;
-    }
-
-    .no-results-glow {
-      border-color: var(--accent-color) !important;
-      box-shadow: 0 0 8px rgba(255, 0, 85, 0.4);
-    }
-
-    /* Form Styles */
-    .form-section {
-      padding: 30px 20px;
-    }
-
-    .form-group {
-      margin-bottom: 22px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: #ddd;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    select,
-    textarea {
-      width: 100%;
-      padding: 12px 14px;
-      background: var(--input-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      color: #fff;
-      font-size: 0.95rem;
-      font-family: inherit;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      outline: none;
-      border-color: var(--accent-color);
-    }
-
-    small {
-      display: block;
-      margin-top: 6px;
-      color: var(--text-muted);
-      font-size: 0.82rem;
-    }
-
-    .submit-btn {
-      width: 100%;
-      padding: 14px;
-      background: var(--accent-color);
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: opacity 0.2s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .submit-btn:hover {
-      opacity: 0.9;
-    }
-
-    /* Upload Overlay */
-    .upload-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.85);
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-    }
-
-    .upload-overlay.active {
-      display: flex;
-    }
-
-    .loader-box {
-      text-align: center;
-      color: #fff;
-    }
-
-    .progress-text {
-      font-size: 2rem;
-      font-weight: bold;
-      color: var(--accent-color);
-      margin-top: 15px;
-    }
-
-    footer {
-      padding: 20px;
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      border-top: 1px solid var(--border-color);
-      background: #121212;
-    }
-  </style>
 </head>
 <body>
 
-  <!-- Overlay de Carga -->
-  <div class="upload-overlay" id="uploadOverlay">
-    <div class="loader-box">
-      <i class="fa-solid fa-spinner fa-spin fa-3x" style="color: var(--accent-color);"></i>
-      <p style="margin-top: 15px; font-size: 1.1rem;">Enviando tu proyecto...</p>
-      <div class="progress-text" id="uploadProgressText">0%</div>
+  <!-- Overlay Loader de subida -->
+  <div id="uploadOverlay" class="upload-overlay">
+    <div class="loader-container">
+      <div class="bullet-loader"></div>
+      <p>Subiendo manuscrito... <span id="uploadProgressText">0%</span></p>
     </div>
   </div>
 
-  <div class="container" id="mainContainer">
+  <div id="mainContainer">
+    <!-- Navegación -->
     <header>
-      <h1>Ediciones Belikones</h1>
-      <p>Convocatoria & Recepción de Manuscritos</p>
-    </header>
+      <button id="navToggle" aria-expanded="false" aria-label="Abrir menú">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <nav id="navMenu">
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#convocatoria">Convocatoria</a></li>
+          <li><a href="#envio">Enviar Proyecto</a></li>
+        </ul>
+      </nav>
 
-    <!-- Buscador Integrado -->
-    <section class="search-section">
-      <form id="searchForm" class="search-box">
-        <input type="text" id="searchInput" placeholder="Buscar en la página..." />
-        <button type="submit" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <!-- Buscador -->
+      <form id="searchForm" role="search">
+        <input type="search" id="searchInput" placeholder="Buscar en el sitio..." aria-label="Buscar">
+        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
       </form>
-      <div class="search-controls" id="searchNavControls">
-        <button type="button" class="search-nav-btn" id="prevMatchBtn"><i class="fa-solid fa-chevron-up"></i></button>
-        <button type="button" class="search-nav-btn" id="nextMatchBtn"><i class="fa-solid fa-chevron-down"></i></button>
+      <div id="searchNavControls" class="search-controls">
+        <button id="prevMatchBtn" type="button"><i class="fa-solid fa-chevron-up"></i></button>
+        <button id="nextMatchBtn" type="button"><i class="fa-solid fa-chevron-down"></i></button>
         <span id="searchCounter">0/0</span>
       </div>
-      <div id="searchMessage" style="font-size: 0.85rem; margin-top: 5px;"></div>
-    </section>
+      <div id="searchMessage"></div>
+    </header>
 
-    <!-- Formulario de Manuscritos -->
-    <div class="form-section">
-      <form id="manuscriptForm" action="https://formspree.io/f/edicionesbelikones@gmail.com" method="POST" enctype="multipart/form-data">
-        
-        <div class="form-group">
-          <label for="author">Nombre completo / Seudónimo *</label>
-          <input type="text" id="author" name="Nombre del Autor" placeholder="Tu nombre o seudónimo literario" required>
-        </div>
+    <!-- Sección de Envíos y Formulario -->
+    <div class="container">
+      <section id="envio" class="form-section">
+        <h2>Envía tu Proyecto</h2>
+        <form id="manuscriptForm" action="https://formspree.io/f/tu-endpoint" method="POST" enctype="multipart/form-data">
+          
+          <div class="form-group">
+            <label for="name">Nombre completo o seudónimo *</label>
+            <input type="text" id="name" name="Nombre" placeholder="Tu nombre o seudónimo" required>
+          </div>
 
-        <div class="form-group">
-          <label for="email">Correo electrónico de contacto *</label>
-          <input type="email" id="email" name="Correo" placeholder="tu-correo@ejemplo.com" autocomplete="email" required>
-        </div>
+          <div class="form-group">
+            <label for="email">Correo electrónico de contacto *</label>
+            <input type="email" id="email" name="Email" placeholder="tu@email.com" autocomplete="email" required>
+          </div>
 
-        <div class="form-group">
-          <label for="title">Título del proyecto / manuscrito *</label>
-          <input type="text" id="title" name="Título del proyecto" placeholder="Título de la obra o proyecto" required>
-        </div>
+          <div class="form-group">
+            <label for="title">Título del proyecto / manuscrito *</label>
+            <input type="text" id="title" name="Título del proyecto" placeholder="Título de la obra o proyecto" required>
+          </div>
 
-        <div class="form-group">
-          <label for="type">Tipo de proyecto *</label>
-          <select id="type" name="Tipo de proyecto" required>
-            <option value="" disabled selected>Selecciona una opción</option>
-            <option value="Narrativa">Narrativa (cuento, novela, etc.)</option>
-            <option value="Poesía">Poesía</option>
-            <option value="Ensayo">Ensayo / Crítica</option>
-            <option value="Visual">Proyecto visual / Ilustración</option>
-            <option value="Sonoro">Proyecto sonoro / Audio</option>
-            <option value="Multiformato">Multiformato / Híbrido</option>
-            <option value="IA">Asistido o generado con IA</option>
-            <option value="Otro">Otro</option>
-          </select>
-        </div>
+          <div class="form-group">
+            <label for="type">Tipo de proyecto *</label>
+            <select id="type" name="Tipo de proyecto" required>
+              <option value="" disabled selected>Selecciona una opción</option>
+              <option value="Narrativa">Narrativa (cuento, novela, etc.)</option>
+              <option value="Poesía">Poesía</option>
+              <option value="Ensayo">Ensayo / Crítica</option>
+              <option value="Visual">Proyecto visual / Ilustración</option>
+              <option value="Sonoro">Proyecto sonoro / Audio</option>
+              <option value="Multiformato">Multiformato / Híbrido</option>
+              <option value="IA">Asistido o generado con IA</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
 
-        <div class="form-group">
-          <label for="description">Descripción o sinopsis del proyecto *</label>
-          <textarea id="description" name="Descripción / Sinopsis" rows="6" placeholder="Cuéntanos brevemente de qué trata tu proyecto, su extensión aproximada y cualquier detalle relevante..." required></textarea>
-        </div>
+          <div class="form-group">
+            <label for="description">Descripción o sinopsis del proyecto *</label>
+            <textarea id="description" name="Descripción / Sinopsis" rows="6" placeholder="Cuéntanos brevemente de qué trata tu proyecto, su extensión aproximada y cualquier detalle relevante..." required></textarea>
+          </div>
 
-        <!-- Subida de manuscritos -->
-        <div class="form-group">
-          <label for="manuscript">Subir manuscrito / archivos *</label>
-          <input type="file" id="manuscript" name="Archivo(s)" multiple accept=".pdf,.doc,.docx,.txt,.epub,.zip,.jpg,.jpeg,.png,.mp3,.mp4,.wav" required>
-          <small>Puedes subir varios archivos (PDF, Word, ZIP, imágenes, audio o video). Tamaño máximo recomendado: 20 MB por archivo.</small>
-        </div>
+          <!-- Subida de manuscritos -->
+          <div class="form-group">
+            <label for="manuscript">Subir manuscrito / archivos *</label>
+            <input type="file" id="manuscript" name="Archivo(s)" multiple accept=".pdf,.doc,.docx,.txt,.epub,.zip,.jpg,.jpeg,.png,.mp3,.mp4,.wav" required>
+            <small>Puedes subir varios archivos (PDF, Word, ZIP, imágenes, audio o video). Tamaño máximo recomendado: 20 MB por archivo.</small>
+          </div>
 
-        <div class="form-group">
-          <label for="notes">Notas adicionales (opcional)</label>
-          <textarea id="notes" name="Notas adicionales" rows="3" placeholder="Cualquier información extra que quieras compartir con el equipo editorial..."></textarea>
-        </div>
+          <div class="form-group">
+            <label for="notes">Notas adicionales (opcional)</label>
+            <textarea id="notes" name="Notas adicionales" rows="3" placeholder="Cualquier información extra que quieras compartir con el equipo editorial..."></textarea>
+          </div>
 
-        <button type="submit" class="submit-btn">
-          <i class="fa-solid fa-paper-plane"></i> Enviar proyecto
-        </button>
-      </form>
+          <button type="submit" class="submit-btn">
+            <i class="fa-solid fa-paper-plane"></i> Enviar proyecto
+          </button>
+        </form>
+      </section>
     </div>
 
     <footer>
@@ -534,13 +301,11 @@
       form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        // Validación básica
         if (!form.checkValidity()) {
           form.reportValidity();
           return;
         }
 
-        // Mostrar overlay
         overlay.classList.add('active');
         progressText.textContent = '0%';
 
@@ -549,7 +314,6 @@
 
         xhr.open('POST', form.action, true);
 
-        // Progreso de subida real
         xhr.upload.onprogress = function (event) {
           if (event.lengthComputable) {
             const percent = Math.round((event.loaded / event.total) * 100);
@@ -560,12 +324,10 @@
         xhr.onload = function () {
           if (xhr.status >= 200 && xhr.status < 300) {
             progressText.textContent = '100%';
-            // Redirigir a la página de gracias
             setTimeout(() => {
               window.location.href = 'https://edicionesbelikones.github.io/Editorial-Belikones/gracias.html';
             }, 600);
           } else {
-            // Si falla, ocultar y mostrar error
             overlay.classList.remove('active');
             alert('Hubo un problema al enviar el formulario. Intenta de nuevo.');
           }
