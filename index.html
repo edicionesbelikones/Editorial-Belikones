@@ -3,344 +3,1263 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ediciones Belikones - Convocatoria</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
 
-  <!-- Overlay Loader de subida -->
-  <div id="uploadOverlay" class="upload-overlay">
-    <div class="loader-container">
-      <div class="bullet-loader"></div>
-      <p>Subiendo manuscrito... <span id="uploadProgressText">0%</span></p>
-    </div>
-  </div>
+  <title>Ediciones Belikones</title>
 
-  <div id="mainContainer">
-    <!-- Navegación -->
-    <header>
-      <button id="navToggle" aria-expanded="false" aria-label="Abrir menú">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-      <nav id="navMenu">
-        <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#convocatoria">Convocatoria</a></li>
-          <li><a href="#envio">Enviar Proyecto</a></li>
-        </ul>
-      </nav>
+  <meta
+    name="description"
+    content="Ediciones Belikones — Editorial independiente para manuscritos, poesía, narrativa, imágenes, audio, video y contenido asistido por IA."
+  >
 
-      <!-- Buscador -->
-      <form id="searchForm" role="search">
-        <input type="search" id="searchInput" placeholder="Buscar en el sitio..." aria-label="Buscar">
-        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-      </form>
-      <div id="searchNavControls" class="search-controls">
-        <button id="prevMatchBtn" type="button"><i class="fa-solid fa-chevron-up"></i></button>
-        <button id="nextMatchBtn" type="button"><i class="fa-solid fa-chevron-down"></i></button>
-        <span id="searchCounter">0/0</span>
-      </div>
-      <div id="searchMessage"></div>
-    </header>
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
 
-    <!-- Sección de Envíos y Formulario -->
-    <div class="container">
-      <section id="envio" class="form-section">
-        <h2>Envía tu Proyecto</h2>
-        <form id="manuscriptForm" action="https://formspree.io/f/tu-endpoint" method="POST" enctype="multipart/form-data">
-          
-          <div class="form-group">
-            <label for="name">Nombre completo o seudónimo *</label>
-            <input type="text" id="name" name="Nombre" placeholder="Tu nombre o seudónimo" required>
-          </div>
+  <style>
+    /* =========================================================
+       RESET
+    ========================================================= */
 
-          <div class="form-group">
-            <label for="email">Correo electrónico de contacto *</label>
-            <input type="email" id="email" name="Email" placeholder="tu@email.com" autocomplete="email" required>
-          </div>
-
-          <div class="form-group">
-            <label for="title">Título del proyecto / manuscrito *</label>
-            <input type="text" id="title" name="Título del proyecto" placeholder="Título de la obra o proyecto" required>
-          </div>
-
-          <div class="form-group">
-            <label for="type">Tipo de proyecto *</label>
-            <select id="type" name="Tipo de proyecto" required>
-              <option value="" disabled selected>Selecciona una opción</option>
-              <option value="Narrativa">Narrativa (cuento, novela, etc.)</option>
-              <option value="Poesía">Poesía</option>
-              <option value="Ensayo">Ensayo / Crítica</option>
-              <option value="Visual">Proyecto visual / Ilustración</option>
-              <option value="Sonoro">Proyecto sonoro / Audio</option>
-              <option value="Multiformato">Multiformato / Híbrido</option>
-              <option value="IA">Asistido o generado con IA</option>
-              <option value="Otro">Otro</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="description">Descripción o sinopsis del proyecto *</label>
-            <textarea id="description" name="Descripción / Sinopsis" rows="6" placeholder="Cuéntanos brevemente de qué trata tu proyecto, su extensión aproximada y cualquier detalle relevante..." required></textarea>
-          </div>
-
-          <!-- Subida de manuscritos -->
-          <div class="form-group">
-            <label for="manuscript">Subir manuscrito / archivos *</label>
-            <input type="file" id="manuscript" name="Archivo(s)" multiple accept=".pdf,.doc,.docx,.txt,.epub,.zip,.jpg,.jpeg,.png,.mp3,.mp4,.wav" required>
-            <small>Puedes subir varios archivos (PDF, Word, ZIP, imágenes, audio o video). Tamaño máximo recomendado: 20 MB por archivo.</small>
-          </div>
-
-          <div class="form-group">
-            <label for="notes">Notas adicionales (opcional)</label>
-            <textarea id="notes" name="Notas adicionales" rows="3" placeholder="Cualquier información extra que quieras compartir con el equipo editorial..."></textarea>
-          </div>
-
-          <button type="submit" class="submit-btn">
-            <i class="fa-solid fa-paper-plane"></i> Enviar proyecto
-          </button>
-        </form>
-      </section>
-    </div>
-
-    <footer>
-      <p>© 2026 Ediciones Belikones. Todos los derechos reservados.</p>
-    </footer>
-  </div>
-
-  <script>
-    // ========== MENÚ MÓVIL ==========
-    const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navMenu');
-
-    if (navToggle && navMenu) {
-      navToggle.addEventListener('click', () => {
-        const isOpen = navMenu.classList.toggle('active');
-        navToggle.setAttribute('aria-expanded', isOpen);
-      });
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    // ========== BUSCADOR CON RESALTADO ==========
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #111;
+      color: #eee;
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    /* =========================================================
+       CONTENEDOR
+    ========================================================= */
+
+    .page-wrapper {
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: min(1200px, 92%);
+      margin: 0 auto;
+    }
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    .site-header {
+      padding: 70px 20px 50px;
+      text-align: center;
+      border-bottom: 1px solid #292929;
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(158, 42, 42, 0.15),
+          transparent 55%
+        ),
+        #111;
+    }
+
+    .site-title {
+      color: #fff;
+      font-size: clamp(2rem, 6vw, 4.5rem);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .site-subtitle {
+      margin-top: 12px;
+      color: #aaa;
+      font-size: 1rem;
+    }
+
+    /* =========================================================
+       TOP LINKS
+    ========================================================= */
+
+    .top-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 20px;
+      border-bottom: 1px solid #292929;
+      background: #151515;
+    }
+
+    .top-links a {
+      color: #bbb;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+
+    .top-links a:hover {
+      color: #c07070;
+    }
+
+    /* =========================================================
+       SECCIONES
+    ========================================================= */
+
+    .section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      margin-bottom: 35px;
+      text-align: center;
+      color: #fff;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+    }
+
+    .section-description {
+      max-width: 750px;
+      margin: 0 auto 40px;
+      text-align: center;
+      color: #aaa;
+    }
+
+    /* =========================================================
+       LIBROS
+    ========================================================= */
+
+    .books-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .book-card {
+      padding: 20px;
+      border: 1px solid #292929;
+      border-radius: 10px;
+      background: #181818;
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .book-card:hover {
+      transform: translateY(-5px);
+      border-color: #6b3030;
+      box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.35);
+    }
+
+    .book-cover {
+      width: 220px;
+      height: 260px;
+      margin: 0 auto 20px;
+      object-fit: cover;
+      border-radius: 5px;
+      background: #222;
+    }
+
+    .book-title {
+      color: #fff;
+      font-size: 1.35rem;
+      margin-bottom: 5px;
+    }
+
+    .book-author {
+      color: #c07070;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    .book-synopsis {
+      color: #aaa;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    /* =========================================================
+       AUTHOR BANNER
+    ========================================================= */
+
+    .author-banner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px;
+      border-radius: 7px;
+      background: #202020;
+      transition: background 0.2s ease;
+    }
+
+    .author-banner:hover {
+      background: #292929;
+    }
+
+    .author-banner img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .author-banner-info {
+      flex: 1;
+    }
+
+    .author-banner-text {
+      color: #eee;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .author-banner-text span {
+      display: block;
+      margin-top: 2px;
+      color: #888;
+      font-size: 0.75rem;
+      font-weight: 400;
+    }
+
+    .author-banner-icon {
+      color: #999;
+      font-size: 0.8rem;
+    }
+
+    /* =========================================================
+       FORMULARIO
+    ========================================================= */
+
+    .form-section {
+      border-top: 1px solid #292929;
+      background: #141414;
+    }
+
+    .manuscript-form {
+      width: min(850px, 100%);
+      margin: 0 auto;
+      padding: 35px;
+      border: 1px solid #292929;
+      border-radius: 12px;
+      background: #191919;
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      color: #ddd;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid #353535;
+      border-radius: 6px;
+      outline: none;
+      background: #101010;
+      color: #eee;
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      border-color: #9e2a2a;
+      box-shadow:
+        0 0 0 3px rgba(158, 42, 42, 0.15);
+    }
+
+    .form-textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    .form-input[type="file"] {
+      padding: 10px;
+    }
+
+    .form-help {
+      margin-top: 6px;
+      color: #777;
+      font-size: 0.78rem;
+    }
+
+    .submit-button {
+      width: 100%;
+      padding: 14px 20px;
+      border: 0;
+      border-radius: 6px;
+      background: #9e2a2a;
+      color: #fff;
+      cursor: pointer;
+      font-weight: 700;
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .submit-button:hover {
+      background: #b33434;
+      transform: translateY(-1px);
+    }
+
+    .submit-button:active {
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       LOADER DE SUBIDA
+    ========================================================= */
+
+    .upload-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      background: rgba(10, 10, 10, 0.92);
+
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+
+      transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .upload-overlay.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .ak-bullet-spinner {
+      width: 90px;
+      height: 90px;
+      position: relative;
+      margin-bottom: 28px;
+    }
+
+    .ak-bullet-spinner svg {
+      width: 100%;
+      height: 100%;
+
+      animation:
+        spinBullet 1.1s linear infinite;
+
+      filter:
+        drop-shadow(
+          0 0 12px rgba(158, 42, 42, 0.7)
+        );
+    }
+
+    @keyframes spinBullet {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .upload-text {
+      max-width: 320px;
+      margin-bottom: 12px;
+
+      color: #e0e0e0;
+
+      font-size: 1.05rem;
+      font-weight: 500;
+      line-height: 1.5;
+
+      text-align: center;
+    }
+
+    .upload-progress-text {
+      color: #c07070;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    .site-footer {
+      padding: 40px 20px;
+      border-top: 1px solid #292929;
+      color: #777;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 900px) {
+      .section {
+        padding: 50px 0;
+      }
+
+      .manuscript-form {
+        padding: 25px;
+      }
+
+      .ak-bullet-spinner {
+        width: 75px;
+        height: 75px;
+      }
+
+      .upload-text {
+        padding: 0 20px;
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .site-header {
+        padding: 50px 15px 35px;
+      }
+
+      .top-links {
+        gap: 12px;
+      }
+
+      .manuscript-form {
+        padding: 20px;
+      }
+
+      .book-cover {
+        width: 200px;
+        height: 240px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =======================================================
+       LOADER DE CARGA
+  ======================================================== -->
+
+  <div
+    class="upload-overlay"
+    id="uploadOverlay"
+    aria-hidden="true"
+  >
+
+    <div
+      class="ak-bullet-spinner"
+      aria-hidden="true"
+    >
+
+      <!-- SVG decorativo -->
+      <svg
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+
+        <!-- Cuerpo -->
+        <path
+          d="M28 8 L36 8 L38 14 L38 42 L26 42 L26 14 Z"
+          fill="#9e2a2a"
+        />
+
+        <!-- Punta -->
+        <path
+          d="M28 8 L32 2 L36 8 Z"
+          fill="#c07070"
+        />
+
+        <!-- Base -->
+        <rect
+          x="24"
+          y="42"
+          width="16"
+          height="6"
+          rx="1"
+          fill="#6b1010"
+        />
+
+        <!-- Ranura -->
+        <rect
+          x="27"
+          y="44"
+          width="10"
+          height="2"
+          fill="#4a0b0b"
+        />
+
+        <!-- Reflejo -->
+        <path
+          d="M30 10 L34 10 L35 14 L35 38 L29 38 L29 14 Z"
+          fill="#e8b0b0"
+          opacity="0.35"
+        />
+
+      </svg>
+    </div>
+
+    <p class="upload-text">
+      Subiendo archivo(s)…<br>
+      Espere unos segundos.
+    </p>
+
+    <p
+      class="upload-progress-text"
+      id="uploadProgressText"
+      aria-live="polite"
+    >
+      0%
+    </p>
+
+  </div>
+
+
+  <!-- =======================================================
+       CONTENIDO PRINCIPAL
+  ======================================================== -->
+
+  <div
+    class="page-wrapper"
+    id="mainContainer"
+  >
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="site-header">
+
+      <div class="container">
+
+        <h1 class="site-title">
+          Ediciones Belikones
+        </h1>
+
+        <p class="site-subtitle">
+          Editorial independiente
+        </p>
+
+      </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         TOP LINKS
+    ====================================================== -->
+
+    <nav
+      class="top-links"
+      aria-label="Navegación principal"
+    >
+
+      <a href="#libros">
+        Libros
+      </a>
+
+      <a href="#convocatoria">
+        Enviar manuscrito
+      </a>
+
+      <a
+        href="https://ivanmatablog.wordpress.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Blog
+      </a>
+
+    </nav>
+
+
+    <!-- =====================================================
+         LIBROS
+    ====================================================== -->
+
+    <main>
+
+      <section
+        class="section"
+        id="libros"
+      >
+
+        <div class="container">
+
+          <h2 class="section-title">
+            Catálogo
+          </h2>
+
+          <p class="section-description">
+            Una selección de proyectos, textos y creaciones
+            independientes.
+          </p>
+
+
+          <div class="books-grid">
+
+            <!-- =============================================
+                 MATA...
+            ============================================== -->
+
+            <article class="book-card">
+
+              <img
+                src="ooo.jpg"
+                alt="Portada de MATA..."
+                class="book-cover"
+                loading="lazy"
+                decoding="async"
+                width="220"
+                height="260"
+              >
+
+              <h3 class="book-title">
+                MATA...
+              </h3>
+
+              <p class="book-author">
+                Iván Mata
+              </p>
+
+              <p class="book-synopsis">
+                Creación independiente...
+                PO3MAS Y MÁS PO3MAS
+              </p>
+
+              <a
+                href="https://ivanmatablog.wordpress.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="author-banner"
+              >
+
+                <img
+                  src="hhh.jpg"
+                  alt="Iván Mata"
+                  loading="lazy"
+                  decoding="async"
+                >
+
+                <div class="author-banner-info">
+
+                  <div class="author-banner-text">
+
+                    Iván Mata
+
+                    <span>
+                      Poeta · Blog
+                    </span>
+
+                  </div>
+
+                </div>
+
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square author-banner-icon"
+                  aria-hidden="true"
+                ></i>
+
+              </a>
+
+            </article>
+
+
+            <!-- =============================================
+                 AQUÍ PUEDES AÑADIR LOS DEMÁS LIBROS
+            ============================================== -->
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================
+           CONVOCATORIA
+      ==================================================== -->
+
+      <section
+        class="section form-section"
+        id="convocatoria"
+      >
+
+        <div class="container">
+
+          <h2 class="section-title">
+            Despacho de Manuscritos y Recepción
+          </h2>
+
+          <p class="section-description">
+            Envía tus proyectos (texto, imágenes, audio,
+            video o contenido asistido por IA) directamente
+            a nuestro equipo editorial a través de este
+            formulario.
+          </p>
+
+
+          <!-- ===============================================
+               FORMULARIO
+          ================================================ -->
+
+          <form
+            id="manuscriptForm"
+            class="manuscript-form"
+            action="https://formsubmit.co/edicionesbelikones@gmail.com"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+
+            <!-- FormSubmit -->
+
+            <input
+              type="hidden"
+              name="_subject"
+              value="[NUEVO MATERIAL / MANUSCRITO] - Ediciones Belikones"
+            >
+
+            <input
+              type="hidden"
+              name="_template"
+              value="table"
+            >
+
+
+            <!-- Nombre -->
+
+            <div class="form-group">
+
+              <label
+                class="form-label"
+                for="name"
+              >
+                Nombre
+              </label>
+
+              <input
+                class="form-input"
+                type="text"
+                id="name"
+                name="Nombre"
+                placeholder="Tu nombre"
+                autocomplete="name"
+                required
+              >
+
+            </div>
+
+
+            <!-- Correo -->
+
+            <div class="form-group">
+
+              <label
+                class="form-label"
+                for="email"
+              >
+                Correo electrónico
+              </label>
+
+              <input
+                class="form-input"
+                type="email"
+                id="email"
+                name="Correo"
+                placeholder="tu@email.com"
+                autocomplete="email"
+                required
+              >
+
+            </div>
+
+
+            <!-- Tipo de material -->
+
+            <div class="form-group">
+
+              <label
+                class="form-label"
+                for="material"
+              >
+                Tipo de material
+              </label>
+
+              <select
+                class="form-select"
+                id="material"
+                name="Tipo de material"
+                required
+              >
+
+                <option value="">
+                  Selecciona una opción
+                </option>
+
+                <option value="Manuscrito">
+                  Manuscrito
+                </option>
+
+                <option value="Poesía">
+                  Poesía
+                </option>
+
+                <option value="Narrativa">
+                  Narrativa
+                </option>
+
+                <option value="Ensayo">
+                  Ensayo
+                </option>
+
+                <option value="Imágenes">
+                  Imágenes
+                </option>
+
+                <option value="Audio">
+                  Audio
+                </option>
+
+                <option value="Video">
+                  Video
+                </option>
+
+                <option value="Contenido asistido por IA">
+                  Contenido asistido por IA
+                </option>
+
+                <option value="Otro">
+                  Otro
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <!-- Título -->
+
+            <div class="form-group">
+
+              <label
+                class="form-label"
+                for="title"
+              >
+                Título del proyecto
+              </label>
+
+              <input
+                class="form-input"
+                type="text"
+                id="title"
+                name="Título"
+                placeholder="Título de tu proyecto"
+                required
+              >
+
+            </div>
+
+
+            <!-- Descripción -->
+
+            <div class="form-group">
+
+              <label
+                class="form-label"
+                for="message"
+              >
+                Descripción / mensaje
+              </label>
+
+              <textarea
+                class="form-textarea"
+                id="message"
+                name="Mensaje"
+                placeholder="Cuéntanos brevemente sobre tu proyecto..."
+                required
+              ></textarea>
+
+            </div>
+
+
+            <!-- Archivo -->
+
+            <div class="form-group">
+
+              <label
+                class="form-label"
+                for="file"
+              >
+                Archivo
+              </label>
+
+              <input
+                class="form-input"
+                type="file"
+                id="file"
+                name="Archivo"
+                accept="*/*"
+              >
+
+              <p class="form-help">
+                Puedes adjuntar tu manuscrito, imágenes,
+                audio, video u otro material.
+              </p>
+
+            </div>
+
+
+            <!-- Botón -->
+
+            <button
+              type="submit"
+              class="submit-button"
+              id="submitButton"
+            >
+              Enviar material
+            </button>
+
+          </form>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="site-footer">
+
+      <p>
+        © 2026 Ediciones Belikones.
+        Todos los derechos reservados.
+      </p>
+
+    </footer>
+
+  </div>
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
+
+  <script>
     (function () {
-      const searchInput = document.getElementById('searchInput');
-      const searchForm = document.getElementById('searchForm');
-      const searchMessage = document.getElementById('searchMessage');
-      const searchNavControls = document.getElementById('searchNavControls');
-      const searchCounter = document.getElementById('searchCounter');
-      const prevBtn = document.getElementById('prevMatchBtn');
-      const nextBtn = document.getElementById('nextMatchBtn');
-      const mainContainer = document.getElementById('mainContainer');
 
-      let matches = [];
-      let currentIndex = -1;
+      'use strict';
 
-      function isSkippable(node) {
-        const parent = node.parentNode;
-        if (!parent) return true;
-        const tag = parent.tagName ? parent.tagName.toLowerCase() : '';
-        return ['script', 'style', 'noscript', 'textarea', 'input', 'button', 'select'].includes(tag) ||
-               parent.classList.contains('highlight-yellow');
-      }
+      const form =
+        document.getElementById('manuscriptForm');
 
-      function clearHighlights() {
-        const highlights = document.querySelectorAll('.highlight-yellow');
-        highlights.forEach(span => {
-          const parent = span.parentNode;
-          parent.replaceChild(document.createTextNode(span.textContent), span);
-          parent.normalize();
-        });
-        matches = [];
-        currentIndex = -1;
-        searchNavControls.classList.remove('active');
-        searchCounter.textContent = '0/0';
-        searchMessage.textContent = '';
-        searchMessage.classList.remove('no-results-glow');
-        searchInput.classList.remove('no-results-glow');
-      }
+      const overlay =
+        document.getElementById('uploadOverlay');
 
-      function highlightMatches(term) {
-        clearHighlights();
-        if (!term || term.length < 2) return;
+      const progressText =
+        document.getElementById('uploadProgressText');
 
-        const walker = document.createTreeWalker(
-          mainContainer,
-          NodeFilter.SHOW_TEXT,
-          {
-            acceptNode: function (node) {
-              if (isSkippable(node) || !node.nodeValue.trim()) {
-                return NodeFilter.FILTER_REJECT;
-              }
-              return NodeFilter.FILTER_ACCEPT;
-            }
-          }
+      const submitButton =
+        document.getElementById('submitButton');
+
+
+      /*
+       * Verificación de elementos
+       */
+
+      if (
+        !form ||
+        !overlay ||
+        !progressText
+      ) {
+        console.error(
+          'No se encontraron los elementos necesarios del formulario.'
         );
 
-        const textNodes = [];
-        let node;
-        while ((node = walker.nextNode())) {
-          textNodes.push(node);
-        }
-
-        const regex = new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
-
-        textNodes.forEach(textNode => {
-          const text = textNode.nodeValue;
-          if (!regex.test(text)) return;
-
-          const frag = document.createDocumentFragment();
-          let lastIndex = 0;
-          let match;
-
-          regex.lastIndex = 0;
-          while ((match = regex.exec(text)) !== null) {
-            if (match.index > lastIndex) {
-              frag.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
-            }
-
-            const span = document.createElement('span');
-            span.className = 'highlight-yellow';
-            span.textContent = match[0];
-            frag.appendChild(span);
-            matches.push(span);
-
-            lastIndex = regex.lastIndex;
-          }
-
-          if (lastIndex < text.length) {
-            frag.appendChild(document.createTextNode(text.slice(lastIndex)));
-          }
-
-          textNode.parentNode.replaceChild(frag, textNode);
-        });
-
-        if (matches.length > 0) {
-          currentIndex = 0;
-          updateActiveMatch();
-          searchNavControls.classList.add('active');
-          searchCounter.textContent = `1/${matches.length}`;
-          searchMessage.textContent = '';
-          searchMessage.classList.remove('no-results-glow');
-          searchInput.classList.remove('no-results-glow');
-        } else {
-          searchMessage.textContent = 'No hay resultados';
-          searchMessage.style.color = '#ff0055';
-          searchMessage.classList.add('no-results-glow');
-          searchInput.classList.add('no-results-glow');
-          searchNavControls.classList.remove('active');
-        }
+        return;
       }
 
-      function updateActiveMatch() {
-        matches.forEach((m, i) => {
-          m.classList.toggle('active-match', i === currentIndex);
-        });
-        if (matches[currentIndex]) {
-          matches[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-        searchCounter.textContent = `${currentIndex + 1}/${matches.length}`;
-      }
 
-      function goToNext() {
-        if (matches.length === 0) return;
-        currentIndex = (currentIndex + 1) % matches.length;
-        updateActiveMatch();
-      }
+      /*
+       * Mostrar loader
+       */
 
-      function goToPrev() {
-        if (matches.length === 0) return;
-        currentIndex = (currentIndex - 1 + matches.length) % matches.length;
-        updateActiveMatch();
-      }
-
-      searchForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const term = searchInput.value.trim();
-        highlightMatches(term);
-      });
-
-      let debounceTimer;
-      searchInput.addEventListener('input', () => {
-        clearTimeout(debounceTimer);
-        debounceTimer = setTimeout(() => {
-          const term = searchInput.value.trim();
-          if (term.length >= 2) {
-            highlightMatches(term);
-          } else {
-            clearHighlights();
-          }
-        }, 300);
-      });
-
-      nextBtn.addEventListener('click', goToNext);
-      prevBtn.addEventListener('click', goToPrev);
-
-      searchInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          e.preventDefault();
-          highlightMatches(searchInput.value.trim());
-        }
-        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
-          e.preventDefault();
-          goToNext();
-        }
-        if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-          e.preventDefault();
-          goToPrev();
-        }
-      });
-    })();
-
-    // ========== LOADER DE SUBIDA CON BALA AK-47 ==========
-    (function () {
-      const form = document.getElementById('manuscriptForm');
-      const overlay = document.getElementById('uploadOverlay');
-      const progressText = document.getElementById('uploadProgressText');
-
-      if (!form || !overlay) return;
-
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        if (!form.checkValidity()) {
-          form.reportValidity();
-          return;
-        }
+      function showLoader() {
 
         overlay.classList.add('active');
+
+        overlay.setAttribute(
+          'aria-hidden',
+          'false'
+        );
+
         progressText.textContent = '0%';
 
-        const formData = new FormData(form);
-        const xhr = new XMLHttpRequest();
+        if (submitButton) {
+          submitButton.disabled = true;
+        }
+      }
 
-        xhr.open('POST', form.action, true);
 
-        xhr.upload.onprogress = function (event) {
-          if (event.lengthComputable) {
-            const percent = Math.round((event.loaded / event.total) * 100);
-            progressText.textContent = percent + '%';
+      /*
+       * Ocultar loader
+       */
+
+      function hideLoader() {
+
+        overlay.classList.remove('active');
+
+        overlay.setAttribute(
+          'aria-hidden',
+          'true'
+        );
+
+        if (submitButton) {
+          submitButton.disabled = false;
+        }
+      }
+
+
+      /*
+       * Envío del formulario
+       */
+
+      form.addEventListener(
+        'submit',
+        function (event) {
+
+          event.preventDefault();
+
+
+          /*
+           * Validación HTML5
+           */
+
+          if (!form.checkValidity()) {
+
+            form.reportValidity();
+
+            return;
           }
-        };
 
-        xhr.onload = function () {
-          if (xhr.status >= 200 && xhr.status < 300) {
-            progressText.textContent = '100%';
-            setTimeout(() => {
-              window.location.href = 'https://edicionesbelikones.github.io/Editorial-Belikones/gracias.html';
-            }, 600);
-          } else {
-            overlay.classList.remove('active');
-            alert('Hubo un problema al enviar el formulario. Intenta de nuevo.');
-          }
-        };
 
-        xhr.onerror = function () {
-          overlay.classList.remove('active');
-          alert('Error de conexión. Verifica tu internet e intenta nuevamente.');
-        };
+          /*
+           * Mostrar loader
+           */
 
-        xhr.send(formData);
-      });
+          showLoader();
+
+
+          /*
+           * Crear FormData
+           */
+
+          const formData =
+            new FormData(form);
+
+
+          /*
+           * Crear XMLHttpRequest
+           */
+
+          const xhr =
+            new XMLHttpRequest();
+
+
+          /*
+           * Abrir conexión
+           */
+
+          xhr.open(
+            'POST',
+            form.action,
+            true
+          );
+
+
+          /*
+           * Progreso real de subida
+           */
+
+          xhr.upload.addEventListener(
+            'progress',
+            function (event) {
+
+              if (event.lengthComputable) {
+
+                const percent =
+                  Math.min(
+                    100,
+                    Math.round(
+                      (event.loaded / event.total) * 100
+                    )
+                  );
+
+                progressText.textContent =
+                  percent + '%';
+              }
+
+            }
+          );
+
+
+          /*
+           * Respuesta del servidor
+           */
+
+          xhr.addEventListener(
+            'load',
+            function () {
+
+              if (
+                xhr.status >= 200 &&
+                xhr.status < 300
+              ) {
+
+                progressText.textContent =
+                  '100%';
+
+
+                /*
+                 * Redirección después
+                 * de una pequeña pausa
+                 */
+
+                setTimeout(
+                  function () {
+
+                    window.location.href =
+                      'https://edicionesbelikones.github.io/Editorial-Belikones/gracias.html';
+
+                  },
+                  600
+                );
+
+                return;
+              }
+
+
+              /*
+               * Error HTTP
+               */
+
+              hideLoader();
+
+              alert(
+                'Hubo un problema al enviar el formulario. ' +
+                'Intenta de nuevo.'
+              );
+
+            }
+          );
+
+
+          /*
+           * Error de conexión
+           */
+
+          xhr.addEventListener(
+            'error',
+            function () {
+
+              hideLoader();
+
+              alert(
+                'Error de conexión. ' +
+                'Verifica tu internet e intenta nuevamente.'
+              );
+
+            }
+          );
+
+
+          /*
+           * Subida cancelada
+           */
+
+          xhr.addEventListener(
+            'abort',
+            function () {
+
+              hideLoader();
+
+              alert(
+                'La subida fue cancelada.'
+              );
+
+            }
+          );
+
+
+          /*
+           * Enviar
+           */
+
+          xhr.send(formData);
+
+        }
+      );
+
     })();
   </script>
+
 </body>
 </html>
