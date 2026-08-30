@@ -2,1258 +2,338 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Novedades y catálogo general en Ediciones Belikones">
-  <meta name="robots" content="index,follow">
-  <meta name="theme-color" content="#6b1010">
-  <title>Editorial Belikones</title>
-
-  <!-- Preconnect -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-
-  <!-- Fuentes -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ediciones Belikones - Envío de Manuscritos</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --primary: #6b1010;
-      --primary-dark: #4a0b0b;
-      --primary-light: #8a1a1a;
-      --bg-body: #121212;
-      --bg-card: #1e1e1e;
-      --bg-elevated: #252525;
-      --bg-header: #0d0d0d;
-      --text-main: #e8e8e8;
+      --bg-color: #0d0d0d;
+      --card-bg: #171717;
+      --accent-color: #ff0055;
+      --text-color: #e0e0e0;
       --text-muted: #a0a0a0;
-      --border-color: #333333;
-      --white: #ffffff;
-      --accent: #9e2a2a;
+      --border-color: #2a2a2a;
+      --input-bg: #222222;
     }
-
+    
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
-      background-color: var(--bg-body);
-      color: var(--text-main);
-      font-family: 'Source Sans 3', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.65;
-      position: relative;
-      min-height: 100vh;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 140vw;
-      height: 140vh;
-      background-image: url('gt.png');
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
-      opacity: 0.18;
-      z-index: -1;
-      pointer-events: none;
-      will-change: transform;
-    }
-
-    a {
-      color: var(--text-main);
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-
-    a:hover {
-      color: var(--accent);
-    }
-
-    .page-wrapper {
-      max-width: 1200px;
+    .container {
+      max-width: 800px;
       margin: 0 auto;
-      background: rgba(18, 18, 18, 0.92);
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
-      min-height: 100vh;
-      position: relative;
-    }
-
-    /* ========== HEADER ========== */
-    .header-top {
-      background-color: var(--bg-header);
-      color: #888;
-      font-size: 0.8rem;
-      padding: 7px 16px;
-      text-align: right;
-      border-bottom: 1px solid #222;
-    }
-
-    .header-top a {
-      color: #999;
-      margin-left: 14px;
-    }
-
-    .header-top a:hover {
-      color: var(--white);
-    }
-
-    .header-middle {
-      padding: 32px 16px 28px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border-bottom: 1px solid var(--border-color);
-      gap: 22px;
-      background: rgba(22, 22, 22, 0.72);
-      text-align: center;
-      position: relative;
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
       overflow: hidden;
     }
 
-    .header-middle::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 70%;
-      height: 80%;
-      background: radial-gradient(ellipse at center, rgba(107, 16, 16, 0.18) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
+    header {
+      padding: 30px 20px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+      background: linear-gradient(180deg, #1f1f1f 0%, #171717 100%);
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      position: relative;
-      z-index: 1;
+    header h1 {
+      font-size: 2.2rem;
+      letter-spacing: 2px;
+      color: #fff;
+      text-transform: uppercase;
+      margin-bottom: 8px;
     }
 
-    .logo-image {
-      display: block;
-      width: min(920px, 96%);
-      height: auto;
-      max-height: 408px;
-      object-fit: contain;
-      object-position: center;
-      filter:
-        drop-shadow(0 0 12px rgba(255, 255, 255, 0.35))
-        drop-shadow(0 0 28px rgba(255, 255, 255, 0.15))
-        drop-shadow(0 8px 18px rgba(0, 0, 0, 0.8));
-      transition: transform 0.35s ease, filter 0.35s ease;
-    }
-
-    /* ========== BUSCADOR ========== */
-    .header-search {
-      width: 100%;
-      max-width: 460px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .header-search form {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      position: relative;
-    }
-
-    .header-search input[type="text"] {
-      padding: 11px 14px;
-      border: 1px solid var(--border-color);
-      border-radius: 4px 0 0 4px;
-      outline: none;
+    header p {
+      color: var(--text-muted);
       font-size: 0.95rem;
+    }
+
+    /* Search Bar Styles */
+    .search-section {
+      padding: 20px;
+      border-bottom: 1px solid var(--border-color);
+      background: #121212;
+    }
+
+    .search-box {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .search-box input {
       flex: 1;
-      min-width: 0;
-      background: var(--bg-elevated);
-      color: var(--text-main);
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      padding: 10px 14px;
+      background: var(--input-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      color: #fff;
+      font-size: 0.95rem;
     }
 
-    .header-search input::placeholder {
-      color: #777;
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--accent-color);
     }
 
-    .header-search button[type="submit"] {
-      background: var(--primary);
-      color: var(--white);
-      border: 1px solid var(--primary);
-      padding: 11px 16px;
-      border-radius: 0 4px 4px 0;
+    .search-btn {
+      padding: 10px 16px;
+      background: var(--border-color);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
       cursor: pointer;
-      font-size: 1rem;
       transition: background 0.2s;
     }
 
-    .header-search button[type="submit"]:hover {
-      background: var(--primary-light);
+    .search-btn:hover {
+      background: #333;
     }
 
-    .search-nav-controls {
+    .search-controls {
       display: none;
       align-items: center;
-      gap: 6px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-left: none;
-      padding: 0 10px;
-      height: 44px;
+      gap: 10px;
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
     }
 
-    .search-nav-controls.active {
+    .search-controls.active {
       display: flex;
     }
 
     .search-nav-btn {
-      background: transparent !important;
-      border: none !important;
-      color: var(--text-muted) !important;
-      padding: 4px 8px !important;
-      font-size: 0.85rem !important;
+      background: var(--input-bg);
+      border: 1px solid var(--border-color);
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 4px;
       cursor: pointer;
-    }
-
-    .search-nav-btn:hover {
-      color: var(--white) !important;
-    }
-
-    .search-counter {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      white-space: nowrap;
-      margin: 0 4px;
-    }
-
-    .search-message-glow {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      margin-top: 6px;
-      font-size: 0.85rem;
-      text-align: left;
-      font-weight: 600;
-      pointer-events: none;
-      min-height: 1.2em;
     }
 
     .highlight-yellow {
-      background-color: #ffe600;
+      background-color: #ffd700;
       color: #000;
-      box-shadow: 0 0 10px #ffe600, 0 0 20px #ffe600;
+      font-weight: bold;
       border-radius: 2px;
-      padding: 0 2px;
-      transition: all 0.2s ease;
     }
 
     .highlight-yellow.active-match {
-      background-color: #ff9900;
-      box-shadow: 0 0 15px #ff9900, 0 0 30px #ff9900;
+      background-color: #ff0055;
+      color: #fff;
     }
 
     .no-results-glow {
-      animation: glowRed 2s ease-in-out forwards;
+      border-color: var(--accent-color) !important;
+      box-shadow: 0 0 8px rgba(255, 0, 85, 0.4);
     }
 
-    @keyframes glowRed {
-      0% { box-shadow: 0 0 0 transparent; }
-      20% { box-shadow: 0 0 15px #ff0055, 0 0 25px #ff0055; border-color: #ff0055 !important; }
-      80% { box-shadow: 0 0 15px #ff0055, 0 0 25px #ff0055; border-color: #ff0055 !important; }
-      100% { box-shadow: 0 0 0 transparent; border-color: var(--border-color) !important; }
-    }
-
-    /* ========== NAV ========== */
-    .header-bottom {
-      background-color: var(--primary);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 12px;
-      position: relative;
-    }
-
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      padding: 12px;
-      cursor: pointer;
-    }
-
-    .nav-menu {
-      display: flex;
-      list-style: none;
-      flex-wrap: wrap;
-    }
-
-    .nav-menu li a {
-      display: block;
-      color: var(--white);
-      padding: 15px 18px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.6px;
-      text-transform: uppercase;
-      font-family: 'Source Sans 3', sans-serif;
-    }
-
-    .nav-menu li a:hover,
-    .nav-menu li a:focus {
-      background-color: var(--primary-dark);
-    }
-
-    .social-links {
-      display: flex;
-      align-items: center;
-      gap: 2px;
-    }
-
-    .social-links a {
-      color: var(--white);
-      padding: 10px 9px;
-      font-size: 1.05rem;
-    }
-
-    .social-links a:hover {
-      color: #ffcccc;
-    }
-
-    /* ========== BANNER ========== */
-    .slider-wrapper {
-      background: linear-gradient(180deg, #1a1a1a 0%, #151515 100%);
-      color: var(--white);
-      text-align: center;
-      padding: 42px 16px;
-      border-bottom: 3px solid var(--primary);
-    }
-
-    .slider-wrapper h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(1.45rem, 4.2vw, 2rem);
-      margin-bottom: 10px;
-      font-weight: 600;
-      line-height: 1.3;
-      letter-spacing: 0.3px;
-    }
-
-    .slider-wrapper p {
-      font-size: 1rem;
-      color: #bbb;
-      max-width: 680px;
-      margin: 0 auto;
-      font-weight: 400;
-    }
-
-    /* ========== CONTENIDO ========== */
-    .page-content {
-      display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: 28px;
-      padding: 32px 16px;
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(1.35rem, 3vw, 1.65rem);
-      color: #d4a0a0;
-      border-bottom: 2px solid var(--primary);
-      padding-bottom: 10px;
-      margin-bottom: 22px;
-      font-weight: 600;
-    }
-
-    .books-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 22px;
-    }
-
-    .book-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
-      border-radius: 5px;
-    }
-
-    .book-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
-      border-color: #444;
-    }
-
-    .book-cover {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-      background: #2a2a2a;
-      margin-bottom: 14px;
-      border: 1px solid #333;
-      border-radius: 3px;
-      transition: opacity 0.2s;
-    }
-
-    .book-cover:hover {
-      opacity: 0.9;
-    }
-
-    .book-title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.08rem;
-      color: var(--text-main);
-      margin-bottom: 5px;
-      line-height: 1.35;
-      font-weight: 600;
-    }
-
-    .book-author {
-      font-size: 0.88rem;
-      color: #c07070;
-      font-weight: 600;
-      margin-bottom: 9px;
-      letter-spacing: 0.2px;
-    }
-
-    .book-synopsis {
-      font-size: 0.86rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-      flex-grow: 1;
-      margin-bottom: 12px;
-    }
-
-    .fb-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: #1877f2;
-      color: #fff !important;
-      font-size: 0.82rem;
-      font-weight: 600;
-      padding: 7px 12px;
-      border-radius: 4px;
-      margin-top: auto;
-      transition: background 0.2s;
-    }
-
-    .fb-link:hover {
-      background: #0d65d9;
-      color: #fff !important;
-    }
-
-    .author-banner {
-      display: block;
-      margin-top: 10px;
-      border-radius: 6px;
-      overflow: hidden;
-      border: 1px solid #444;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      background: #111;
-    }
-
-    .author-banner:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
-    }
-
-    .author-banner img {
-      width: 100%;
-      height: 110px;
-      object-fit: cover;
-      display: block;
-      filter: brightness(0.92);
-      transition: filter 0.25s;
-    }
-
-    .author-banner:hover img {
-      filter: brightness(1.05);
-    }
-
-    .author-banner-info {
-      padding: 10px 12px;
-      background: linear-gradient(180deg, #1c1c1c, #141414);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-    }
-
-    .author-banner-text {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: #e0e0e0;
-      line-height: 1.3;
-    }
-
-    .author-banner-text span {
-      display: block;
-      font-size: 0.72rem;
-      color: #999;
-      font-weight: 400;
-      margin-top: 2px;
-    }
-
-    .author-banner-icon {
-      color: #c07070;
-      font-size: 1.1rem;
-    }
-
-    /* ========== SIDEBAR ========== */
-    .sidebar-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      padding: 20px;
-      margin-bottom: 22px;
-      border-radius: 5px;
-    }
-
-    .sidebar-box h3 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.15rem;
-      color: var(--text-main);
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 9px;
-      margin-bottom: 15px;
-      font-weight: 600;
-    }
-
-    .catalog-download-btn {
-      display: block;
-      background: var(--primary);
-      color: var(--white) !important;
-      text-align: center;
-      padding: 13px;
-      font-weight: 600;
-      font-size: 0.92rem;
-      border-radius: 4px;
-      transition: background 0.2s;
-      letter-spacing: 0.3px;
-    }
-
-    .catalog-download-btn:hover {
-      background: var(--primary-light);
-    }
-
-    .ad-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: linear-gradient(135deg, #8a1a1a 0%, #6b1010 50%, #4a0b0b 100%);
-      color: #fff !important;
-      text-align: center;
-      padding: 14px 18px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      border-radius: 8px;
-      letter-spacing: 0.4px;
-      text-transform: uppercase;
-      box-shadow: 0 6px 20px rgba(107, 16, 16, 0.45),
-                  0 0 0 1px rgba(255, 255, 255, 0.08) inset;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 16px;
-    }
-
-    .ad-btn::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
-      transition: left 0.5s ease;
-    }
-
-    .ad-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 28px rgba(107, 16, 16, 0.6),
-                  0 0 0 1px rgba(255, 255, 255, 0.12) inset;
-      background: linear-gradient(135deg, #9e2a2a 0%, #8a1a1a 50%, #6b1010 100%);
-    }
-
-    .ad-btn:hover::before {
-      left: 100%;
-    }
-
-    .ad-btn i {
-      font-size: 1.15rem;
-    }
-
-    .song-ad {
-      display: block;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid #444;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      background: #111;
-    }
-
-    .song-ad:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    }
-
-    .song-ad img {
-      width: 100%;
-      height: auto;
-      display: block;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-    }
-
-    .song-ad-info {
-      padding: 12px 14px;
-      background: linear-gradient(180deg, #1a1a1a, #111);
-    }
-
-    .song-ad-title {
-      font-size: 0.92rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 4px;
-      line-height: 1.3;
-    }
-
-    .song-ad-meta {
-      font-size: 0.78rem;
-      color: #aaa;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .song-ad-meta i {
-      color: #ff0000;
-    }
-
-    .news-list {
-      list-style: none;
-    }
-
-    .news-item {
-      margin-bottom: 15px;
-      padding-bottom: 13px;
-      border-bottom: 1px dashed #333;
-    }
-
-    .news-item:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .news-date {
-      font-size: 0.76rem;
-      color: #777;
-      display: block;
-      margin-bottom: 3px;
-    }
-
-    .news-title {
-      font-size: 0.9rem;
-      font-weight: 600;
-      line-height: 1.4;
-      color: #d0d0d0;
-    }
-
-    .news-title:hover {
-      color: #e8b0b0;
-    }
-
-    /* ========== FORMULARIO ========== */
+    /* Form Styles */
     .form-section {
-      grid-column: 1 / -1;
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      padding: 30px 22px;
-      margin-top: 8px;
-      border-radius: 5px;
+      padding: 30px 20px;
     }
 
     .form-group {
-      margin-bottom: 18px;
+      margin-bottom: 22px;
     }
 
-    .form-group label {
+    label {
       display: block;
-      font-size: 0.9rem;
+      margin-bottom: 8px;
       font-weight: 600;
-      margin-bottom: 7px;
-      color: #ccc;
+      font-size: 0.95rem;
+      color: #ddd;
     }
 
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
       width: 100%;
       padding: 12px 14px;
+      background: var(--input-bg);
       border: 1px solid var(--border-color);
-      border-radius: 4px;
-      font-family: 'Source Sans 3', sans-serif;
+      border-radius: 6px;
+      color: #fff;
       font-size: 0.95rem;
-      background: var(--bg-elevated);
-      color: var(--text-main);
-      -webkit-appearance: none;
-      appearance: none;
-      transition: border-color 0.2s;
+      font-family: inherit;
     }
 
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
+    input:focus, select:focus, textarea:focus {
       outline: none;
-      border-color: var(--primary-light);
+      border-color: var(--accent-color);
     }
 
-    .form-group input[type="file"] {
-      padding: 11px;
-      background: #1a1a1a;
-      color: #aaa;
-    }
-
-    .form-group small {
+    small {
       display: block;
-      margin-top: 8px;
+      margin-top: 6px;
       color: var(--text-muted);
       font-size: 0.82rem;
     }
 
     .submit-btn {
-      background: var(--primary);
-      color: var(--white);
+      width: 100%;
+      padding: 14px;
+      background: var(--accent-color);
+      color: #fff;
       border: none;
-      padding: 14px 30px;
-      font-size: 0.95rem;
-      font-weight: 600;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: bold;
       cursor: pointer;
       text-transform: uppercase;
-      border-radius: 4px;
-      width: 100%;
-      max-width: 340px;
-      letter-spacing: 0.5px;
-      transition: background 0.2s;
-      font-family: 'Source Sans 3', sans-serif;
-      display: inline-flex;
+      letter-spacing: 1px;
+      transition: opacity 0.2s ease;
+      display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
     }
 
     .submit-btn:hover {
-      background: var(--primary-light);
+      opacity: 0.9;
     }
 
-    /* ========== FOOTER ========== */
-    footer {
-      background: var(--bg-header);
-      color: #777;
-      text-align: center;
-      padding: 30px 16px;
-      font-size: 0.84rem;
-      border-top: 3px solid var(--primary);
-    }
-
-    footer a {
-      color: #aaa;
-    }
-
-    footer a:hover {
-      color: #ddd;
-    }
-
-    /* ========== LOADER BALA AK-47 ========== */
+    /* Upload Overlay */
     .upload-overlay {
       position: fixed;
-      inset: 0;
-      background: rgba(10, 10, 10, 0.92);
-      display: flex;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.85);
+      display: none;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      z-index: 99999;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-      backdrop-filter: blur(6px);
+      z-index: 1000;
     }
 
     .upload-overlay.active {
-      opacity: 1;
-      visibility: visible;
+      display: flex;
     }
 
-    .ak-bullet-spinner {
-      width: 90px;
-      height: 90px;
-      position: relative;
-      margin-bottom: 28px;
-    }
-
-    .ak-bullet-spinner svg {
-      width: 100%;
-      height: 100%;
-      animation: spinBullet 1.1s linear infinite;
-      filter: drop-shadow(0 0 12px rgba(158, 42, 42, 0.7));
-    }
-
-    @keyframes spinBullet {
-      0%   { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .upload-text {
-      color: #e0e0e0;
-      font-size: 1.05rem;
-      font-weight: 500;
+    .loader-box {
       text-align: center;
-      max-width: 320px;
-      line-height: 1.5;
-      margin-bottom: 12px;
+      color: #fff;
     }
 
-    .upload-progress-text {
-      color: #c07070;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
+    .progress-text {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      margin-top: 15px;
     }
 
-    /* ========== RESPONSIVE ========== */
-    @media (max-width: 900px) {
-      .page-content {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-
-      .books-grid {
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      }
-    }
-
-    @media (max-width: 768px) {
-      body::before {
-        width: 100vw;
-        height: 100vh;
-        opacity: 0.12;
-        background-size: cover;
-      }
-
-      .header-top {
-        text-align: center;
-        font-size: 0.76rem;
-        padding: 8px 12px;
-      }
-
-      .header-top a {
-        margin: 0 8px;
-      }
-
-      .header-middle {
-        padding: 24px 12px 20px;
-        gap: 18px;
-      }
-
-      .logo-image {
-        width: min(100%, 620px);
-        max-height: 160px;
-      }
-
-      .header-search {
-        max-width: 100%;
-      }
-
-      .nav-toggle {
-        display: block;
-        margin-left: auto;
-      }
-
-      .header-bottom {
-        flex-direction: column;
-        padding: 0;
-      }
-
-      .nav-menu {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        background: var(--primary);
-      }
-
-      .nav-menu.active {
-        display: flex;
-      }
-
-      .nav-menu li a {
-        padding: 14px 20px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        text-align: center;
-      }
-
-      .social-links {
-        padding: 12px;
-        justify-content: center;
-        width: 100%;
-        border-top: 1px solid rgba(255, 255, 255, 0.12);
-      }
-
-      .slider-wrapper {
-        padding: 32px 14px;
-      }
-
-      .page-content {
-        padding: 22px 12px;
-      }
-
-      .books-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 14px;
-      }
-
-      .book-cover {
-        height: 200px;
-      }
-
-      .form-section {
-        padding: 24px 14px;
-      }
-
-      .submit-btn {
-        max-width: 100%;
-      }
-    }
-
-    @media (max-width: 420px) {
-      .books-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-      }
-
-      .book-cover {
-        height: 170px;
-      }
-
-      .book-title {
-        font-size: 0.95rem;
-      }
-
-      .logo-image {
-        max-height: 130px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        transition: none !important;
-        animation: none !important;
-      }
-
-      html {
-        scroll-behavior: auto;
-      }
+    footer {
+      padding: 20px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+      background: #121212;
     }
   </style>
 </head>
 <body>
 
-  <!-- OVERLAY DE CARGA CON BALA AK-47 -->
+  <!-- Overlay de Carga -->
   <div class="upload-overlay" id="uploadOverlay">
-    <div class="ak-bullet-spinner">
-      <!-- SVG de cartucho tipo AK-47 (7.62×39) -->
-      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Cuerpo del cartucho -->
-        <path d="M28 8 L36 8 L38 14 L38 42 L26 42 L26 14 Z" fill="#9e2a2a"/>
-        <!-- Punta de la bala -->
-        <path d="M28 8 L32 2 L36 8 Z" fill="#c07070"/>
-        <!-- Base / culote -->
-        <rect x="24" y="42" width="16" height="6" rx="1" fill="#6b1010"/>
-        <!-- Ranura de la base -->
-        <rect x="27" y="44" width="10" height="2" fill="#4a0b0b"/>
-        <!-- Reflejo metálico -->
-        <path d="M30 10 L34 10 L35 14 L35 38 L29 38 L29 14 Z" fill="#e8b0b0" opacity="0.35"/>
-      </svg>
+    <div class="loader-box">
+      <i class="fa-solid fa-spinner fa-spin fa-3x" style="color: var(--accent-color);"></i>
+      <p style="margin-top: 15px; font-size: 1.1rem;">Enviando tu proyecto...</p>
+      <div class="progress-text" id="uploadProgressText">0%</div>
     </div>
-    <p class="upload-text">Subiendo archivo(s)…<br>Espere unos segundos.</p>
-    <p class="upload-progress-text" id="uploadProgressText">0%</p>
   </div>
 
-  <div class="page-wrapper" id="mainContainer">
+  <div class="container" id="mainContainer">
+    <header>
+      <h1>Ediciones Belikones</h1>
+      <p>Convocatoria & Recepción de Manuscritos</p>
+    </header>
 
-    <!-- Top Links -->
-    <div class="header-top">
-      <a href="#convocatoria">Convocatoria</a>
-      <a href="#contacto">Contacto y Manuscritos</a>
-    </div>
-
-    <!-- Main Header -->
-    <div class="header-middle">
-      <div class="logo">
-        <img src="ggg.png" alt="Ediciones Belikones — Catálogo editorial y proyectos de recepción abierta" class="logo-image" width="920" height="240" decoding="async">
+    <!-- Buscador Integrado -->
+    <section class="search-section">
+      <form id="searchForm" class="search-box">
+        <input type="text" id="searchInput" placeholder="Buscar en la página..." />
+        <button type="submit" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+      <div class="search-controls" id="searchNavControls">
+        <button type="button" class="search-nav-btn" id="prevMatchBtn"><i class="fa-solid fa-chevron-up"></i></button>
+        <button type="button" class="search-nav-btn" id="nextMatchBtn"><i class="fa-solid fa-chevron-down"></i></button>
+        <span id="searchCounter">0/0</span>
       </div>
+      <div id="searchMessage" style="font-size: 0.85rem; margin-top: 5px;"></div>
+    </section>
 
-      <!-- Buscador -->
-      <div class="header-search">
-        <form id="searchForm" role="search" onsubmit="return false;">
-          <input type="text" id="searchInput" placeholder="Buscar en el catálogo..." aria-label="Buscar en la página" name="q" autocomplete="off">
-
-          <div class="search-nav-controls" id="searchNavControls">
-            <button type="button" class="search-nav-btn" id="prevMatchBtn" title="Anterior"><i class="fa-solid fa-chevron-up"></i></button>
-            <span class="search-counter" id="searchCounter">0/0</span>
-            <button type="button" class="search-nav-btn" id="nextMatchBtn" title="Siguiente"><i class="fa-solid fa-chevron-down"></i></button>
-          </div>
-
-          <button type="submit" id="searchSubmitBtn" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
-        <div id="searchMessage" class="search-message-glow"></div>
-      </div>
-    </div>
-
-    <!-- Navigation -->
-    <div class="header-bottom">
-      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" id="navToggle">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-
-      <ul class="nav-menu" id="navMenu">
-        <li><a href="#">Novedades</a></li>
-        <li><a href="#catalogo">Catálogo</a></li>
-        <li><a href="#convocatoria">Manuscritos</a></li>
-        <li><a href="#noticias">Noticias</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-
-      <div class="social-links">
-        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
-        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-      </div>
-    </div>
-
-    <!-- Banner -->
-    <div class="slider-wrapper">
-      <h2>Convocatoria Abierta: Recepción Multiformato e IA</h2>
-      <p>Aceptamos proyectos literarios, visuales, sonoros y conceptuales sin restricción de tema o método de creación.</p>
-    </div>
-
-    <!-- Contenido principal -->
-    <div class="page-content">
-      <main>
-        <h2 class="section-title" id="catalogo">Novedades y Catálogo</h2>
-
-        <div class="books-grid">
-          <!-- El Conjuro de las Ranas -->
-          <article class="book-card">
-            <a href="https://www.facebook.com/ElConjurodelasRanas/" target="_blank" rel="noopener noreferrer">
-              <img src="cover1.jpg" alt="Portada de El Conjuro de las Ranas" class="book-cover" loading="lazy" decoding="async" width="220" height="260">
-            </a>
-            <h3 class="book-title">El Conjuro de las Ranas</h3>
-            <p class="book-author">Varios Autores</p>
-            <p class="book-synopsis">Compilación de narrativa contemporánea y proyectos experimentales que exploran las fronteras del texto y la tecnología.</p>
-            <a href="https://www.facebook.com/ElConjurodelasRanas/" target="_blank" rel="noopener noreferrer" class="fb-link">
-              <i class="fa-brands fa-facebook-f"></i> Ver en Facebook
-            </a>
-          </article>
-
-          <!-- Antropología del Silencio -->
-          <article class="book-card">
-            <img src="ooo.jpg" alt="Portada de Antropología del Silencio" class="book-cover" loading="lazy" decoding="async" width="220" height="260">
-            <h3 class="book-title">MATA...</h3>
-            <p class="book-author">Iván Mata</p>
-            <p class="book-synopsis">Creación independiente... PO3MAS Y MÁS PO3MAS</p>
-            <a href="https://ivanmatablog.wordpress.com/" target="_blank" rel="noopener noreferrer" class="author-banner">
-              <img src="hhh.jpg" alt="Iván Mata" loading="lazy">
-              <div class="author-banner-info">
-                <div class="author-banner-text">
-                  Iván Mata
-                  <span>Poeta · Blog</span>
-                </div>
-                <i class="fa-solid fa-arrow-up-right-from-square author-banner-icon"></i>
-              </div>
-            </a>
-          </article>
-
-          <!-- Sistemas e Imágenes -->
-          <article class="book-card">
-            <img src="cover3.jpg" alt="Portada de Sistemas e Imágenes" class="book-cover" loading="lazy" decoding="async" width="220" height="260">
-            <h3 class="book-title">Sistemas e Imágenes</h3>
-            <p class="book-author">Gerardo Szae</p>
-            <p class="book-synopsis">Exploración visual y conceptual sobre la poesía</p>
-            <a href="https://linktr.ee/szaeta" target="_blank" rel="noopener noreferrer" class="author-banner">
-              <img src="szae.jpg" alt="Gerardo Szae" loading="lazy">
-              <div class="author-banner-info">
-                <div class="author-banner-text">
-                  Gerardo Szae
-                  <span>Poeta · Linktree</span>
-                </div>
-                <i class="fa-solid fa-arrow-up-right-from-square author-banner-icon"></i>
-              </div>
-            </a>
-          </article>
-
-          <!-- Fronteras del Lenguaje -->
-          <article class="book-card">
-            <h3 class="book-title">Fronteras del Lenguaje</h3>
-            <p class="book-author">Gustavo Narváez</p>
-            <p class="book-synopsis">Dinámicas de publicación digital y el desarrollo de nuevas formas narrativas.</p>
-            <a href="https://felipedejesusgarciapatino-sudo.github.io/Felipe-Plein/" target="_blank" rel="noopener noreferrer" class="author-banner">
-              <img src="uuu.jpg" alt="Gustavo Narváez" loading="lazy">
-              <div class="author-banner-info">
-                <div class="author-banner-text">
-                  Gustavo Narváez
-                  <span>Sitio Web</span>
-                </div>
-                <i class="fa-solid fa-arrow-up-right-from-square author-banner-icon"></i>
-              </div>
-            </a>
-          </article>
-        </div>
-      </main>
-
-      <!-- Sidebar -->
-      <aside>
-        <div class="sidebar-box">
-          <h3>Catálogo General</h3>
-          <p style="font-size: 0.88rem; margin-bottom: 14px; color: var(--text-muted);">
-            Descarga nuestro listado completo de títulos y publicaciones disponibles.
-          </p>
-          <a href="#" class="catalog-download-btn">
-            <i class="fa-solid fa-file-pdf"></i> Descargar Catálogo PDF
-          </a>
+    <!-- Formulario de Manuscritos -->
+    <div class="form-section">
+      <form id="manuscriptForm" action="https://formspree.io/f/edicionesbelikones@gmail.com" method="POST" enctype="multipart/form-data">
+        
+        <div class="form-group">
+          <label for="author">Nombre completo / Seudónimo *</label>
+          <input type="text" id="author" name="Nombre del Autor" placeholder="Tu nombre o seudónimo literario" required>
         </div>
 
-        <div class="sidebar-box">
-          <h3>Recomendados</h3>
-          <a href="https://golfa.mx/junior-tumbado/" target="_blank" rel="noopener noreferrer" class="ad-btn">
-            <i class="fa-solid fa-fire"></i>
-            <span>Junior Tumbado</span>
-          </a>
-
-          <a href="https://www.youtube.com/watch?v=JWOWieTbUxQ" target="_blank" rel="noopener noreferrer" class="song-ad">
-            <img src="https://img.youtube.com/vi/JWOWieTbUxQ/hqdefault.jpg" alt="Neton Vega - Nalguita Y Teta" loading="lazy">
-            <div class="song-ad-info">
-              <div class="song-ad-title"> Neton Vega – Nalguita Y Teta (Video Oficial)</div>
-              <div class="song-ad-meta">
-                <i class="fa-brands fa-youtube"></i>
-                <span>Escuchar ahora</span>
-              </div>
-            </div>
-          </a>
+        <div class="form-group">
+          <label for="email">Correo electrónico de contacto *</label>
+          <input type="email" id="email" name="Correo" placeholder="tu-correo@ejemplo.com" autocomplete="email" required>
         </div>
 
-        <div class="sidebar-box" id="noticias">
-          <h3>Noticias y Eventos</h3>
-          <ul class="news-list">
-            <li class="news-item">
-              <span class="news-date">18-08-2026</span>
-              <a href="#" class="news-title">Apertura de la convocatoria de proyectos multiformato</a>
-            </li>
-            <li class="news-item">
-              <span class="news-date">05-06-2026</span>
-              <a href="#" class="news-title">Presentación del repositorio de archivos independientes</a>
-            </li>
-            <li class="news-item">
-              <span class="news-date">12-04-2026</span>
-              <a href="#" class="news-title">Entrevista sobre edición independiente e inteligencia artificial</a>
-            </li>
-          </ul>
+        <div class="form-group">
+          <label for="title">Título del proyecto / manuscrito *</label>
+          <input type="text" id="title" name="Título del proyecto" placeholder="Título de la obra o proyecto" required>
         </div>
-      </aside>
 
-      <!-- Formulario -->
-      <section class="form-section" id="contacto">
-        <h2 class="section-title" id="convocatoria">Despacho de Manuscritos y Recepción de Proyectos</h2>
-        <p style="margin-bottom: 22px; font-size: 0.95rem; color: var(--text-muted);">
-          Envía tus proyectos (texto, imágenes, audio, video o contenido asistido por IA) directamente a nuestro equipo editorial a través de este formulario.
-        </p>
+        <div class="form-group">
+          <label for="type">Tipo de proyecto *</label>
+          <select id="type" name="Tipo de proyecto" required>
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option value="Narrativa">Narrativa (cuento, novela, etc.)</option>
+            <option value="Poesía">Poesía</option>
+            <option value="Ensayo">Ensayo / Crítica</option>
+            <option value="Visual">Proyecto visual / Ilustración</option>
+            <option value="Sonoro">Proyecto sonoro / Audio</option>
+            <option value="Multiformato">Multiformato / Híbrido</option>
+            <option value="IA">Asistido o generado con IA</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
 
-        <form id="manuscriptForm" action="https://formsubmit.co/edicionesbelikones@gmail.com" method="POST" enctype="multipart/form-data">
-          <!-- Campos ocultos de FormSubmit -->
-          <input type="hidden" name="_subject" value="[NUEVO MATERIAL / MANUSCRITO] - Ediciones Belikones">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://edicionesbelikones.github.io/Editorial-Belikones/gracias.html">
+        <div class="form-group">
+          <label for="description">Descripción o sinopsis del proyecto *</label>
+          <textarea id="description" name="Descripción / Sinopsis" rows="6" placeholder="Cuéntanos brevemente de qué trata tu proyecto, su extensión aproximada y cualquier detalle relevante..." required></textarea>
+        </div>
 
-          <!-- Datos del autor -->
-          <div class="form-group">
-            <label for="author">Nombre o Seudónimo del Creador/Autor *</label>
-            <input type="text" id="author" name="Autor / Seudónimo" placeholder="Tu nombre o seudónimo" required autocomplete="name">
-          </div>
+        <!-- Subida de manuscritos -->
+        <div class="form-group">
+          <label for="manuscript">Subir manuscrito / archivos *</label>
+          <input type="file" id="manuscript" name="Archivo(s)" multiple accept=".pdf,.doc,.docx,.txt,.epub,.zip,.jpg,.jpeg,.png,.mp3,.mp4,.wav" required>
+          <small>Puedes subir varios archivos (PDF, Word, ZIP, imágenes, audio o video). Tamaño máximo recomendado: 20 MB por archivo.</small>
+        </div>
 
-          <div class="form-group">
-            <label for="email">Correo electrónico *</label>
-            <input type="email" id="email" name="Email" placeholder="tu@email.com" required autocomplete="email">
-          </div>
+        <div class="form-group">
+          <label for="notes">Notas adicionales (opcional)</label>
+          <textarea id="notes" name="Notas adicionales" rows="3" placeholder="Cualquier información extra que quieras compartir con el equipo editorial..."></textarea>
+        </div>
 
-          <div class="form-group">
-            <label for="title">Título del proyecto / manuscrito *</label>
-            <input type="text" id="title" name="Título del proyecto" placeholder="Título de la obra o proyecto" required>
-          </div>
-
-          <div class="form-group">
-            <label for="type">Tipo de proyecto *</label>
-            <select id="type" name="Tipo de proyecto" required>
-              <option value="" disabled selected>Selecciona una opción</option>
-              <option value="Narrativa">Narrativa (cuento, novela, etc.)</option>
-              <option value="Poesía">Poesía</option>
-              <option value="Ensayo">Ensayo / Crítica</option>
-              <option value="Visual">Proyecto visual / Ilustración</option>
-              <option value="Sonoro">Proyecto sonoro / Audio</option>
-              <option value="Multiformato">Multiformato / Híbrido</option>
-              <option value="IA">Asistido o generado con IA</option>
-              <option value="Otro">Otro</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="description">Descripción o sinopsis del proyecto *</label>
-            <textarea id="description" name="Descripción / Sinopsis" rows="6" placeholder="Cuéntanos brevemente de qué trata tu proyecto, su extensión aproximada y cualquier detalle relevante..." required></textarea>
-          </div>
-
-          <!-- Subida de manuscritos -->
-          <div class="form-group">
-            <label for="manuscript">Subir manuscrito / archivos *</label>
-            <input type="file" id="manuscript" name="Archivo(s)" multiple accept=".pdf,.doc,.docx,.txt,.epub,.zip,.jpg,.jpeg,.png,.mp3,.mp4,.wav" required>
-            <small>Puedes subir varios archivos (PDF, Word, ZIP, imágenes, audio o video). Tamaño máximo recomendado: 20 MB por archivo.</small>
-          </div>
-
-          <div class="form-group">
-            <label for="notes">Notas adicionales (opcional)</label>
-            <textarea id="notes" name="Notas adicionales" rows="3" placeholder="Cualquier información extra que quieras compartir con el equipo editorial..."></textarea>
-          </div>
-
-          <button type="submit" class="submit-btn">
-            <i class="fa-solid fa-paper-plane"></i> Enviar proyecto
-          </button>
-        </form>
-      </section>
+        <button type="submit" class="submit-btn">
+          <i class="fa-solid fa-paper-plane"></i> Enviar proyecto
+        </button>
+      </form>
     </div>
 
     <footer>
